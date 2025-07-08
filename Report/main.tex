@@ -1,12 +1,13 @@
 \documentclass[12pt,a4paper]{report}
 \input{library}
+% \addbibresource{references.bib} 
 
 %Header
 \fancyhead{} % clear all header fields
 \fancyhead[L]{
  \begin{tabular}{rl}
-    \begin{picture}(25,15)(0,0)
-    \put(0,-8){\includegraphics[width=12mm, height=12mm]{pictures/hcmut.png}}
+    \begin{picture}(15, 15)(0,0)
+    \put(-15, -15){\includegraphics[width=17mm, height=12mm]{pictures/hcmut.png}}
     %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
    \end{picture}&
 	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
@@ -22,43 +23,18 @@
 
 %Footer
 \fancyfoot{} % clear all footer fields
-\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn Chi tiết máy}
-\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/21}
+\fancyfoot[L]{\scriptsize \ttfamily Đồ án chuyên ngành}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/70}
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0.3pt}
 
 \begin{document}
     \include{titlepage}
     \tableofcontents  
+    \listoftables
+    \listoffigures
     \newpage
-    \Huge 
-    \begin{center}
-        \textbf{ĐỀ BÀI}
-    \end{center}
     \normalsize
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=1\textwidth]{pictures/topic.png}
-        \end{figure}
-        \begin{center}
-            \begin{tabular}{|>{\centering\arraybackslash}m{8cm}|>{\centering\arraybackslash}m{5cm}|}
-                \hline
-                \textbf{Phương án} & \textbf{6}  \\
-                \hline
-                Lực vòng trên xích tải F (N) & 4000 \\
-                \hline
-                Vận tốc vòng v(m/s) & 0.9 \\
-                \hline
-                Bước xích p (mm) & 100 \\
-                \hline
-                Số răng đĩa xích z & 7 \\
-                \hline 
-                L (năm) & 5 \\
-                \hline 
-            \end{tabular}\\
-            Quay một chiều, làm việc hai ca (1 năm làm việc 300 ngày, 1 ca làm việc 8 giờ)
-        \end{center}
     \include{chapter1}
     \include{chapter2}
-    \include{chapter3}
 \end{document}
