@@ -139,7 +139,7 @@
     chuyển bằng bánh xe. Robot sẽ di chuyển bám theo các đường line được kẻ/vẽ/dán trên
     mặt đất. Quỹ đạo di chuyển của robot phụ thuộc vào sa bản của hệ thống các đường line
     được kẻ/vẽ/dán sẵn. Một robot dò line gồm các yếu tố: sơ đồ nguyên lý, loại cảm biến,
-    động cơ, cấu trúc điều khiển. \\
+    động cơ, cấu trúc điều khiển.\\
     \hspace*{0.6cm} Hiện nay, có rất nhiều kết cấu cơ khí được thiết kế để cải thiện khả năng di chuyển
     của robot dò line như đáp ứng tốc độ, độ chính xác bám line,\dots. Các kết cấu hiện nay
     phổ biến là: cấu trúc hai bánh, ba bánh, bốn bánh, bánh xích, \dots \\
@@ -452,7 +452,7 @@ xử lý ảnh xác định được vị trí và góc lệch của xe so với
             \item Vi điều khiển không đủ chân I/O, analog, digital cần thiết.
             \item Đòi hỏi MCU có cấu hình mạnh, tốc độ xử lý cần thiết.
             \item Không có sự chuyên biệt hóa nên khó khăn trong việc tìm kiếm lỗi và sửa lỗi khi
-p           hát sinh lỗi chương trình.
+            phát sinh lỗi chương trình.
         \end{itemize}
     \end{itemize}
 
@@ -460,14 +460,112 @@ p           hát sinh lỗi chương trình.
 
     \section{Bộ điều khiển}
     \subsection{Bộ điều khiển PID}
-
+    \hspace*{0.6cm} Bộ điều khiển PID là một bộ điều khiển dựa trên sai lệch giữa giá trị phản hồi
+    thông qua cảm biến và giá trị mong muốn từ đó điều khiển được cơ cấu tác động thông
+    qua các tham số P, I, D để đưa giá trị đầu ra gần với giá trị mong muốn nhất và ổn định
+    nhất, với mỗi hệ thống khác nhau ta sẽ có các tham số của bộ điều khiển PID là khác
+    nhau. Sai số giữa tâm xe và đường line sẽ được đưa vào bộ điều khiển PID xử lý, sau đó
+    xuất ra lệnh điều khiển vận tốc ở hai động cơ trái và phải. Bộ điều khiển PID gồm 3
+    phần chính là điều khiển P, I và D, đặc trưng bởi 3 hệ số $K_P, K_I, K_D$. Ngoài bộ PID đầy đủ, tùy theo mong muốn thiết kế có thể sử dụng bộ PI hoặc bộ PD.
+    \begin{equation*}
+        u(t) = K_P e(t) + K_I \int_0^t e(t) dt + K_D \dfrac{de(t)}{dt}
+    \end{equation*}
+    \begin{itemize}
+        \item Ưu điểm: 
+        \begin{itemize}[label = \textendash]
+            \item Bộ điều khiển đơn giản, phù hợp với những hệ thống đơn giản, ít bị nhiễu.
+            \item Dễ thiết kế và và điều chỉnh các hệ số PID.
+        \end{itemize}
+        \item Nhược điểm:
+        \begin{itemize}[label = \textendash]
+            \item Hiệu quả kém khi hệ thống phi tuyến hoặc bị ảnh hưởng bởi nhiễu lớn.
+            \item Cần thực nghiệm nhiều lần để tìm ra bộ hệ số tối ưu cho bộ điều khiển.
+        \end{itemize}
+    \end{itemize}
     \subsection{Bộ điều khiển fuzzy}
+    \hspace*{0.6cm} Bộ điều khiển Fuzzy là một bộ điều khiển dựa trên việc sử dụng quy tắc fuzzy IFTHEN, giúp mô tả vấn đề một đơn giản và nhanh chóng. Bộ điều khiển fuzzy phủ hợp
+    cho cả hệ thống tuyến tính lẫn phi tuyến nhờ vào kiến thức và kinh nghiệm của người
+    thiết kế. Đối với hệ thống xe AGV, bộ điều khiển fuzzy cho phép điều khiển xe trong
+    nhiều điều kiện hoàn cảnh khác nhau khắc phục được những hạn chế của lýthuyết điều
+    khiển kinh điển.
+    \newline
+    \hspace*{0.6cm} Cấu trúc của bộ điều khiển fuzzy:
+    \begin{itemize}[label=\textendash]
+        \item Khâu mờ hóa: Chuyển các điều kiện có giá trị cụ thể thành những khoảng phù
+        hợp thao tác kinh nghiệm và sự hiểu biết hệ thống của người lập trình ứng kết quả mong
+        muốn tương ứng.
+        \item Thực hiện luật hợp thành: hình thành luật mờ theo dạng IF \dots THEN.
+        \item Khâu giải mờ: từ luật hợp thành tính toán ra giá trị kết quả trong những trường
+        hợp cụ thể. Sử dụng phương pháp cực đại, phương pháp trọng tâm \dots.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{pictures/chapter1/chapter1_pic21_fuzzy.png}
+            \caption{Bộ điều khiển fuzzy}
+            \label{chap1_pic21}
+        \end{figure}          
+    \end{itemize}
 
+    \begin{itemize}
+        \item Ưu điểm: 
+        \begin{itemize}
+            \item Bộ điều khiển phù hợp cho những hệ thống phi tuyến, thiết kế dựa trên kinh nghiệm của người thiết kế về hệ thống.
+            \item Chịu ảnh hưởng ít hơn bởi nhiễu của môi trường.
+        \end{itemize}
+        \item Nhược điểm:
+        \begin{itemize}
+            \item Thiết kế phức tạp hơn, cần xác định luật mờ, hàm phụ thuộc.
+            \item Không có tham số rõ ràng như bộ điều khiển PID, cần hiểu biết rõ ràng về hệ thống.
+        \end{itemize}
+    \end{itemize} 
     \subsection{Điều khiển dùng hàm Lyapunov}
-
+    Phương pháp điều khiển dùng hàm Lyapunov dùng cách tiếp cận thiết kế luật điều khiển sao cho đảm bảo tính ổn định của hệ thống dựa trên định lý ổn định Lyapunov. Ý tưởng là
+    \begin{itemize}[label=\textendash]
+        \item Chọn hàm Lyapunov $V(x)$ phù hợp cho hệ thống.
+        \item Thiết kế luật điều khiển $ u(t) $ sao cho hệ thống ổn định dựa trên định lý ổn định Lyapunov. 
+    \end{itemize}
+    Trong đó hàm Lyapunov được dùng như 1 công cụ để chứng minh tính ổn định của 1 hệ thống động lực học (hệ thống hội tụ về trạng thái cân bằng hoặc một trạng thái mong muốn) mà không cần giải phương trình vi phân của hệ thống.
+    \begin{itemize}
+        \item Ưu điểm: 
+        \begin{itemize}[label=\textendash]
+            \item Xử lý được với các hệ phi tuyến.
+            \item Đảm bảo tính ổn định của hệ thống nhờ phương pháp tiếp cận chặt chẽ về mặt toán học.
+            \item Linh hoạt trong thiết kế bộ điều khiển thông qua việc thay đổi lựa chọn các hàm Lyapunov khác nhau.
+            \item Không cần giải phương vi phân của hệ thống.
+        \end{itemize}
+        \item Nhược điểm:
+        \begin{itemize}[label=\textendash]
+            \item Việc lựa chọn hàm Lyapunov tối ưu đòi hỏi hiểu biết rõ ràng về hệ thống.
+            \item Không tối ưu về hiệu suất vì phương pháp tập trung vào cải thiện tính ổn định của hệ thống thay vì đảm bảo tối ưu các yếu tố khác.
+            \item Với những hệ thống phức tạp, việc tính toán có thể trở nên khó khăn.
+            \item Trong thực tế, xe dò line thường sử dụng các loại vi điều khiển cơ bản. Việc triển khai luật điều khiển phức tạp từ phương pháp Lyapunov đòi hỏi tài nguyên tính toán lớn hơn so với các phương pháp đơn giản như PID.
+        \end{itemize}
+    \end{itemize}        
 
 
     \section{Đầu bài cụ thể}
+    Thiết kế robot bám line phát hiện vật cản và di chuyển vòng qua tránh vật cản với
+    các thông số sau:
+    \begin{table}[h]
+        \centering
+        \caption{Bảng thông số đầu bài}
+        \begin{tabular}{|l|c|}
+        \hline
+        \centering \textbf{Thông số} & \textbf{Giá trị} \\
+        \hline
+        Vận tốc xe lớn nhất & $v_{max} = 0.5$ (m/s) \\
+        \hline
+        Bán kính cong nhỏ nhất & $\rho_{min} = 500$ (mm) \\
+        \hline
+        Bề rộng đường dẫn & 26 (mm) \\
+        \hline
+        Sai số bám đường dẫn & $\pm 3$ (mm) \\
+        \hline
+        Sai số vị trí dừng cuối đường dẫn & $\pm 5$ (mm) \\
+        \hline
+        Khối lượng có thể tải & $m = 1.5$ (kg) \\
+        \hline
+        \end{tabular}
+    \end{table}
 
 
 
