@@ -135,156 +135,156 @@
     \end{itemize} 
 
     \section{Sơ lược về robot dò line}
-    \hspace*{0.6cm}Robot dò line (Line following Robot) là một dạng robot di động (mobile robot) di
-    chuyển bằng bánh xe. Robot sẽ di chuyển bám theo các đường line được kẻ/vẽ/dán trên
-    mặt đất. Quỹ đạo di chuyển của robot phụ thuộc vào sa bản của hệ thống các đường line
-    được kẻ/vẽ/dán sẵn. Một robot dò line gồm các yếu tố: sơ đồ nguyên lý, loại cảm biến,
-    động cơ, cấu trúc điều khiển. \\
-    \hspace*{0.6cm} Hiện nay, có rất nhiều kết cấu cơ khí được thiết kế để cải thiện khả năng di chuyển
-    của robot dò line như đáp ứng tốc độ, độ chính xác bám line,\dots. Các kết cấu hiện nay
-    phổ biến là: cấu trúc hai bánh, ba bánh, bốn bánh, bánh xích, \dots \\
-    \hspace*{0.6cm} Trong phạm vi của đề tài, nhóm hướng đến thiết kế robot dò line bám đường và
-    có khả năng nhận diện được màu sắc của kiện hàng được đặt lên xe tại khu vực tải hàng, từ đó phân phối hàng hóa đến vị trí kết thúc theo quỹ đạo có màu sắc tương ứng với màu sắc của gói hàng.
+        \hspace*{0.6cm}Robot dò line (Line following Robot) là một dạng robot di động (mobile robot) di
+        chuyển bằng bánh xe. Robot sẽ di chuyển bám theo các đường line được kẻ/vẽ/dán trên
+        mặt đất. Quỹ đạo di chuyển của robot phụ thuộc vào sa bản của hệ thống các đường line
+        được kẻ/vẽ/dán sẵn. Một robot dò line gồm các yếu tố: sơ đồ nguyên lý, loại cảm biến,
+        động cơ, cấu trúc điều khiển. \\
+        \hspace*{0.6cm}Hiện nay, có rất nhiều kết cấu cơ khí được thiết kế để cải thiện khả năng di chuyển
+        của robot dò line như đáp ứng tốc độ, độ chính xác bám line,\dots. Các kết cấu hiện nay
+        phổ biến là: cấu trúc hai bánh, ba bánh, bốn bánh, bánh xích, \dots \\
+        \hspace*{0.6cm} Trong phạm vi của đề tài, nhóm hướng đến thiết kế robot dò line bám đường và
+        có khả năng nhận diện được màu sắc của kiện hàng được đặt lên xe tại khu vực tải hàng, từ đó phân phối hàng hóa đến vị trí kết thúc theo quỹ đạo có màu sắc tương ứng với màu sắc của gói hàng.
 
 
     \section{Các sản phẩm ở trong và ngoài nước}
     \subsection{Robot Zumo Slim}
-    \hspace*{0.6cm}Robot Zumo Slim là robot của anh Zeremy trong cuộc thi LVBots line following.
-    \begin{itemize}
-        \item Sơ đồ nguyên lý cơ khí:
-        \begin{figure}[H]
-            \begin{subfigure}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.5\linewidth, right]{pictures/chapter1/chapter1_pic_10a_zumo_slim.png} 
-            \label{chap1_pic10a}
-            \end{subfigure}
-            \begin{subfigure}{0.6\textwidth}
-            \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic_10b_zumo_slim.png}
-            \label{chap1_pic10b}
-            \end{subfigure}
-            \caption{Robot Zumo Slim}
-            \label{chap1_pic10}
-        \end{figure}
-        % image 10
-        \item Các thành phần của robot:
-            \begin{itemize}[label=\textendash]
-                \item Động cơ DC có encoder, có hộp số tỉ lệ 10:1.
-                \item Cảm biến: Cảm biến line và cảm biến tiệm cận được gắn ở đầu xe.
-                \item Vi điều khiển: Zumo's ATmega32U4.
-                \item Bánh xe: Sử dụng 3 bánh, 2 bánh chủ động phía sau và 1 bánh bị động tự lựa phía trước.
-            \end{itemize}
-    \end{itemize}
+        \hspace*{0.6cm}Robot Zumo Slim là robot của anh Zeremy trong cuộc thi LVBots line following.
+        \begin{itemize}
+            \item Sơ đồ nguyên lý cơ khí:
+            \begin{figure}[H]
+                \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.5\linewidth, right]{pictures/chapter1/chapter1_pic_10a_zumo_slim.png} 
+                \label{chap1_pic10a}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic_10b_zumo_slim.png}
+                \label{chap1_pic10b}
+                \end{subfigure}
+                \caption{Robot Zumo Slim}
+                \label{chap1_pic10}
+            \end{figure}
+            % image 10
+            \item Các thành phần của robot:
+                \begin{itemize}[label=\textendash]
+                    \item Động cơ DC có encoder, có hộp số tỉ lệ 10:1.
+                    \item Cảm biến: Cảm biến line và cảm biến tiệm cận được gắn ở đầu xe.
+                    \item Vi điều khiển: Zumo's ATmega32U4.
+                    \item Bánh xe: Sử dụng 3 bánh, 2 bánh chủ động phía sau và 1 bánh bị động tự lựa phía trước.
+                \end{itemize}
+        \end{itemize}
 
     \subsection{Robot Pinto}
-    \hspace*{0.6cm} Robot Pinto là robot từng tham gia trong cuộc thi LVBots line following 2015 và 2018.
-    \begin{itemize}
-        \item Sơ đồ nguyên lý cơ khí:
-        \begin{figure}[H]
-            \begin{subfigure}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic11a_pinto.png} 
-            \label{chap1_pic11a}
-            \end{subfigure}
-            \begin{subfigure}{0.6\textwidth}
-            \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic11b_pinto.png}
-            \label{chap1_pic11b}
-            \end{subfigure}
-            \caption{Robot Pinto}
-            \label{chap1_pic11}
-        \end{figure}
-        %image 11
-        \item Các thành phần của robot:
-            \begin{itemize}[label=\textendash]
-                \item Động cơ: 2 động cơ DC có tích hợp Encoder, sử dụng driver VNH5019.
-                \item Cảm biến: 8 cảm biến hồng ngoại Pololu QTR-8RC, được đặt thành dãy ở đầu xe.
-                \item Vi điều khiển: A-Star 32U4 Prime.
-                \item Bánh xe: Sử dụng 3 bánh, 2 bánh chủ động phía trước và 1 bánh bị động tự lựa phía sau.
-            \end{itemize}
-    \end{itemize}
+        \hspace*{0.6cm} Robot Pinto là robot từng tham gia trong cuộc thi LVBots line following 2015 và 2018.
+        \begin{itemize}
+            \item Sơ đồ nguyên lý cơ khí:
+            \begin{figure}[H]
+                \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic11a_pinto.png} 
+                \label{chap1_pic11a}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic11b_pinto.png}
+                \label{chap1_pic11b}
+                \end{subfigure}
+                \caption{Robot Pinto}
+                \label{chap1_pic11}
+            \end{figure}
+            %image 11
+            \item Các thành phần của robot:
+                \begin{itemize}[label=\textendash]
+                    \item Động cơ: 2 động cơ DC có tích hợp Encoder, sử dụng driver VNH5019.
+                    \item Cảm biến: 8 cảm biến hồng ngoại Pololu QTR-8RC, được đặt thành dãy ở đầu xe.
+                    \item Vi điều khiển: A-Star 32U4 Prime.
+                    \item Bánh xe: Sử dụng 3 bánh, 2 bánh chủ động phía trước và 1 bánh bị động tự lựa phía sau.
+                \end{itemize}
+        \end{itemize}
 
 
 
     \subsection{Robot Newbie}
-    \hspace*{0.6cm} Robot Newbie là robot từng tham gia trong cuộc thi LVBots line following 2015.
-    \begin{itemize}
-        \item Sơ đồ nguyên lý cơ khí:
-        \begin{figure}[H]
-            \begin{subfigure}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic12a_newbie.png} 
-            \label{chap1_pic12a}
-            \end{subfigure}
-            \begin{subfigure}{0.7\textwidth}
-            \includegraphics[width=0.55\linewidth]{pictures/chapter1/chapter1_pic12b_newbie.png}
-            \label{chap1_pic12b}
-            \end{subfigure}
-            \caption{Robot Newbie}
-            \label{chap1_pic12}
-        \end{figure}
-        %image 12
-        \item Các thành phần của robot:
-            \begin{itemize}[label=\textendash]
-                \item Động cơ: 2 động cơ DC có tích hợp Encoder, sử dụng driver DRV8835 Dual Motor Driver Carrier, có hộp số tỉ lệ 30:1.
-                \item Cảm biến:  QTR-3RC Reflectance sensor, được gắn ở đầu xe.
-                \item Vi điều khiển: 	A-Star 32U4 Mini LV.
-                \item Bánh xe: Sử dụng 4 bánh, 2 bánh chủ động phía sau và 2 bánh bị động tự lựa phía trước.
-            \end{itemize}
-    \end{itemize}
+        \hspace*{0.6cm} Robot Newbie là robot từng tham gia trong cuộc thi LVBots line following 2015.
+        \begin{itemize}
+            \item Sơ đồ nguyên lý cơ khí:
+            \begin{figure}[H]
+                \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic12a_newbie.png} 
+                \label{chap1_pic12a}
+                \end{subfigure}
+                \begin{subfigure}{0.7\textwidth}
+                \includegraphics[width=0.55\linewidth]{pictures/chapter1/chapter1_pic12b_newbie.png}
+                \label{chap1_pic12b}
+                \end{subfigure}
+                \caption{Robot Newbie}
+                \label{chap1_pic12}
+            \end{figure}
+            %image 12
+            \item Các thành phần của robot:
+                \begin{itemize}[label=\textendash]
+                    \item Động cơ: 2 động cơ DC có tích hợp Encoder, sử dụng driver DRV8835 Dual Motor Driver Carrier, có hộp số tỉ lệ 30:1.
+                    \item Cảm biến:  QTR-3RC Reflectance sensor, được gắn ở đầu xe.
+                    \item Vi điều khiển: 	A-Star 32U4 Mini LV.
+                    \item Bánh xe: Sử dụng 4 bánh, 2 bánh chủ động phía sau và 2 bánh bị động tự lựa phía trước.
+                \end{itemize}
+        \end{itemize}
 
 
 
     \subsection{Robot Fireball}
-    \hspace*{0.6cm} Robot Fireball tham gia kì thi ChiBots ở Mỹ mùa hè năm 2010.
-    \begin{itemize}
-        \item Sơ đồ nguyên lý cơ khí:
-        \begin{figure}[H]
-            \begin{subfigure}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic13a_fireball.png} 
-            \label{chap1_pic13a}
-            \end{subfigure}
-            \begin{subfigure}{0.6\textwidth}
-            \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic13b_fireball.png}
-            \label{chap1_pic13b}
-            \end{subfigure}
-            \caption{Robot Fireball}
-            \label{chap1_pic13}
-        \end{figure}
-        %image 13
-        \item Các thành phần của robot:
-            \begin{itemize}[label=\textendash]
-                \item Động cơ: 4 động cơ DC có Encoder, sử dụng driver SN754410.
-                \item Cảm biến: Dùng bộ cảm biến 8 hồng ngoại Pololu QTR-8RC, được đặt thành dãy ở đầu xe.
-                \item Bánh xe: Sử dụng 4 bánh đều là bánh chủ động.
-            \end{itemize}
-    \end{itemize}
+        \hspace*{0.6cm}Robot Fireball tham gia kì thi ChiBots ở Mỹ mùa hè năm 2010.
+        \begin{itemize}
+            \item Sơ đồ nguyên lý cơ khí:
+            \begin{figure}[H]
+                \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic13a_fireball.png} 
+                \label{chap1_pic13a}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic13b_fireball.png}
+                \label{chap1_pic13b}
+                \end{subfigure}
+                \caption{Robot Fireball}
+                \label{chap1_pic13}
+            \end{figure}
+            %image 13
+            \item Các thành phần của robot:
+                \begin{itemize}[label=\textendash]
+                    \item Động cơ: 4 động cơ DC có Encoder, sử dụng driver SN754410.
+                    \item Cảm biến: Dùng bộ cảm biến 8 hồng ngoại Pololu QTR-8RC, được đặt thành dãy ở đầu xe.
+                    \item Bánh xe: Sử dụng 4 bánh đều là bánh chủ động.
+                \end{itemize}
+        \end{itemize}
 
 
 
     \subsection{Robot Khepera IV}
-    \hspace*{0.6cm} Robot Khepera IV là robot dạng tròn, dẫn động vi sai.
-    \begin{itemize}
-        \item Sơ đồ nguyên lý cơ khí:
-        \begin{figure}[H]
-            \begin{subfigure}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic14a_kheperaIV.png} 
-            \label{chap1_pic14a}
-            \end{subfigure}
-            \begin{subfigure}{0.6\textwidth}
-            \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic14b_kheperaIV.png}
-            \label{chap1_pic14b}
-            \end{subfigure}
-            \caption{Robot Khepera IV}
-            \label{chap1_pic14}
-        \end{figure}
-        %image 14
-        \item Các thành phần của robot:
-            \begin{itemize}[label=\textendash]
-                \item Cảm biến: Dùng bộ cảm biến con quay hồi chuyển + gia tốc kế 3 trục, cảm biến siêu âm, hồng ngoại, bánh xe có encoder và camera phía trước.
-                \item Bánh xe: Sử dụng cơ cấu 4 bánh, 2 bánh chủ động đặt ngang trọng tâm xe, 2 bánh bị động còn lại tự lựa.
-            \end{itemize}
-    \end{itemize}
+        \hspace*{0.6cm}Robot Khepera IV là robot dạng tròn, dẫn động vi sai.
+        \begin{itemize}
+            \item Sơ đồ nguyên lý cơ khí:
+            \begin{figure}[H]
+                \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=0.6\linewidth, right]{pictures/chapter1/chapter1_pic14a_kheperaIV.png} 
+                \label{chap1_pic14a}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                \includegraphics[width=0.5\linewidth]{pictures/chapter1/chapter1_pic14b_kheperaIV.png}
+                \label{chap1_pic14b}
+                \end{subfigure}
+                \caption{Robot Khepera IV}
+                \label{chap1_pic14}
+            \end{figure}
+            %image 14
+            \item Các thành phần của robot:
+                \begin{itemize}[label=\textendash]
+                    \item Cảm biến: Dùng bộ cảm biến con quay hồi chuyển + gia tốc kế 3 trục, cảm biến siêu âm, hồng ngoại, bánh xe có encoder và camera phía trước.
+                    \item Bánh xe: Sử dụng cơ cấu 4 bánh, 2 bánh chủ động đặt ngang trọng tâm xe, 2 bánh bị động còn lại tự lựa.
+                \end{itemize}
+        \end{itemize}
 
 
 
@@ -292,175 +292,113 @@
 
 
     \section{Cảm biến}
-    \subsection{Cảm biến dò line}
-    \hspace*{0.6cm} Phần cảm biến dò line là phần thu thập thông tin cho robot, để thực hiện tác vụ dò và
-    phát hiện line cần bám, có 3 phương án lựa chọn cảm biến cho tác vụ dò line bao gồm dùng camera, cảm
-    biến hồng ngoại và cảm biến ánh sáng (quang trở).
-    \newline
-    \textbf{1.4.1.1. Camera}
-    \newline
-    \hspace*{0.6cm} Camera được đặt phía trước xe để thu nhận hình ảnh line từ thực tế, qua thuật toán
-xử lý ảnh xác định được vị trí và góc lệch của xe so với đường line.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{pictures/chapter1/chapter1_pic15_camera.png}
-        \caption{Camera SEN-14678 Pixy2 CMUcam5}
-        \label{chap1_pic15}
-    \end{figure}
-    \textbf{1.4.1.2. Cảm biến hồng ngoại}
-    \newline
-    \hspace*{0.6cm} Dựa trên nguyên lý phản xạ ánh sáng hồng ngoại (IR), để phân biệt giữa các vùng sáng - tối
-    trên bề mặt di chuyển. Khi ánh sáng hồng ngoại được phát ra từ cảm biến và chiếu xuống mặt phẳng, cách mà bề mặt phản ứng lại với ánh sáng sẽ quyết định tín hiệu đầu ra.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic17_IR.png}
-        \caption{Cảm biến lò line hồng ngoại}
-        \label{chap1_pic17}
-    \end{figure}
-    \textbf{1.4.1.2. Cảm biến quang trở}\\
-    \hspace*{0.6cm} Quang điện trở, hay còn gọi tắt là RDL, là loại cảm biến ánh sáng đơn giản, hoạt động
-        dựa vào hiện tượng quang điện trong. \newline
-    \hspace*{0.6cm} Khi có ánh sáng chiếu vào chất bán dẫn, làm xuất hiện các điện tử tự do, làm sự
-        dẫn điện tăng lên, làm giảm điện trở của chất bán dẫn (nếu có nối vào mạch điện thì
-        mạch sẽ nối tắt, ngắn mạch). Khi không có ánh sáng chiếu vào, nội trở của chất bán dẫn
-        tăng dần đến vô cùng (nếu có nối vào mạch điện thì sẽ hở mạch).
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic16a_photoresistor.png}
-        \caption{Cảm biến quang trở}
-        \label{chap1_pic16}
-    \end{figure}
-    \textbf{1.4.1.3. So sánh cảm biến dò line}
+        \subsection{Cảm biến dò line}
+            \hspace*{0.6cm}Phần cảm biến dò line là phần thu thập thông tin cho robot, để thực hiện tác vụ dò và
+            phát hiện line cần bám, có 3 phương án lựa chọn cảm biến cho tác vụ dò line bao gồm dùng camera, cảm
+            biến hồng ngoại và cảm biến ánh sáng (quang trở).
+            \subsubsection{Camera}
+            \hspace*{0.6cm}Camera được đặt phía trước xe để thu nhận hình ảnh line từ thực tế, qua thuật toán
+        xử lý ảnh xác định được vị trí và góc lệch của xe so với đường line.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{pictures/chapter1/chapter1_pic15_camera.png}
+                \caption{Camera SEN-14678 Pixy2 CMUcam5}
+                \label{chap1_pic15}
+            \end{figure}
+        \subsubsection{Cảm biến hồng ngoại}
+            \hspace*{0.6cm}Dựa trên nguyên lý phản xạ ánh sáng hồng ngoại (IR), để phân biệt giữa các vùng sáng - tối
+            trên bề mặt di chuyển. Khi ánh sáng hồng ngoại được phát ra từ cảm biến và chiếu xuống mặt phẳng, cách mà bề mặt phản ứng lại với ánh sáng sẽ quyết định tín hiệu đầu ra.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic17_IR.png}
+                \caption{Cảm biến lò line hồng ngoại}
+                \label{chap1_pic17}
+            \end{figure}
+            \textbf{1.4.1.2. Cảm biến quang trở}\\
+            \hspace*{0.6cm}Quang điện trở, hay còn gọi tắt là RDL, là loại cảm biến ánh sáng đơn giản, hoạt động
+                dựa vào hiện tượng quang điện trong. \newline
+            \hspace*{0.6cm} Khi có ánh sáng chiếu vào chất bán dẫn, làm xuất hiện các điện tử tự do, làm sự
+                dẫn điện tăng lên, làm giảm điện trở của chất bán dẫn (nếu có nối vào mạch điện thì
+                mạch sẽ nối tắt, ngắn mạch). Khi không có ánh sáng chiếu vào, nội trở của chất bán dẫn
+                tăng dần đến vô cùng (nếu có nối vào mạch điện thì sẽ hở mạch).
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic16a_photoresistor.png}
+                \caption{Cảm biến quang trở}
+                \label{chap1_pic16}
+            \end{figure}     
 
-
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|}
-        \hline
-        \textbf{Loại cảm biến} & \textbf{Camera} & \textbf{Cảm biến hồng ngoại} & \textbf{Cảm biến quang trở} \\
-        \hline
-        \textbf{Dạng tín hiệu} & Digital image & Analog và digital & Digital \\
-        \hline
-        \textbf{Độ phức tạp điều khiển} & Phức tạp do phải sử dụng thuật toán xử lí ảnh để tìm ra góc lệch của xe so với đường thẳng. & Đơn giản khi sử dụng tín hiệu digital. & Đơn giản. \\
-        \hline
-        \textbf{Xử lí nhiễu} & Xử lí bằng chương trình. & Có thể xử lí bằng kết cấu cơ khí và che chắn phù hợp. & Có thể xử lí bằng kết cấu cơ khí và che chắn phù hợp. \\
-        \hline
-        \multirow{3}{*}{\textbf{Ưu điểm}} & Độ chính xác cao, có thể tận dụng dễ dàng để làm đa tác vụ thay cho nhiều cảm biến. & Nhỏ gọn, rẻ, dễ dùng. Độ chính xác cao, có thể tận dụng để làm đa tác vụ thay cho nhiều cảm biến.\newline Nhận diện được line có độ tương phản cao. & Nhỏ gọn, rẻ để sử dụng. \\
-        \hline
-        \multirow{3}{*}{\textbf{Nhược điểm}} & Giá thành tương đối cao.\newline Cần thời gian để xử lí thuật toán trên ảnh nên phải đi kèm với khi xử lí mạnh.\newline Khó gá đặt. & Khoảng cách nhận biết có giới hạn nên cần gá đặt ở vị trí phù hợp. \newline Nhạy với nhiễu. & Nhạy cảm với ánh sáng môi trường. \newline Nhạy với nhiễu. \\
-        \hline
-        \end{tabular}
-    \end{table}
-
-
-    \subsection{Cảm biến màu sắc}
-    Để giải quyết nhiệm vụ nhận diện màu sắc, có thể sử dụng những cảm biến sau:
-    \newline
-    \textbf{1.4.2.1. Cảm biến màu sắc}
-    \newline
-    \hspace*{0.6cm} Cảm biến màu sắc hoạt động bằng cách chiếu ánh sáng (thường là từ đèn LED trắng hoặc RGB tích hợp trong cảm biến) lên bề mặt vật thể, 
-    sau đó thu ánh sáng phản xạ lại. Ánh sáng này được tách thành các thành phần màu đỏ, xanh lá và xanh dương (RGB) thông 
-    qua các bộ lọc hoặc photodiode. Cường độ từng màu được chuyển thành tín hiệu điện, từ đó bộ xử lý sẽ tính toán và xác định màu sắc của vật thể.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic18_color_sensor.png}
-        \caption{Cảm biến màu sắc}
-        \label{chap1_pic18}
-    \end{figure}
-    \textbf{1.4.2.2. Camera}
-    \newline
-    \hspace*{0.6cm} Dùng camera để chụp bề mặt vật thể, dùng xử lý ảnh để trích xuất thông tin màu.
-    \newline
-    \textbf{1.4.2.3. So sánh}
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5.5cm}|>{\raggedright\arraybackslash}p{5.5cm}|}
-        \hline
-        \textbf{Tiêu chí} & \textbf{Cảm biến màu sắc} & \textbf{Camera} \\
-        \hline
-        \textbf{Ưu điểm} 
-        & 
-        - Nhỏ gọn, dễ tích hợp \newline
-        - Giá thành thấp \newline
-        - Dễ sử dụng với vi điều khiển \newline
-        - Tốc độ phản hồi nhanh
-        &
-        - Nhận diện được nhiều vùng màu cùng lúc \newline
-        - Phân tích màu theo vị trí và hình dạng \newline
-        - Độ chính xác cao \newline
-        \\
-        \hline
-        \textbf{Nhược điểm} 
-        & 
-        - Chỉ nhận diện được màu sắc của 1 vật vào 1 thời điểm \newline
-        - Phụ thuộc điều kiện ánh sáng môi trường \newline
-        &
-        - Chi phí cao \newline
-        - Thuật toán xử lý phức tạp \newline
-        - Tốc độ xử lý có thể chậm hơn
-        \\
-        \hline
-        \end{tabular}
-        \caption{So sánh cảm biến màu sắc và camera trong nhận diện màu sắc}
-    \end{table}
-
+        \subsection{Cảm biến màu sắc}
+            \hspace*{0.6cm}Để giải quyết nhiệm vụ nhận diện màu sắc, có thể sử dụng những cảm biến sau:
+            \subsubsection{Cảm biến màu sắc}
+                \hspace*{0.6cm} Cảm biến màu sắc hoạt động bằng cách chiếu ánh sáng (thường là từ đèn LED trắng hoặc RGB tích hợp trong cảm biến) lên bề mặt vật thể, 
+                sau đó thu ánh sáng phản xạ lại. Ánh sáng này được tách thành các thành phần màu đỏ, xanh lá và xanh dương (RGB) thông 
+                qua các bộ lọc hoặc photodiode. Cường độ từng màu được chuyển thành tín hiệu điện, từ đó bộ xử lý sẽ tính toán và xác định màu sắc của vật thể.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.4\textwidth]{pictures/chapter1/chapter1_pic18_color_sensor.png}
+                    \caption{Cảm biến màu sắc}
+                    \label{chap1_pic18}
+                \end{figure}    
+            \subsubsection{Camera}
+                \hspace*{0.6cm}Dùng camera để chụp bề mặt vật thể, dùng xử lý ảnh để trích xuất thông tin màu.
 
     \section{Cấu trúc điều khiển}
-    \subsection{Cấu trúc điều khiển phân cấp}
-    \hspace*{0.6cm} Một MCU đóng vai trò như Master chỉ để tính toán cho chương trình điều
-    khiển chính. Các Slave còn lại sử dụng các MCU khác để thực hiện các tác vụ riêng biệt
-    như xử lý tín hiệu từ các cảm biến, tìm vị trí line, điều khiển driver, động cơ \dots
-    %image
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{pictures/chapter1/chapter1_pic19_phancap.png}
-        \caption{Sơ đồ nguyên lý cấu trúc điều khiển phân cấp}
-        \label{chap1_pic19}
-    \end{figure}
-    \begin{itemize}
-        \item Ưu điểm: 
-        \begin{itemize}[label=\textendash]
-            \item Có tính linh hoạt cao trong việc quản lý, mở rộng và sửa chữa.
-            \item Dễ dàng tìm kiếm và sửa chữa khi gặp lỗi.
-            \item Có khả năng xử lý nhiều tác vụ cùng một lúc, giúp giảm thiểu thời gian xử lý cho mỗi vi điều khiển.
+        \subsection{Cấu trúc điều khiển phân cấp}
+        \hspace*{0.6cm}Một MCU đóng vai trò như Master chỉ để tính toán cho chương trình điều
+        khiển chính. Các Slave còn lại sử dụng các MCU khác để thực hiện các tác vụ riêng biệt
+        như xử lý tín hiệu từ các cảm biến, tìm vị trí line, điều khiển driver, động cơ \dots
+        %image
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{pictures/chapter1/chapter1_pic19_phancap.png}
+            \caption{Sơ đồ nguyên lý cấu trúc điều khiển phân cấp}
+            \label{chap1_pic19}
+        \end{figure}
+        \begin{itemize}
+            \item Ưu điểm: 
+            \begin{itemize}[label=\textendash]
+                \item Có tính linh hoạt cao trong việc quản lý, mở rộng và sửa chữa.
+                \item Dễ dàng tìm kiếm và sửa chữa khi gặp lỗi.
+                \item Có khả năng xử lý nhiều tác vụ cùng một lúc, giúp giảm thiểu thời gian xử lý cho mỗi vi điều khiển.
+            \end{itemize}
+            \item Nhược điểm: 
+            \begin{itemize}[label=\textendash]
+                \item Tốn thêm chi phí và không gian bố trí vi điều khiển.
+                \item Tốn nhiều tài nguyên, phải quan tâm đến vấn đề giao tiếp giữa các MCU.
+            \end{itemize}
         \end{itemize}
-        \item Nhược điểm: 
-        \begin{itemize}[label=\textendash]
-            \item Tốn thêm chi phí và không gian bố trí vi điều khiển.
-            \item Tốn nhiều tài nguyên, phải quan tâm đến vấn đề giao tiếp giữa các MCU.
+        \subsection{Cấu trúc điều khiển tập trung}
+        \hspace*{0.6cm}Một MCU duy nhất đồng thời nhận và xử lý tín hiệu từ cảm biến, các encoder,
+        thực hiện chương trình chính, tính toán và truyền giá trị điều khiển cho các động cơ.
+        %image
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{pictures/chapter1/chapter1_pic20_taptrung.png}
+            \caption{Sơ đồ nguyên lý cấu trúc điều khiển tập trung}
+            \label{chap1_pic20}
+        \end{figure}
+        \begin{itemize}
+            \item Ưu điểm: 
+            \begin{itemize}[label=\textendash]
+                \item Tiết kiệm được chi phí và không gian bố trí do chỉ sử dụng 1 MCU.
+                \item Giảm khối lượng hệ thống.
+                \item Không cần thực hiện giao tiếp giữa các vi điều khiển.
+            \end{itemize}
+            \item Nhược điểm: 
+            \begin{itemize}[label=\textendash]
+                \item Vi điều khiển không đủ chân I/O, analog, digital cần thiết.
+                \item Đòi hỏi MCU có cấu hình mạnh, tốc độ xử lý cần thiết.
+                \item Không có sự chuyên biệt hóa nên khó khăn trong việc tìm kiếm lỗi và sửa lỗi khi
+                phát sinh lỗi chương trình.
+            \end{itemize}
         \end{itemize}
-    \end{itemize}
-    \subsection{Cấu trúc điều khiển tập trung}
-    \hspace*{0.6cm} Một MCU duy nhất đồng thời nhận và xử lý tín hiệu từ cảm biến, các encoder,
-    thực hiện chương trình chính, tính toán và truyền giá trị điều khiển cho các động cơ.
-    %image
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{pictures/chapter1/chapter1_pic20_taptrung.png}
-        \caption{Sơ đồ nguyên lý cấu trúc điều khiển tập trung}
-        \label{chap1_pic20}
-    \end{figure}
-    \begin{itemize}
-        \item Ưu điểm: 
-        \begin{itemize}[label=\textendash]
-            \item Tiết kiệm được chi phí và không gian bố trí do chỉ sử dụng 1 MCU.
-            \item Giảm khối lượng hệ thống.
-            \item Không cần thực hiện giao tiếp giữa các vi điều khiển.
-        \end{itemize}
-        \item Nhược điểm: 
-        \begin{itemize}[label=\textendash]
-            \item Vi điều khiển không đủ chân I/O, analog, digital cần thiết.
-            \item Đòi hỏi MCU có cấu hình mạnh, tốc độ xử lý cần thiết.
-            \item Không có sự chuyên biệt hóa nên khó khăn trong việc tìm kiếm lỗi và sửa lỗi khi
-            phát sinh lỗi chương trình.
-        \end{itemize}
-    \end{itemize}
 
 
 
     \section{Bộ điều khiển}
     \subsection{Bộ điều khiển PID}
-    \hspace*{0.6cm} Bộ điều khiển PID là một bộ điều khiển dựa trên sai lệch giữa giá trị phản hồi
+    \hspace*{0.6cm}Bộ điều khiển PID là một bộ điều khiển dựa trên sai lệch giữa giá trị phản hồi
     thông qua cảm biến và giá trị mong muốn từ đó điều khiển được cơ cấu tác động thông
     qua các tham số P, I, D để đưa giá trị đầu ra gần với giá trị mong muốn nhất và ổn định
     nhất, với mỗi hệ thống khác nhau ta sẽ có các tham số của bộ điều khiển PID là khác
@@ -483,13 +421,13 @@ xử lý ảnh xác định được vị trí và góc lệch của xe so với
         \end{itemize}
     \end{itemize}
     \subsection{Bộ điều khiển fuzzy}
-    \hspace*{0.6cm} Bộ điều khiển Fuzzy là một bộ điều khiển dựa trên việc sử dụng quy tắc fuzzy IFTHEN, giúp mô tả vấn đề một đơn giản và nhanh chóng. Bộ điều khiển fuzzy phủ hợp
+    \hspace*{0.6cm}Bộ điều khiển Fuzzy là một bộ điều khiển dựa trên việc sử dụng quy tắc fuzzy IFTHEN, giúp mô tả vấn đề một đơn giản và nhanh chóng. Bộ điều khiển fuzzy phủ hợp
     cho cả hệ thống tuyến tính lẫn phi tuyến nhờ vào kiến thức và kinh nghiệm của người
     thiết kế. Đối với hệ thống xe AGV, bộ điều khiển fuzzy cho phép điều khiển xe trong
     nhiều điều kiện hoàn cảnh khác nhau khắc phục được những hạn chế của lýthuyết điều
     khiển kinh điển.
     \newline
-    \hspace*{0.6cm} Cấu trúc của bộ điều khiển fuzzy:
+    \hspace*{0.6cm}Cấu trúc của bộ điều khiển fuzzy:
     \begin{itemize}[label=\textendash]
         \item Khâu mờ hóa: Chuyển các điều kiện có giá trị cụ thể thành những khoảng phù
         hợp thao tác kinh nghiệm và sự hiểu biết hệ thống của người lập trình ứng kết quả mong
@@ -518,12 +456,12 @@ xử lý ảnh xác định được vị trí và góc lệch của xe so với
         \end{itemize}
     \end{itemize} 
     \subsection{Điều khiển dùng hàm Lyapunov}
-    Phương pháp điều khiển dùng hàm Lyapunov dùng cách tiếp cận thiết kế luật điều khiển sao cho đảm bảo tính ổn định của hệ thống dựa trên định lý ổn định Lyapunov. Ý tưởng là
+    \hspace*{0.6cm}Phương pháp điều khiển dùng hàm Lyapunov dùng cách tiếp cận thiết kế luật điều khiển sao cho đảm bảo tính ổn định của hệ thống dựa trên định lý ổn định Lyapunov. Ý tưởng là
     \begin{itemize}[label=\textendash]
         \item Chọn hàm Lyapunov $V(x)$ phù hợp cho hệ thống.
         \item Thiết kế luật điều khiển $ u(t) $ sao cho hệ thống ổn định dựa trên định lý ổn định Lyapunov. 
     \end{itemize}
-    Trong đó hàm Lyapunov được dùng như 1 công cụ để chứng minh tính ổn định của 1 hệ thống động lực học (hệ thống hội tụ về trạng thái cân bằng hoặc một trạng thái mong muốn) mà không cần giải phương trình vi phân của hệ thống.
+    \hspace*{0.6cm}Trong đó hàm Lyapunov được dùng như 1 công cụ để chứng minh tính ổn định của 1 hệ thống động lực học (hệ thống hội tụ về trạng thái cân bằng hoặc một trạng thái mong muốn) mà không cần giải phương trình vi phân của hệ thống.
     \begin{itemize}
         \item Ưu điểm: 
         \begin{itemize}[label=\textendash]
@@ -543,29 +481,29 @@ xử lý ảnh xác định được vị trí và góc lệch của xe so với
 
 
     \section{Đầu bài cụ thể}
-    Thiết kế robot bám line phát hiện vật cản và di chuyển vòng qua tránh vật cản với
-    các thông số sau:
-    \begin{table}[h]
-        \centering
-        \caption{Bảng thông số đầu bài}
-        \begin{tabular}{|l|c|}
-        \hline
-        \centering \textbf{Thông số} & \textbf{Giá trị} \\
-        \hline
-        Vận tốc xe lớn nhất & $v_{max} = 0.5$ (m/s) \\
-        \hline
-        Bán kính cong nhỏ nhất & $\rho_{min} = 500$ (mm) \\
-        \hline
-        Bề rộng đường dẫn & 26 (mm) \\
-        \hline
-        Sai số bám đường dẫn & $\pm 3$ (mm) \\
-        \hline
-        Sai số vị trí dừng cuối đường dẫn & $\pm 5$ (mm) \\
-        \hline
-        Khối lượng có thể tải & $m = 1.5$ (kg) \\
-        \hline
-        \end{tabular}
-    \end{table}
+        \hspace*{0.6cm}Thiết kế robot bám line phát hiện vật cản và di chuyển vòng qua tránh vật cản với
+        các thông số sau:
+        \begin{table}[h]
+            \centering
+            \caption{Bảng thông số đầu bài}
+            \begin{tabular}{|l|c|}
+            \hline
+            \centering \textbf{Thông số} & \textbf{Giá trị} \\
+            \hline
+            Vận tốc xe lớn nhất & $v_{max} = 0.5$ (m/s) \\
+            \hline
+            Bán kính cong nhỏ nhất & $\rho_{min} = 500$ (mm) \\
+            \hline
+            Bề rộng đường dẫn & 26 (mm) \\
+            \hline
+            Sai số bám đường dẫn & $\pm 3$ (mm) \\
+            \hline
+            Sai số vị trí dừng cuối đường dẫn & $\pm 5$ (mm) \\
+            \hline
+            Khối lượng có thể tải & $m = 1.5$ (kg) \\
+            \hline
+            \end{tabular}
+        \end{table}
 
 
 
