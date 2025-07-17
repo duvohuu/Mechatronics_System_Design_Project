@@ -371,7 +371,7 @@
                     \item Áp đầu ra: Đảm bảo đủ áp cung cấp cho mỗi động cơ là 12V. 
                     \item Đồ thị đáp ứng tuyến tính: đảm bảo độ tương quan giữa xung PWM đầu vào và điện áp cung cấp cho mỗi động cơ đầu ra. 
                 \end{itemize}
-            \subsubsection{So sánh các mạch điều khiển động cơ}
+            \subsubsection{So sánh các mạch điều khiển động cơ về các thông số}
                 \begin{table}[H]
                     \centering
                     \begin{tabular}{|p{3cm}|p{4cm}|p{4cm}|}
@@ -398,8 +398,21 @@
                     \caption{So sánh mạch điều khiển động cơ L298N và TB6612FNG}
                     \label{tab:compare_motor_driver}
                 \end{table}
+            \subsubsection{So sánh các mạnh điều khiển động cơ về đồ thị đáp ứng giữa tốc tốc độ động cơ và tần số xung PWM}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{pictures/chapter2/chapter2_pic_12.png}
+                    \caption{Đồ thị đáp ứng của mạch L298N}
+                    \label{fig:l298n_response}
+                \end{figure}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{pictures/chapter2/chapter2_pic_13.png}
+                    \caption{Đồ thị đáp ứng của mạch TB6612FNG}
+                    \label{fig:tb6612fng_response}
+                \end{figure}
             \subsubsection{Kết luận}
-                \hspace*{0.6cm}Sau khi phân tích các tiêu chí so sánh, nhóm quyết định sử dụng mạch TB6612 để điều khiển động cơ do đáp ứng được yêu cầu về kích thước nhỏ gọn, hiệu suất cao, tần số PWM lớn và độ chính xác cao trong điều khiển động cơ.
+                \hspace*{0.6cm}Sau khi phân tích các tiêu chí so sánh, nhóm quyết định sử dụng mạch TB6612 để điều khiển động cơ do đáp ứng được yêu cầu về kích thước nhỏ gọn, hiệu suất cao và độ tuyến tính cao giữa xung PWM và tốc độ quay của động cơ trong điều khiển động cơ.
         \section{Lựa chọn phương án điều khiển}
             \subsection{Lựa chọn cấu trúc điều khiển}
                 \subsubsection{Yêu cầu cấu trúc điều khiển}

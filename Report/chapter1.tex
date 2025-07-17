@@ -481,16 +481,25 @@
 
 
     \section{Đầu bài cụ thể}
-        \hspace*{0.6cm}Thiết kế robot bám line phát hiện vật cản và di chuyển vòng qua tránh vật cản với
-        các thông số sau:
-        \begin{table}[h]
+        \hspace*{0.6cm}Các ràng buộc về điều kiện của đầu bài cụ thể được đưa ra như sau:
+        \begin{itemize}
+            \item Bề mặt sa bàn không có nếp gấp, độ nhấp nhô tối đa $\pm 10$ (mm).
+            \item Độ rọi của phòng: $I = 300 - 500$ (lux).
+            \item Không chịu tác động lực ngoài phạm vi đề bài.
+            \item Sai số bám đường dẫn là $\pm 3$ (mm).
+            \item Sai số vị trí dừng cuối đường dẫn là $\pm 5$ (mm).
+            \item Khối lượng có thể tải là $m = 1.5$ (kg).
+            \item Vật tải phải được đặt ở vị trí đã được bố trí trên xe. Màu vật tải được quy định là màu đỏ tươi và màu xanh lam.
+        \end{itemize}
+        \hspace*{0.6cm}Từ các ràng buộc trên và yêu cầu của đề bài, nhóm sẽ tiến hành thiết kế robot bám line phân loại hàng hóa theo màu sắc với cá thông số sau:
+        \begin{table}[H]
             \centering
             \caption{Bảng thông số đầu bài}
             \begin{tabular}{|l|c|}
             \hline
             \centering \textbf{Thông số} & \textbf{Giá trị} \\
             \hline
-            Vận tốc xe lớn nhất & $v_{max} = 0.5$ (m/s) \\
+            Vận tốc xe trung bình & $v_{max} = 0.5$ (m/s) \\
             \hline
             Bán kính cong nhỏ nhất & $\rho_{min} = 500$ (mm) \\
             \hline
@@ -499,6 +508,8 @@
             Sai số bám đường dẫn & $\pm 3$ (mm) \\
             \hline
             Sai số vị trí dừng cuối đường dẫn & $\pm 5$ (mm) \\
+            \hline
+            Sai số vị trí xuất phát & $\pm 5$ (mm) \\
             \hline
             Khối lượng có thể tải & $m = 1.5$ (kg) \\
             \hline
