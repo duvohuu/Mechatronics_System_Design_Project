@@ -447,5 +447,29 @@
                 \end{table}
                 \subsubsection{Kết luận}
                     \hspace*{0.6cm}Sau khi phân tích các cấu trúc điều khiển, nhóm quyết định sử dụng cấu trúc điều khiển tập trung do đáp ứng được yêu cầu về chi phí, không gian bố trí và dễ dàng quản lý chương trình.
-
+            \subsection{Lựa chọn phương án điều khiển}
+            Các phương án lựa chọn cho bài toán bám line
+                \subsubsection{Bộ điều khiển fuzzy}
+                    \begin{itemize}
+                        \item Ưu điểm: Không cần quan tâm về các phương trình của hệ thống, tùy chỉnh trong quá trình hoạt động.
+                        \item Nhược điểm: Thiết kế phức tạp, cần có hiểu biết về hệ, có kinh nghiệm về đưa ra được những thông số tối ưu cho hệ.
+                    \end{itemize}
+                \subsubsection{Bộ điều khiển bám line theo tiêu chuẩn Lyapunov}
+                    \begin{itemize}
+                        \item Ưu điểm: Áp dụng được cho hệ phi tuyến.
+                        \item Nhược điểm: Không tối ưu được các yêu cầu về hiệu suất vì chỉ tập trung vào ổn định.
+                    \end{itemize}
+                \subsubsection{Bộ điều khiển PID}
+                    \begin{itemize}
+                        \item Ưu điểm: Đơn giản, dễ hiệu chỉnh.
+                        \item Nhược điểm: Áp dụng cho hệ SISO, cần tuyến tính hóa nếu hệ phi tuyến trước khi áp dụng.
+                    \end{itemize}
+                \subsubsection{Kết luận:} 
+                \hspace{0.6cm}Với vận tốc trung bình của xe đặt ra là 0.5 m/s, vận tốc không quá cao, với yêu cầu điều khiển bám line nhóm quyết định sử dụng bộ điều khiển PID làm bộ điều khiển bám line.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter2/chapter2_pic_14.png}
+                    \caption{Sơ đồ nguyên lý điều khiển}
+                    \label{control_principle}
+                \end{figure}
                 
