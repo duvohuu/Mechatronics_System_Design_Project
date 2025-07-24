@@ -1,0 +1,121 @@
+\chapter{THIẾT KẾ GIẢI THUẬT ĐIỀU KHIỂN}
+     \section{Giải thuật bám line}
+          \hspace*{0.6cm}Bộ điều khiển giúp xe bám line bằng cách giảm thiểu sai số $e$ nhỏ nhất có thể thông qua điều khiển tốc độ 2 động cơ DC. Bộ điều khiển PID được lựa chọn cho bài toán bám line.
+          \newline
+          \hspace*{0.6cm}Xác định đầu vào và đầu ra của bộ điều khiển
+          \begin{itemize}
+               \item Input: sai số giữa điểm bám line $C$ và điểm tham chiếu $R$ trên đường line.
+               \item Output: Tốc độ góc của hai bánh xe.
+          \end{itemize}
+          \hspace*{0.6cm}Từ chương 5 mô hình hóa ta có
+          \begin{align}
+               \begin{bmatrix}
+                    e_1 \\
+                    e_2 \\
+                    e_3
+                    \end{bmatrix} &= \begin{bmatrix}
+                    \cos\varphi & \sin \varphi & 0 \\
+                    -\sin\varphi & \cos \varphi & 0 \\
+                    0 & 0 & 1
+                    \end{bmatrix} \begin{bmatrix}
+                    x_R - x_C \\
+                    y_R - y_C \\
+                    \varphi_R - \varphi_C
+               \end{bmatrix} 
+               \label{c6_e1}
+          \end{align}
+          \begin{align}
+               \begin{bmatrix}
+                    \dot{e_1} \\
+                    \dot{e_2} \\
+                    \dot{e_3}
+                    \end{bmatrix} &= \begin{bmatrix}
+                    v_R \cos e_3 \\
+                    v_R \sin e_3 \\
+                    \omega_R
+                    \end{bmatrix} + \begin{bmatrix}
+                    -1 & e_2 \\
+                    0 & -d - e_1 \\
+                    0 & -1
+                    \end{bmatrix} \begin{bmatrix}
+                    v_I \\
+                    \omega_I
+               \end{bmatrix}  
+               \label{c6_e2}             
+          \end{align}
+          \hspace*{0.6cm}Hệ được mô tả bởi không gian trạng thái
+          \begin{equation}
+               \dot{x} = Ax + Bu 
+               \label{c6_e3}
+          \end{equation}
+          \hspace*{0.6cm}Trong đó
+          \begin{equation*}
+               \dot{x} = \begin{bmatrix}
+                    \dot{e_1} \\
+                    \dot{e_2} \\
+                    \dot{e_3}
+               \end{bmatrix};
+               x = \begin{bmatrix}
+                    e_1 \\
+                    e_2 \\
+                    e_3
+               \end{bmatrix}; 
+               u = \begin{bmatrix}
+                    v \\ 
+                    \omega
+               \end{bmatrix}
+          \end{equation*}
+          \hspace{0.6cm}Nhận thấy điểm cân bằng của hệ phi tuyến là $X_0 = [e_{10} \, e_{20} \, e_{30}] = [0 \, 0 \, 0]^{\text{T}}$. Phân tích và tuyến tính hóa hệ quanh điểm cân bằng ta tính được các ma trận
+          \begin{equation*}
+               A = \begin{bmatrix}
+               0 & \omega & -v_R \times \sin e_3 \\
+               -\omega & 0 & v_R \times \cos e_3 \\
+               0 & 0 & 0
+               \end{bmatrix}; \quad B = \begin{bmatrix}
+               -1 & e_2 \\
+               0 & -d - e_1 \\
+               0 & -1
+               \end{bmatrix}
+          \end{equation*}
+          Suy ra 
+          \begin{align}
+               \begin{bmatrix}
+               \dot{e}_1 \\
+               \dot{e}_2 \\
+               \dot{e}_3
+               \end{bmatrix} &= \begin{bmatrix}
+               0 & \omega & -v_R \times \sin e_3 \\
+               -\omega & 0 & v_R \times \cos e_3 \\
+               0 & 0 & 0
+               \end{bmatrix} \begin{bmatrix}
+               e_1 \\
+               e_2 \\
+               e_3
+               \end{bmatrix} + \begin{bmatrix}
+               -1 & e_2 \\
+               0 & -d - e_1 \\
+               0 & -1
+               \end{bmatrix} \begin{bmatrix}
+               v \\
+               \omega
+               \end{bmatrix}\\
+               &\approx \begin{bmatrix}
+               0 & \omega & 0 \\
+               -\omega & 0 & v_R \\
+               0 & 0 & 0
+               \end{bmatrix} \begin{bmatrix}
+               e_1 \\
+               e_2 \\
+               e_3
+               \end{bmatrix} + \begin{bmatrix}
+               -1 & 0 \\
+               0 & -d \\
+               0 & -1
+               \end{bmatrix} \begin{bmatrix}
+               v \\
+               \omega
+               \end{bmatrix}
+               \label{c6_e4}
+          \end{align}
+          
+
