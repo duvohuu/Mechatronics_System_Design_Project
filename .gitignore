@@ -1,4 +1,6 @@
 build/
 !build/*.pdf
 .history/
-
+pio/
+Code/**/.vscode/
+Code/**/.settings/
