@@ -1,3 +1,0 @@
-../Core/Src/pid_line.c:13:6:update_Error	56	static
-../Core/Src/pid_line.c:81:6:update_M_Values	32	static
-../Core/Src/pid_line.c:104:6:calculate_PID_trackingline	40	static
