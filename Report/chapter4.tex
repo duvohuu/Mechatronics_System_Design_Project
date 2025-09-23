@@ -331,8 +331,8 @@
             \hspace*{0.6cm}Với h = 10mm, ta tính khoảng cách giữa vùng phát và vùng thu liền kề nhau tối thiểu để không bị giao thoa là:
             \begin{align}
                 l_{min} &= (r + R) \label{eq:4-3} \\
-                        &= (h +0.7) \cdot \tan{8^{\circ}} + (h + 0.7) \cdot \tan{15^{\circ}} \nonumber \\
-                        &= (10 + 0.7) \cdot \tan{8^{\circ}} + (10 + 0.7) \cdot \tan{15^{\circ}} \nonumber \\
+                        &= (h +0.7) \times \tan{8^{\circ}} + (h + 0.7) \times \tan{15^{\circ}} \nonumber \\
+                        &= (10 + 0.7) \times \tan{8^{\circ}} + (10 + 0.7) \times \tan{15^{\circ}} \nonumber \\
                         &= 4.4 \text{ (mm)} \nonumber
             \end{align}
             \hspace*{0.6cm}Khoảng cách tối thiểu giữa 2 cảm biến là:
@@ -450,142 +450,158 @@
 
             \hspace*{0.6cm}Tiến hành thực nghiệm đọc tín hiệu cảm biến với bước nhảy 1 mm, giới hạn từ $-30$ mm tới $30$ mm so với tâm đường line, ta thu được bảng kết quả sau:
         
-            \begin{longtable}{|c|c|c|c|}
+            \begin{longtable}{|c|c|c|}
                 \hline
-                \textbf{Vị trí (mm)} & \textbf{Giá trị tính toán (mm)} & \textbf{Sai số (mm)} & \textbf{Sai số tuyệt đối (mm)} \\
+                \textbf{Vị trí (mm)} & \textbf{Giá trị tính toán (mm)} & \textbf{Sai số (mm)} \\
                 \hline
                 \endfirsthead
                 
                 \hline
-                \textbf{Vị trí (mm)} & \textbf{Giá trị tính toán (mm)} & \textbf{Sai số (mm)} & \textbf{Sai số tuyệt đối (mm)} \\
+                \textbf{Vị trí (mm)}  & \textbf{Giá trị tính toán (mm)} & \textbf{Sai số (mm)} \\
                 \hline
                 \endhead
-
-                -30 & -29.5 & 0.5 & 0.5 \\
+                0 & 0.271428571 & -0.271428571 \\
                 \hline
-                -29 & -28.7 & 0.3 & 0.3 \\
+                1 & 0.495008319 & 0.504991681 \\
                 \hline
-                -28 & -27.9 & 0.1 & 0.1 \\
+                2 & 2.248142645 & -0.248142645 \\
                 \hline
-                -27 & -27.2 & 0.2 & 0.2 \\
+                3 & 4.205958549 & -1.205958549 \\
                 \hline
-                -26 & -26.4 & 0.4 & 0.4 \\
+                4 & 5.70234688 & -1.70234688 \\
                 \hline
-                -25 & -25.6 & 0.6 & 0.6 \\
+                5 & 6.675065617 & -1.675065617 \\
                 \hline
-                -24 & -24.8 & 0.8 & 0.8 \\
+                6 & 7.134005038 & -1.134005038 \\
                 \hline
-                -23 & -24.1 & 1.1 & 1.1 \\
+                7 & 7.347029703 & -0.347029703 \\
                 \hline
-                -22 & -23.3 & 1.3 & 1.3 \\
+                8 & 7.440652819 & 0.559347181 \\
                 \hline
-                -21 & -22.5 & 1.5 & 1.5 \\
+                9 & 7.506713078 & 1.493286922 \\
                 \hline
-                -20 & -21.7 & 1.7 & 1.7 \\
+                10 & 7.686354379 & 2.313645621 \\
                 \hline
-                -19 & -20.9 & 1.9 & 1.9 \\
+                11 & 8.204347826 & 2.795652174 \\
                 \hline
-                -18 & -20.2 & 2.2 & 2.2 \\
+                12 & 9.220866382 & 2.779133618 \\
                 \hline
-                -17 & -19.4 & 2.4 & 2.4 \\
+                13 & 10.71843972 & 2.28156028 \\
                 \hline
-                -16 & -18.6 & 2.6 & 2.6 \\
+                14 & 12.5566584 & 1.4433416 \\
                 \hline
-                -15 & -17.8 & 2.8 & 2.8 \\
+                15 & 12.94961571 & 2.05038429 \\
                 \hline
-                -14 & -17.0 & 3.0 & 3.0 \\
+                16 & 13.04991394 & 2.95008606 \\
                 \hline
-                -13 & -16.3 & 3.3 & 3.3 \\
+                17 & 13.21570319 & 3.78429681 \\
                 \hline
-                -12 & -15.5 & 3.5 & 3.5 \\
+                18 & 14.01160862 & 3.98839138 \\
                 \hline
-                -11 & -14.7 & 3.7 & 3.7 \\
+                19 & 16.23355506 & 2.76644494 \\
                 \hline
-                -10 & -13.9 & 3.9 & 3.9 \\
+                20 & 18.4286645 & 1.5713355 \\
                 \hline
-                -9 & -13.1 & 4.1 & 4.1 \\
+                21 & 20.32566168 & 0.67433832 \\
                 \hline
-                -8 & -12.4 & 4.4 & 4.4 \\
+                22 & 21.45665962 & 0.54334038 \\
                 \hline
-                -7 & -11.6 & 4.6 & 4.6 \\
+                23 & 22.02743902 & 0.97256098 \\
                 \hline
-                -6 & -10.8 & 4.8 & 4.8 \\
+                24 & 22.18875502 & 1.81124498 \\
                 \hline
-                -5 & -10.0 & 5.0 & 5.0 \\
+                25 & 22.2288008 & 2.7711992 \\
                 \hline
-                -4 & -9.2 & 5.2 & 5.2 \\
+                26 & 22.25314545 & 3.74685455 \\
                 \hline
-                -3 & -8.5 & 5.5 & 5.5 \\
+                27 & 22.29408767 & 4.70591233 \\
                 \hline
-                -2 & -7.7 & 5.7 & 5.7 \\
+                28 & 22.59401709 & 5.40598291 \\
                 \hline
-                -1 & -6.9 & 6.1 & 6.1 \\
+                29 & 23.23741007 & 5.76258993 \\
                 \hline
-                0 & -6.1 & 6.1 & 6.1 \\
+                30 & 24.31478873 & 5.68521127 \\
                 \hline
-                1 & -5.3 & 6.3 & 6.3 \\
+                -30 & -22.63765643 & -7.36234357 \\
                 \hline
-                2 & -4.6 & 6.6 & 6.6 \\
+                -29 & -22.14532148 & -6.85467852 \\
                 \hline
-                3 & -3.8 & 6.8 & 6.8 \\
+                -28 & -21.89844922 & -6.10155078 \\
                 \hline
-                4 & -3.0 & 7.0 & 7.0 \\
+                -27 & -21.79960513 & -5.20039487 \\
                 \hline
-                5 & -2.2 & 7.2 & 7.2 \\
+                -26 & -21.70588235 & -4.29411765 \\
                 \hline
-                6 & -1.4 & 7.4 & 7.4 \\
+                -25 & -21.54179104 & -3.45820896 \\
                 \hline
-                7 & -0.7 & 7.7 & 7.7 \\
+                -24 & -21.11036961 & -2.88963039 \\
                 \hline
-                8 & 0.1 & 7.9 & 7.9 \\
+                -23 & -20.09944751 & -2.90055249 \\
                 \hline
-                9 & 0.9 & 8.1 & 8.1 \\
+                -22 & -18.35491905 & -3.64508095 \\
                 \hline
-                10 & 1.7 & 8.3 & 8.3 \\
+                -21 & -15.75849602 & -5.24150398 \\
                 \hline
-                11 & 2.5 & 8.5 & 8.5 \\
+                -20 & -12.98336106 & -7.01663894 \\
                 \hline
-                12 & 3.2 & 8.8 & 8.8 \\
+                -19 & -12.43197279 & -6.56802721 \\
                 \hline
-                13 & 4.0 & 9.0 & 9.0 \\
+                -18 & -12.26729291 & -5.73270709 \\
                 \hline
-                14 & 4.8 & 9.2 & 9.2 \\
+                -17 & -11.77140482 & -5.22859518 \\
                 \hline
-                15 & 5.6 & 9.4 & 9.4 \\
+                -16 & -10.55522388 & -5.44477612 \\
                 \hline
-                16 & 6.4 & 9.6 & 9.6 \\
+                -15 & -9.357284113 & -5.642715887 \\
                 \hline
-                17 & 7.1 & 9.9 & 9.9 \\
+                -14 & -8.419335706 & -5.580664294 \\
                 \hline
-                18 & 7.9 & 10.1 & 10.1 \\
+                -13 & -7.701092896 & -5.298907104 \\
                 \hline
-                19 & 8.7 & 10.3 & 10.3 \\
+                -12 & -7.182608696 & -4.817391304 \\
                 \hline
-                20 & 9.5 & 10.5 & 10.5 \\
+                -11 & -6.949152542 & -4.050847458 \\
                 \hline
-                21 & 10.3 & 10.7 & 10.7 \\
+                -10 & -6.865708622 & -3.134291378 \\
                 \hline
-                22 & 11.0 & 11.0 & 11.0 \\
+                -9 & -6.833746898 & -2.166253102 \\
                 \hline
-                23 & 11.8 & 11.2 & 11.2 \\
+                -8 & -6.766169154 & -1.233830846 \\
                 \hline
-                24 & 12.6 & 11.4 & 11.4 \\
+                -7 & -6.607287449 & -0.392712551 \\
                 \hline
-                25 & 13.4 & 11.6 & 11.6 \\
+                -6 & -5.884615385 & -0.115384615 \\
                 \hline
-                26 & 14.2 & 11.8 & 11.8 \\
+                -5 & -4.360049322 & -0.639950678 \\
                 \hline
-                27 & 14.9 & 12.1 & 12.1 \\
+                -4 & -1.420972644 & -2.579027356 \\
                 \hline
-                28 & 15.7 & 12.3 & 12.3 \\
+                -3 & 0.014119601 & 3.014119601 \\
                 \hline
-                29 & 16.5 & 12.5 & 12.5 \\
+                -2 & 0.127926421 & 2.127926421 \\
                 \hline
-                30 & 17.3 & 12.7 & 12.7 \\
-                \hline
-                \caption{Bảng tính toán giá trị sai số theo nội suy trung bình trọng số}
+                -1 & 0.171428571 & 1.171428571 \\
+                \hline        
+                \caption{Bảng tính toán giá trị sai số giữa vị trí trên thực tế và vị trí tính toán}
                 \label{tab:4-4}
             \end{longtable}
+            \hspace*{0.6cm}Dựa vào số liệu trên, ta thực hiện xấp xỉ tuyến tính giá trị tính toán theo vị trí, thu được phương trình tính xấp xỉ vị trí:
+            \begin{align}
+                y = 0.8136x - 1.0349
+                \label{eq:4-8}
+            \end{align}
+            Trong đó:
+            \begin{itemize}
+                \item $y$: giá trị trung bình trọng số (mm).
+                \item $x$: vị trí tính toán (mm).
+            \end{itemize}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p15_LinearRegression.png}
+                \caption{Biểu đồ xấp xỉ tuyến tính giá trị tính toán theo vị trí}
+                \label{fig:4-8}
+            \end{figure}
+            \hspace*{0.6cm}Từ bảng số liệu trên, ta có sai số cảm biến lớn nhất đo được là: $e_{max} = 5.8$ mm. \\
     \section{Thiết kế mạch điều khiển} 
         \subsection{Thiết kế mạch nguồn}
             \subsubsection{Nguồn điều khiển}
@@ -601,25 +617,160 @@
                     \item Công suất mạch cảm biến:
                     \begin{itemize}
                         \item Công suất tiêu thụ của 5 điện trở $R = 220 \Omega$ trong mạch. \\
-                        \begin{align*}
-                            P_{R1} = 5 \cdot I_{F}^2 \cdot R_1 = 5 \cdot (10.10^{-3})^2 \cdot 220 = 0.11 \text{ (W)}
-                        \end{align*}
+                        \begin{align}
+                            P_{R1} = 5 \times I_{F}^2 \times R_1 = 5 \times (10.10^{-3})^2 \times 220 = 110 \text{ (mW)}
+                        \end{align}
                         \item Công suất tiêu thụ của 5 điện trở $R = 2.4 k\Omega$ trong mạch. \\
-                        \begin{align*}
-                            P_{R2} = 5 \cdot I_{C}^2 \cdot R_2 = 5 \cdot (10^{-3})^2 \cdot 2400 = 0.012  \text{ (W)}
-                        \end{align*}
+                        \begin{align}
+                            P_{R2} = 5 \times I_{C}^2 \times R_2 = 5 \times (10^{-3})^2 \times 2400 = 12 \text{ (mW)}
+                        \end{align}
                         \item Công suất tiêu thụ của 5 cảm biến TCRT5000 trong mạch. \\
-                        \begin{align*}
-                            P_{TCRT} = 5 \cdot 200.10^{-3} = 1 \text{ (W)}
-                        \end{align*}
+                        \begin{align}
+                            P_{TCRT} = 5 \times 200.10^{-3} = 1000 \text{ (mW)}
+                        \end{align}
                         Vậy công suất tiêu thụ trên toàn mạch cảm biến:
-                        \begin{align*}
-                            P_{sensor} = P_{R1} + P_{R2} + P_{TCRT} = 0.11 + 0.012 + 1 = 1.122 \text{ (W)}
-                        \end{align*}
+                        \begin{align}
+                            P_{sensor} = P_{R1} + P_{R2} + P_{TCRT} = 110 + 12 + 1000 = 1122 \text{ (mW)}
+                        \end{align}
                     \end{itemize}
                     \item Công suất tiêu thụ trên mạch điều khiển:
                     \begin{itemize}
-                        \item Công suất tiêu thụ của vi điều khiển:
-                        
+                        \item Công suất tiêu thụ của vi điều khiển STM32F103C8T6 là 363 (mW) và mỗi chân IO sẽ cần 25 (mA) cho dòng điều khiển, vậy tổng công suất:
+                        \begin{align}
+                            P_{MCU} = 363 + 19 \times 25 \times 3.3 = 1930.5 \text{ (mW)}
+                        \end{align}
+                        \item Công suất tiêu thụ encoder:
+                        \begin{align}
+                            P_{encoder} = 2 \times 60 = 120 \text{ (mW)}
+                        \end{align}
+                        \item Theo datasheet (LM2596 design datasheet) công thức tính xấp xỉ công suất tiêu thụ mạch giảm áp IC LM2596.
+                        \begin{align}
+                            P_b = (V_{in} \times I_Q) + d \times I_{load} \times V_{sat}
+                        \end{align}
+
+                        Trong đó:
+                        \begin{itemize}
+                            \item $d = \dfrac{V_{out}}{V_{in}}$ \text{duty cycle của mạch giảm áp} \\
+                            \item $I_Q = 10 \text{ (mA)}$ \text{tra trong datasheet} \\
+                            \item $V_{sat} = 1.4 \text{ (V)}$ \text{tra trong datasheet} \\
+                            \item $V_{in}, V_{out}$ \text{điện áp tối thiểu cấp vào, điện áp đầu ra} \\
+                            \item $I_{load}$ \text{dòng điện tiêu thụ tải}
+                        \end{itemize}
+
+                        Công suất tiêu thụ IC LM2596 5V:
+                        \begin{align*}
+                            P_{D5} &= (7.4 \times 10 \times 10^{-3}) + \frac{7.4}{5} \times 1.2 \times 1.4 \nonumber = 2560 \text{ (mW)}
+                        \end{align*}
+
+                        Công suất tiêu thụ IC LM2596 3.3V:
+                        \begin{align*}
+                            P_{D3.3} &= (7.4 \times 10 \times 10^{-3}) + \frac{7.4}{3.3} \times (25.10^{-3} \times 19) \times 1.4 \nonumber = 1565 \text{ (mW)}
+                        \end{align*}
+                        \item Công suất tiêu thụ trên mạch điều khiển:
+                        \begin{align}
+                            P_{control} &= P_{MCU} + P_{encoder} + P_{D5} + P_{D3.3} \\
+                            &= 1930.5 + 120 + 2560 + 1565 = 6175.5 \text{ (mW)}
+                        \end{align}
+                        \item Công suất tiêu thụ trên mạch tổng:
+                        \begin{align}
+                            P_{total} &= P_{sensor} + P_{control} \\
+                            &= 1122 + 6175.5 = 7297.5 \text{ (mW)}
+                        \end{align}
+                        \item Dung lượng pin tối thiểu:
+                        \begin{align}
+                            Q = It = \dfrac{P_{total} \times t}{V} = \dfrac{7297.5 \times 1}{7.4} = 986.15 \text{ (mAh)}
+                        \end{align}
                     \end{itemize}
+                    \hspace{0.6cm}Với dung lượng pin ta chọn pin 18650 loại 1200 mAh số lượng 2 vì khi dung lượng pin giảm thì điện áp pin giảm nên để đảm bảo nguồn cấp tối thiểu 5V nên chọn số lượng pin là 2.
                 \end{itemize}
+            \subsubsection{Nguồn động lực}
+                \hspace*{0.6cm}Bảng thông số động cơ:
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{|c|c|c|c|}
+                        \hline
+                        \textbf{Thông số} & \textbf{Giá trị} & \textbf{Thông số} & \textbf{Giá trị} \\
+                        \hline
+                        Loại động cơ & JGB37-520 & Tỉ số truyền & 30:1 \\
+                        \hline
+                        Dòng không tải & 120 (mA) & Dòng chịu đựng tối đa khi có tải & 1 (A) \\
+                        \hline
+                        Tốc độ không tải & 333 (rpm) & Tốc độ chịu đựng khi có tải & 250 (rpm) \\
+                        \hline
+                        Mô men xoắn định mức & 3.5 (kg.cm) & Mô men xoắn tối đa & 5 (kg.cm) \\
+                        \hline
+                        Chiều dài hộp số L & 22 (mm) & Số xung Encoder mỗi kênh & 330 xung \\
+                        \hline
+                    \end{tabular}
+                    \caption{Bảng thông số động cơ JGB37-520}
+                    \label{tab:4-5}
+                \end{table}
+                \begin{itemize}
+                    \item Công suất của động cơ
+                    \begin{align}
+                       P_{motor} = T_{max} \times \omega_{max} = 5 \times 0.098 \times \frac{250 \times 2\pi}{60} = 12830 \text{ (mW)}
+                    \end{align}
+                    \item Công suất tiêu thụ của driver TB6612FNG: \\
+                    Ở chế độ điều khiển động cơ với dòng tối đa $I_{max} = 1.2$ (A) và điện áp cung cấp $V_{supply} = 5$ (V), công suất tiêu thụ của driver:
+                    \begin{align}
+                        P_{Driver} = I_{max} \times V_{supply} = 1.2 \times 5 = 6000 \text{ (mW)}
+                    \end{align}
+                    \item Công suất của LM2596-12:
+                    \begin{align}
+                        P_{D12} = (14.8 \times 10 \times 10^{-3}) + \frac{14.8}{12} \times 1.2 \times 1.4 = 2200 \text{ (mW)}
+                    \end{align}
+                    \item Tổng công suất động lực:
+                    \begin{align}
+                        P_{dynamic} = 2 \times P_{motor} + P_{Driver} + P_{D12} = 2 \times 12830 + 6000 + 2200 = 33860 \text{ (mW)}
+                    \end{align}
+                    \item Dung lượng pin tối thiểu:
+                    \begin{align}
+                        Q = It = \dfrac{P_{dynamic} \times t}{V} = \dfrac{33860 \times 1}{14.8} = 2287.84 \text{ (mAh)}
+                    \end{align}
+                \end{itemize}
+                \hspace*{0.6cm}Với dung lượng pin ta chọn pin 18650 loại 2500 mAh số lượng 4 nên tổng điện áp là 14.8 V nên ta cần hạ áp xuống 12 V.
+            \subsection{Thiết kế mạch hạ áp}
+                \hspace*{0.6cm}Dựa vào các tính toán trên, ta thiết kế mạch hạ áp như sau:
+                \begin{itemize}
+                    \item Sử dụng 1 IC LM2596-3.3 để hạ áp từ 7.4V xuống 3.3V cho mạch điều khiển và cảm biến.
+                    \item Sử dụng 1 IC LM2596-5 để hạ áp từ 7.4V xuống 5V cho driver TB6612FNG.
+                    \item Sử dụng 1 IC LM2596-12 để hạ áp từ 14.8V xuống 12V cho động cơ.
+                \end{itemize}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p16_PowerSchematic.png}
+                    \caption{Sơ đồ nguyên lý mạch nguồn}
+                    \label{fig:4-9}
+                \end{figure}
+                \hspace*{0.6cm}Các linh kiện (điện trở, tụ điện, cuộn cảm) được chọn theo bảng từ tài liệu tham khảo \cite{lm2596}.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p17_ChooseComponent.png}
+                    \caption{Bảng chọn linh kiện cho mạch hạ áp}
+                    \label{fig:4-10}
+                \end{figure}
+                \begin{itemize}
+                    \item Với nguồn đầu ra 3.3V, nguồn đầu vào 7.4V và dòng tải không quá 3A, ta chọn: cuộn cảm $L = 22 \mu H$, tụ điện $C_{out} = 680 \mu F$. 
+                    \item Với nguồn đầu ra 5V, nguồn đầu vào 7.4V và dòng tải không quá 3A, ta chọn: cuộn cảm $L = 22 \mu H$, tụ điện $C_{out} = 560 \mu F$.
+                    \item Với nguồn đầu ra 12V, nguồn đầu vào 14.8V và dòng tải không quá 3A, ta chọn: cuộn cảm $L = 22 \mu H$, tụ điện $C_{out} = 470 \mu F$.
+                    \item Chọn tụ điện đầu vào $C_{in} = 680 \mu F, V = 35 V$ cho cả 3 mạch vì $V_{C} = 35 V > 1.5 \times V_{max} = 1.5 \times 14.8 = 22.2 V$.
+                \end{itemize}
+        \section{Thiết kế mạch cho toàn bộ hệ thống}
+            \subsection{Sơ đồ nguyên lý mạch toàn bộ hệ thống}
+                \hspace*{0.6cm}Dựa vào các thiết kế mạch cảm biến, mạch nguồn và các linh kiện khác, ta thiết kế sơ đồ nguyên lý mạch toàn bộ hệ thống như sau:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p18_Schematic.png}
+                    \caption{Sơ đồ nguyên lý mạch toàn bộ hệ thống}
+                    \label{fig:4-17}
+                \end{figure}
+            \subsection{Thiết kế PCB mạch toàn bộ hệ thống}
+                \hspace*{0.6cm}Dựa vào sơ đồ nguyên lý mạch toàn bộ hệ thống, ta tiến hành thiết kế PCB cho mạch toàn bộ hệ thống. Sơ đồ thiết kế PCB được trình bày như hình \ref{fig:4-18}.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter4/c4_p19_PCB.png}
+                    \caption{Sơ đồ thiết kế PCB mạch toàn bộ hệ thống}
+                    \label{fig:4-18}
+                \end{figure}
+            
+                
