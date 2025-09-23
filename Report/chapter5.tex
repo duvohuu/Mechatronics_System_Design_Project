@@ -137,10 +137,207 @@
                \label{c5_e7}
           \end{align}       
      \section{Tính toán thời gian lấy mẫu}
-     \section{Mô hình hóa động cơ}
-          \subsection{Mô hình hóa động cơ dẫn động bánh trái}    
-          \subsection{Mô hình hóa động cơ dẫn động bánh phải}
+          \subsection{Tính toán thời gian lấy mẫu cho bộ điều khiển động cơ}
+               \hspace*{0.6cm}Nhóm cần tính toán thời gian lấy mẫu cho động cơ \textit{JGB37-520 333RPM} có gắn encoder với các thông số như số vòng quay sau 
+               hộp giảm tốc là 333 vòng/phút, 2 kênh encoder với mỗi kênh nhận 11 xung/vòng.\\
+               Số vòng quay tối đa của động cơ
+               \begin{equation*}
+                    333 \,\mathrm{rpm} = \dfrac{333}{60} \,\mathrm{rev/s} = 5.55 \,\mathrm{rev/s}
+               \end{equation*}
+               Sử dụng 2 kênh encoder với chế độ quadrature, nghĩa là mỗi vòng encoder đếm tổng cộng $11 \times 4 = 44 \,\mathrm{xung}$.\\
+               Tần số xung và thời gian giữa 2 lần đếm xung của encoder là 
+               \begin{align*}
+                    &f_{\text{pulse}} = 44 \times 5.55 = 244.2 \,\mathrm{Hz}\\
+                    &T_{\text{pulse}} = \dfrac{1}{244.2} = 4.095 \,\mathrm{ms}
+               \end{align*}
+               Sử dụng tiêu chuẩn Nyquist, tần số tối thiểu (tương đương với thời gian lấy mẫu tối da để khôi phục tín hiệu xung) là 
+               \begin{align*}
+                    &f_s \geq 2 f_{\text{pulse}} = 2 \time 244.2 = 488.4 \,\mathrm{Hz}\\
+                    &t_s \leq \dfrac{1}{f_s} = \dfrac{1}{488.4} = 2.05 \,\mathrm{ms}
+               \end{align*}
+               Nếu lấy mẫu theo tiêu chuẩn Nyquist, số lượng xung ở mỗi lần lấy mẫu không đủ, nhiều mẫu bị mất xung, nhóm sử dụng chế độ Encoder Mode của STM32 để tính toán
+               số xung encoder trong mỗi lần ngắt để tính toán tốc độ động cơ làm giá trị phản hồi cho vòng điều khiển, do đó cần lựa chọn khoảng thời gian lấy mẫu sao cho số xung đọc được 
+               ổn định để tính toán giá trị vận tốc động cơ. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ là 
+               \begin{equation*}
+                    n = \dfrac{t_s}{T_{\text{pulse}}} = \dfrac{t_s}{4.095}
+               \end{equation*}
+               Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$.
+          \subsection{Tính toán thời gian lấy mẫu cho bộ điều khiển bám line}
+               \hspace*{0.6cm}Để tính toán thời gian lấy mẫu cho bộ điều khiển bám line, ta tính toán quãng đường tối đa mà xe di chuyển trên đoạn đường cong 
+               có bán kính lớn nhất trong khoảng thời gian giữa 2 lần lấy mẫu mà vẫn đảm bảo được sai số bám line.\\
+               \hspace*{0.6cm}Giả sử tâm cảm biến dò line nằm ngay tại vị trí tâm đường line tại thời điểm đầu, tại thời điểm lấy mẫu kế tiếp, với mong muốn sai số $e_2$ giữa tâm đường cảm biến 
+               và tâm line không lệch nhau quá 3mm. Do đó quãng đường AB lớn nhất mà xe chạy được trước khi đạt tới sai số 3mm là 
+               \begin{equation*}
+                    AB = \sqrt{OB^2 - OA^2} = \sqrt{(OA + e_{2max})^2 - OA^2}
+               \end{equation*}
+               Trong đó 
+               \begin{itemize}
+                    \item $OA$ là bán kính của đường cong.
+                    \item $e_{2max}$ là khoảng sai số lớn nhất khi di chuyển trên cung.
+               \end{itemize}
+               Ta thấy khi $OA$ càng lớn thì khoảng di chuyển trên cung của xe càng lớn, ta tính toán với bán kính $OA = 800 \,\mathrm{mm}$
+               \begin{equation*}
+                    AB = 69.34 \,\mathrm{mm}
+               \end{equation*}
+               Để xe có thể bám được line khi vào đoạn đường cong trên thì thời gian lấy mẫu cho bộ điều khiển vị trí bám line phải thỏa
+               \begin{equation*}
+                    t_{\text{đk}} \leq \dfrac{AB}{v} = \dfrac{69.34}{300} = 0.23 \,\mathrm{s}
+               \end{equation*}
+               $v$ là vận tốc của xe khi vào cua: $v = 300 \,\mathrm{mm/s}$.
+               Ta chọn $t_{\text{đk}} = 0.05 \,\mathrm{s}$.
 
+     \section{Mô hình hóa động cơ}
+          \hspace*{0.6cm}Thực hiện mô hình hóa động cơ, tìm hàm truyền động cơ bằng cách xem xét mối quan hệ giữa đầu vào giá xung PWM và đầu ra là tốc độ quay của trục động cơ (vòng/phút).   
+          \subsection{Mô hình hóa động cơ dẫn động bánh phải}    
+               \hspace*{0.6cm}Sử dụng driver TB6612FNG, sau khi cấp xung và đo tốc độ động cơ, thu được bảng số liệu sau
+               \begin{table}[h!]
+                    \centering
+                    \begin{tabular}{|c|c|}
+                         \hline
+                         \textbf{\%PWM} & \textbf{RPM} \\
+                         \hline
+                         0 & 0 \\
+                         5 & 0 \\
+                         10 & 0 \\
+                         15 & 9.0909 \\
+                         20 & 22.7273 \\
+                         25 & 45.4545 \\
+                         30 & 63.6364 \\
+                         35 & 77.2727 \\
+                         40 & 95.4545 \\
+                         45 & 109.0909 \\
+                         50 & 122.7273 \\
+                         55 & 131.8182 \\
+                         60 & 154.5455 \\
+                         65 & 172.7273 \\
+                         70 & 181.8182 \\
+                         75 & 195.4545 \\
+                         80 & 209.0909 \\
+                         85 & 227.2727 \\
+                         90 & 236.3636 \\
+                         95 & 254.5454 \\
+                         100 & 263.6364 \\
+                         95 & 268.1818 \\
+                         90 & 263.6364 \\
+                         85 & 250.0000 \\
+                         80 & 240.9091 \\
+                         75 & 231.8182 \\
+                         70 & 218.1818 \\
+                         65 & 204.5455 \\
+                         60 & 186.3636 \\
+                         55 & 177.2727 \\
+                         50 & 154.5455 \\
+                         45 & 140.9091 \\
+                         40 & 136.3636 \\
+                         35 & 127.2727 \\
+                         30 & 100.0000 \\
+                         25 & 86.3636 \\
+                         20 & 63.6364 \\
+                         15 & 45.4545 \\
+                         10 & 36.3636 \\
+                         5 & 22.7273 \\
+                         0 & 0 \\
+                         \hline
+                    \end{tabular}
+                    \caption{Quan hệ giữa \%PWM và tốc độ quay (RPM)}
+               \end{table}
+               \newpage
+               \hspace*{0.6cm}Đáp ứng của động cơ bánh phải theo thời gian
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_response.png}
+                    \caption{Đáp ứng của động cơ bánh phải}
+                    \label{CJGB1_response}
+               \end{figure}  
+               \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh phải 
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_tf.png}
+                    \caption{Hàm truyền động cơ bánh phải}
+                    \label{CJGB1_tf}
+               \end{figure} 
+               \hspace*{0.6cm}So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh phải
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_compare.png}
+                    \caption{Hàm truyền động cơ bánh phải}
+                    \label{CJGB1_compare}
+               \end{figure} 
+          \subsection{Mô hình hóa động cơ dẫn động bánh trái}
+               \hspace*{0.6cm}Tương tự như thu thập dữ liệu bánh phải động cơ, sau khi cấp xung và đo tốc độ động cơ, thu được bảng số liệu sau
+               \begin{table}[h!]
+                    \centering
+                    \begin{tabular}{|c|c|}
+                         \hline
+                         \textbf{\%PWM} & \textbf{RPM} \\
+                         \hline
+                         0   & 0 \\
+                         5   & 4.55 \\
+                         10  & 0 \\
+                         15  & 18.18 \\
+                         20  & 31.82 \\
+                         25  & 50.00 \\
+                         30  & 59.09 \\
+                         35  & 63.64 \\
+                         40  & 100.00 \\
+                         45  & 122.73 \\
+                         50  & 145.45 \\
+                         55  & 145.45 \\
+                         60  & 159.09 \\
+                         65  & 163.64 \\
+                         70  & 186.36 \\
+                         75  & 200.00 \\
+                         80  & 218.18 \\
+                         85  & 231.82 \\
+                         90  & 245.45 \\
+                         95  & 272.73 \\
+                         100 & 277.27 \\
+                         95  & 281.82 \\
+                         90  & 259.09 \\
+                         85  & 268.18 \\
+                         80  & 245.45 \\
+                         75  & 240.91 \\
+                         70  & 222.73 \\
+                         65  & 204.55 \\
+                         60  & 190.91 \\
+                         55  & 181.82 \\
+                         50  & 150.00 \\
+                         45  & 150.00 \\
+                         40  & 122.73 \\
+                         35  & 109.09 \\
+                         30  & 100.00 \\
+                         25  & 90.91 \\
+                         20  & 63.64 \\
+                         15  & 45.45 \\
+                         10  & 31.82 \\
+                         5   & 27.27 \\
+                         0   & 9.09 \\
+                         \hline
+                    \end{tabular}
+                    \caption{Quan hệ giữa \%PWM và tốc độ quay (RPM)}
+               \end{table}
+               \newpage
+               \hspace*{0.6cm}Đáp ứng của động cơ bánh trái theo thời gian
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_response.png}
+                    \caption{Đáp ứng của động cơ bánh trái}
+                    \label{CJGB2_response}
+               \end{figure}  
+               \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh trái 
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_tf.png}
+                    \caption{Hàm truyền động cơ bánh trái}
+                    \label{CJGB2_tf}
+               \end{figure} 
+               \hspace*{0.6cm}So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh trái
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_compare.png}
+                    \caption{Hàm truyền động cơ bánh trái}
+                    \label{CJGB2_compare}
+               \end{figure}
      
 
 
