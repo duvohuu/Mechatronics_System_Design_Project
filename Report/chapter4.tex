@@ -7,17 +7,11 @@
             \label{fig:4-1}
         \end{figure}
     \section{Thiết kế mạch cảm biến}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p10_TCRT5000Dimensions1.png}
-            \label{fig:4-2}
-            \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p11_TCRT5000Dimensions2.png}
-            \label{fig:4-3}
-            \caption{Kích thước cảm biến TCRT5000}
-        \end{figure}
         \hspace*{0.6cm}Theo tài liệu tham khảo \cite{vishay_tcrt5000_1}, ta có bảng đặc tính kỹ thuật của cảm biến TCRT5000 như sau:
         \begin{table}[H]
             \centering
+            \caption{Đặc tính kỹ thuật của cảm biến TCRT5000}
+            \label{tab:4-1}
             \begin{tabular}{|c|c|}
                 \hline
                 \textbf{Thông số} & \textbf{Giá trị} \\
@@ -35,13 +29,11 @@
                 $I_{F}$ (max) & 60 (mA) \\
                 \hline
             \end{tabular}
-            \caption{Đặc tính kỹ thuật của cảm biến TCRT5000}
-            \label{tab:4-1}
         \end{table}
         \subsection{Tính chọn điện trở cho cảm biến dò line}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.35\textwidth]{pictures/chapter4/c4_p2_TCRT5000Schematic.png}
+                \includegraphics[width=0.3\textwidth]{pictures/chapter4/c4_p2_TCRT5000Schematic.png}
                 \caption{Sơ đồ mạch điện TCRT5000}
                 \label{fig:4-4}
             \end{figure}
@@ -77,7 +69,7 @@
                 R_{2} = \frac{V_{CC} - V_{CE}}{I_{C}} = \frac{3.3 - 1}{0.001} = 2300 \Omega
                 \label{eq:4-2}
             \end{equation}
-            \hspace*{0.6cm}Chọn điện trở R2 là $2.4 k\Omega$ theo tiêu chuẩn trên thị trường.\\[0.4cm]
+            \hspace*{0.6cm}Chọn điện trở R2 là $2.4 k\Omega$ theo tiêu chuẩn trên thị trường.
         \subsection{Xác định cách đặt cảm biến}
             \hspace*{0.6cm}Có 2 cách đặt cảm biến dò line:
             \begin{itemize}
@@ -95,6 +87,8 @@
             \hspace*{0.6cm}Theo datasheet, trong khoảng cách từ 0.2 - 15 mm thì cảm biến cho kết quả tốt nhất. Do đó tiến hành đo giá trị ADC từ cảm biến trong khoảng 1 - 15mm trên sa bản và thu được kết quả.
             \begin{table}[H]
                 \centering
+                \caption{Giá trị ADC từ cảm biến dò line ở các khoảng cách khác nhau}
+                \label{tab:4-2}
                 \begin{tabular}{|c|c|c|c|}
                     \hline
                     \textbf{h (mm)} & \textbf{Giá trị vùng trắng} & \textbf{Giá trị vùng đen} & \textbf{Chênh lệch} \\
@@ -135,7 +129,6 @@
                     15 & 231 & 896 & 665 \\
                     \hline
                 \end{tabular}
-                \caption{Giá trị ADC từ cảm biến dò line ở các khoảng cách khác nhau}
             \end{table}
             \begin{figure}[H]
                 \centering
@@ -210,114 +203,110 @@
                 \label{fig:4.10}
             \end{figure}
             Từ bảng trên ta thấy trong khoảng h từ 8 - 12 mm thì chênh lệch giá trị ADC giữa vùng trắng và vùng đen là lớn nhất và ổn định nhất. Do đó, ta tiếp tục cho cảm biến đi ngang qua đường line với quãng đường 20mm quanh ranh giới trắng và đen trong khoảng h từ 8 - 12 mm để xác định độ cao thích hợp nhất.
-                \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-                \hline
-                \textbf{h} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
-                \hline
-                \textbf{8} & 45 & 44 & 54 & 135 & 200 & 285 & 345 & 491 & 623 & 655 & 713 \\
-                \hline
-                \textbf{9} & 43 & 43 & 52 & 130 & 190 & 280 & 340 & 503 & 625 & 662 & 721 \\
-                \hline
-                \textbf{10} & 45 & 43 & 52 & 93 & 195 & 277 & 332 & 505 & 609 & 674 & 739 \\
-                \hline
-                \textbf{11} & 43 & 43 & 50 & 112 & 189 & 263 & 349 & 482 & 615 & 663 & 698 \\
-                \hline
-                \textbf{12} & 41 & 40 & 44 & 90 & 167 & 233 & 313 & 473 & 591 & 639 & 679 \\
-                \hline
-            \end{tabular}
-        \end{table}
+            \begin{table}[H]
+                \centering
+                \caption{Giá trị ADC khi cảm biến đi qua đường line với khoảng cách khác nhau}
+                \label{tab:4-3}
+                \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+                    \hline
+                    \textbf{h} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} \\
+                    \hline
+                    \textbf{8} & 45 & 44 & 54 & 135 & 200 & 285 & 345 & 491 & 623 & 655 & 713 \\
+                    \hline
+                    \textbf{9} & 43 & 43 & 52 & 130 & 190 & 280 & 340 & 503 & 625 & 662 & 721 \\
+                    \hline
+                    \textbf{10} & 45 & 43 & 52 & 93 & 195 & 277 & 332 & 505 & 609 & 674 & 739 \\
+                    \hline
+                    \textbf{11} & 43 & 43 & 50 & 112 & 189 & 263 & 349 & 482 & 615 & 663 & 698 \\
+                    \hline
+                    \textbf{12} & 41 & 40 & 44 & 90 & 167 & 233 & 313 & 473 & 591 & 639 & 679 \\
+                    \hline
+                \end{tabular}
+                \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+                    \hline
+                    \textbf{h} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} \\
+                    \hline
+                    \textbf{8} & 790 & 819 & 850 & 855 & 865 & 870 & 855 & 878 & 875 & 877 \\
+                    \hline
+                    \textbf{9} & 785 & 823 & 845 & 850 & 860 & 865 & 850 & 873 & 870 & 872 \\
+                    \hline
+                    \textbf{10} & 794 & 836 & 848 & 853 & 863 & 863 & 862 & 862 & 860 & 863 \\
+                    \hline
+                    \textbf{11} & 787 & 825 & 857 & 861 & 867 & 873 & 877 & 877 & 875 & 876 \\
+                    \hline
+                    \textbf{12} & 765 & 803 & 825 & 836 & 844 & 849 & 849 & 852 & 857 & 855 \\
+                    \hline
+                \end{tabular}
+            \end{table}
 
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-                \hline
-                \textbf{h} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} \\
-                \hline
-                \textbf{8} & 790 & 819 & 850 & 855 & 865 & 870 & 855 & 878 & 875 & 877 \\
-                \hline
-                \textbf{9} & 785 & 823 & 845 & 850 & 860 & 865 & 850 & 873 & 870 & 872 \\
-                \hline
-                \textbf{10} & 794 & 836 & 848 & 853 & 863 & 863 & 862 & 862 & 860 & 863 \\
-                \hline
-                \textbf{11} & 787 & 825 & 857 & 861 & 867 & 873 & 877 & 877 & 875 & 876 \\
-                \hline
-                \textbf{12} & 765 & 803 & 825 & 836 & 844 & 849 & 849 & 852 & 857 & 855 \\
-                \hline
-            \end{tabular}
-            \caption{Giá trị ADC khi cảm biến đi qua đường line với khoảng cách khác nhau}
-            \label{tab:sensor-spacing-adc}
-        \end{table}
-
-        \begin{figure}[H]
-            \centering
-            \begin{tikzpicture}
-                \begin{axis}[
-                    width=16cm,
-                    height=10cm,
-                    xlabel={Vị trí cảm biến (mm)},
-                    ylabel={Giá trị ADC},
-                    legend pos=north west,
-                    grid=major,
-                    xmin=-1, xmax=21,
-                    ymin=0, ymax=1000,
-                    mark size=1.5pt,
-                    legend style={font=\small}
-                ]
-                
-                % h = 8mm (màu xanh dương)
-                \addplot[color=blue, mark=none, thick, smooth] coordinates {
-                    (0,45) (1,44) (2,54) (3,135) (4,200) (5,285) (6,345) (7,491) (8,623) (9,655) 
-                    (10,713) (11,790) (12,819) (13,850) (14,855) (15,865) (16,870) (17,855) (18,878) (19,875) (20,877)
-                };
-                \addlegendentry{8}
-                
-                % h = 9mm (màu cam)
-                \addplot[color=orange, mark=none, thick, smooth] coordinates {
-                    (0,43) (1,43) (2,52) (3,130) (4,190) (5,280) (6,340) (7,503) (8,625) (9,662) 
-                    (10,721) (11,785) (12,823) (13,845) (14,850) (15,860) (16,865) (17,850) (18,873) (19,870) (20,872)
-                };
-                \addlegendentry{9}
-                
-                % h = 10mm (màu đỏ - highlight)
-                \addplot[color=red, mark=none, thick, smooth] coordinates {
-                    (0,45) (1,43) (2,52) (3,93) (4,195) (5,277) (6,332) (7,505) (8,609) (9,674) 
-                    (10,739) (11,794) (12,836) (13,848) (14,853) (15,863) (16,863) (17,862) (18,862) (19,860) (20,863)
-                };
-                \addlegendentry{10}
-                
-                % h = 11mm (màu vàng)
-                \addplot[color=yellow!80!black, mark=none, thick, smooth] coordinates {
-                    (0,43) (1,43) (2,50) (3,112) (4,189) (5,263) (6,349) (7,482) (8,615) (9,663) 
-                    (10,698) (11,787) (12,825) (13,857) (14,861) (15,867) (16,873) (17,877) (18,877) (19,875) (20,876)
-                };
-                \addlegendentry{11}
-                
-                % h = 12mm (màu xanh nhạt)
-                \addplot[color=cyan, mark=none, thick, smooth] coordinates {
-                    (0,41) (1,40) (2,44) (3,79) (4,167) (5,233) (6,313) (7,473) (8,591) (9,639) 
-                    (10,679) (11,765) (12,803) (13,825) (14,836) (15,844) (16,849) (17,849) (18,852) (19,857) (20,855)
-                };
-                \addlegendentry{12}
-                
-                % Đánh dấu vị trí chuyển line tại x = 10
-                \addplot[color=black, mark=none, thick, dashed] coordinates {(10,0) (10,1000)};
-                
-                % Thêm text đánh dấu
-                \node[anchor=south] at (axis cs:10,900) {\textbf{Chuyển line}};
-                \node[anchor=south] at (axis cs:10,850) {\textbf{(Vị trí 10)}};
-                
-                % Đánh dấu vùng trước và sau line
-                \node[anchor=center] at (axis cs:5,600) {\textbf{Vùng trắng}};
-                \node[anchor=center] at (axis cs:15,600) {\textbf{Vùng đen}};
-                
-                \end{axis}
-            \end{tikzpicture}
-            \caption{Biểu đồ giá trị ADC khi cảm biến đi qua đường line}
-            \label{fig:4-11}
-        \end{figure}
-        Từ bảng và đồ thị trên, ta thấy tại h = 10mm, cảm biến cho kết quả chuyển tiếp rõ ràng và nhanh nhất giữa nền trắng và nền đen. Do đó, ta chọn khoảng cách từ cảm biến dò line đến sa bàn là 10mm.
+            \begin{figure}[H]
+                \centering
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        width=16cm,
+                        height=10cm,
+                        xlabel={Vị trí cảm biến (mm)},
+                        ylabel={Giá trị ADC},
+                        legend pos=north west,
+                        grid=major,
+                        xmin=-1, xmax=21,
+                        ymin=0, ymax=1000,
+                        mark size=1.5pt,
+                        legend style={font=\small}
+                    ]
+                    
+                    % h = 8mm (màu xanh dương)
+                    \addplot[color=blue, mark=none, thick, smooth] coordinates {
+                        (0,45) (1,44) (2,54) (3,135) (4,200) (5,285) (6,345) (7,491) (8,623) (9,655) 
+                        (10,713) (11,790) (12,819) (13,850) (14,855) (15,865) (16,870) (17,855) (18,878) (19,875) (20,877)
+                    };
+                    \addlegendentry{8}
+                    
+                    % h = 9mm (màu cam)
+                    \addplot[color=orange, mark=none, thick, smooth] coordinates {
+                        (0,43) (1,43) (2,52) (3,130) (4,190) (5,280) (6,340) (7,503) (8,625) (9,662) 
+                        (10,721) (11,785) (12,823) (13,845) (14,850) (15,860) (16,865) (17,850) (18,873) (19,870) (20,872)
+                    };
+                    \addlegendentry{9}
+                    
+                    % h = 10mm (màu đỏ - highlight)
+                    \addplot[color=red, mark=none, thick, smooth] coordinates {
+                        (0,45) (1,43) (2,52) (3,93) (4,195) (5,277) (6,332) (7,505) (8,609) (9,674) 
+                        (10,739) (11,794) (12,836) (13,848) (14,853) (15,863) (16,863) (17,862) (18,862) (19,860) (20,863)
+                    };
+                    \addlegendentry{10}
+                    
+                    % h = 11mm (màu vàng)
+                    \addplot[color=yellow!80!black, mark=none, thick, smooth] coordinates {
+                        (0,43) (1,43) (2,50) (3,112) (4,189) (5,263) (6,349) (7,482) (8,615) (9,663) 
+                        (10,698) (11,787) (12,825) (13,857) (14,861) (15,867) (16,873) (17,877) (18,877) (19,875) (20,876)
+                    };
+                    \addlegendentry{11}
+                    
+                    % h = 12mm (màu xanh nhạt)
+                    \addplot[color=cyan, mark=none, thick, smooth] coordinates {
+                        (0,41) (1,40) (2,44) (3,79) (4,167) (5,233) (6,313) (7,473) (8,591) (9,639) 
+                        (10,679) (11,765) (12,803) (13,825) (14,836) (15,844) (16,849) (17,849) (18,852) (19,857) (20,855)
+                    };
+                    \addlegendentry{12}
+                    
+                    % Đánh dấu vị trí chuyển line tại x = 10
+                    \addplot[color=black, mark=none, thick, dashed] coordinates {(10,0) (10,1000)};
+                    
+                    % Thêm text đánh dấu
+                    \node[anchor=south] at (axis cs:10,900) {\textbf{Chuyển line}};
+                    \node[anchor=south] at (axis cs:10,850) {\textbf{(Vị trí 10)}};
+                    
+                    % Đánh dấu vùng trước và sau line
+                    \node[anchor=center] at (axis cs:5,600) {\textbf{Vùng trắng}};
+                    \node[anchor=center] at (axis cs:15,600) {\textbf{Vùng đen}};
+                    
+                    \end{axis}
+                \end{tikzpicture}
+                \caption{Biểu đồ giá trị ADC khi cảm biến đi qua đường line}
+                \label{fig:4-11}
+            \end{figure}
+            Từ bảng và đồ thị trên, ta thấy tại h = 10mm, cảm biến cho kết quả chuyển tiếp rõ ràng và nhanh nhất giữa nền trắng và nền đen. Do đó, ta chọn khoảng cách từ cảm biến dò line đến sa bàn là 10mm.
 
         \subsection{Xác định khoảng cách giữa các cảm biến}
             \begin{figure}[H]
@@ -343,7 +332,7 @@
             \hspace*{0.6cm}Dựa vào datasheet, ta có chiều dài của cảm biến TCRT5000 là 10.2 mm (bố trí nằm ngang). Do đó, với độ cao $h = 10$ mm thì chắc chắn hai cảm biến liền kề không ảnh hưởng nhau.\\[0.4cm]
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.8\textwidth]{pictures/chapter4/c4_p12_SensorDistance.png}
+                \includegraphics[width=0.8\textwidth]{pictures/chapter4/c4_p9_SensorDistance.png}
                 \caption{Khoảng cách giữa các cảm biến dò line}
                 \label{fig:4-14}
             \end{figure}
@@ -370,7 +359,7 @@
             \end{itemize}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p13_SensorSchematic.png}
+                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p10_SensorSchematic.png}
                 \caption{Sơ đồ nguyên lý mạch cảm biến dò line}
                 \label{fig:4-15}
             \end{figure}
@@ -380,7 +369,7 @@
 
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p14_SensorPCB.png}
+                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p11_SensorPCB.png}
                 \caption{Sơ đồ thiết kế PCB mạch cảm biến dò line}
                 \label{fig:4-16}
             \end{figure}
@@ -390,7 +379,7 @@
                 y_i = y_{min} + \frac{(y_{max} - y_{min})(x_{ij} - x_{min, i})}{x_{max, i} - x_{min, i}} 
                 \label{eq:4-6}
             \end{align}
-            Trong đó:
+            \hspace*{0.6cm}Trong đó:
             \begin{itemize}
                 \item $x_{max,i}$ và $x_{min,i}$: giá trị analog lớn nhất và nhỏ nhất của cảm biến thứ $i$.
                 \item $y_{max}$ và $y_{min}$: giá trị analog lớn nhất và nhỏ nhất mà ta mong muốn cho tất cả cảm biến.
@@ -399,6 +388,8 @@
             \end{itemize}
             \begin{table}[H]
                 \centering
+                \caption{Bảng giá trị analog của cảm biến trước khi calib ở độ cao h = 10mm}
+                \label{tab:4-4}
                 \begin{tabular}{|c|c|c|}
                     \hline
                     \textbf{Cảm biến} & $\mathbf{x_{max,i}}$ & $\mathbf{x_{min,i}}$  \\
@@ -414,8 +405,6 @@
                     Cảm biến 5 & 863 & 88  \\
                     \hline
                 \end{tabular}
-                \caption{Bảng giá trị analog của cảm biến trước khi calib ở độ cao h = 10mm}
-                \label{tab:4-3}
             \end{table}
             \hspace*{0.6cm}Dựa vào giá trị trung bình, ta có được giá trị mong muốn: $y_{max} = 853$ và $y_{min} = 66$.\\
             \hspace*{0.6cm}Từ đó ta có công thức calib cho từng cảm biến:
@@ -441,16 +430,30 @@
                     y_5 = 66 + \frac{(853 - 66)(x_{5j} - 88)}{863 - 88} = 66 + 0.89(x_{5j} - 88)
                 \end{align*}
             \end{itemize}
-            \subsection{Tìm giá trị sai số theo phương pháp trung bình trọng số}
+        \subsection{Tìm giá trị sai số theo phương pháp trung bình trọng số}
             \hspace*{0.6cm}Giá sử tọa độ của 5 cảm biến lần lượt là $x_1, x_2, x_3, x_4, x_5$ so với tâm đường line và các giá trị analog tương ứng là $y_1, y_2, y_3, y_4, y_5$. Từ đó, ta tìm được vị trí xe so với tâm đường line theo công thức sau:
             \begin{equation}
                 X = L_{cb} \times \frac{\sum_{i=1}^{5} x_i y_i}{\sum_{i=1}^{5} y_i} = 17 \times \frac{2(y_5 - y_1) + (y_4 - y_2)}{y_1 + y_2 + y_3 + y_4 + y_5}
                 \label{eq:4-7}
             \end{equation}
 
-            \hspace*{0.6cm}Tiến hành thực nghiệm đọc tín hiệu cảm biến với bước nhảy 1 mm, giới hạn từ $-30$ mm tới $30$ mm so với tâm đường line, ta thu được bảng kết quả sau:
+            Tiến hành thực nghiệm đọc tín hiệu cảm biến với bước nhảy 1 mm, giới hạn từ $-30$ mm tới $30$ mm so với tâm đường line bằng máy in 3D theo quy trình sau:
+            \begin{itemize}
+                \item Bước 1: Tiến hành gá cụm cảm biến lên cụm in của máy in 3D.
+                \item Bước 2: Di chuyển trục z về vị trí home là vị trí cách mặt in đúng bằng khoảng cách từ cảm biến đến line theo tính toán (10 mm).
+                \item Bước 3: Dịch chỉnh trục x sao cho cụm cảm biến có cảm biến giữa nằm đúng vị trí tâm line là vị trí mà giá trị cảm biến giữa đọc về lớn nhất.
+                \item Bước 4: Di chuyển cụm in sang trái 30 mm và sang phải 30 mm để tiến hành đọc giá trị analog của từng cảm biến.
+            \end{itemize}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\textwidth]{pictures/chapter4/c4_p16_3DPrinter.png}
+                \caption{Máy in 3D dùng để hiệu chuẩn cảm biến dò line}
+                \label{fig:4-17}
+            \end{figure}
         
             \begin{longtable}{|c|c|c|}
+                \caption{Bảng tính toán giá trị sai số giữa vị trí trên thực tế và vị trí tính toán}
+                \label{tab:4-5} \\
                 \hline
                 \textbf{Vị trí (mm)} & \textbf{Giá trị tính toán (mm)} & \textbf{Sai số (mm)} \\
                 \hline
@@ -582,8 +585,6 @@
                 \hline
                 -1 & 0.171428571 & 1.171428571 \\
                 \hline        
-                \caption{Bảng tính toán giá trị sai số giữa vị trí trên thực tế và vị trí tính toán}
-                \label{tab:4-4}
             \end{longtable}
             \hspace*{0.6cm}Dựa vào số liệu trên, ta thực hiện xấp xỉ tuyến tính giá trị tính toán theo vị trí, thu được phương trình tính xấp xỉ vị trí:
             \begin{align}
@@ -597,7 +598,7 @@
             \end{itemize}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p15_LinearRegression.png}
+                \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p12_LinearRegression.png}
                 \caption{Biểu đồ xấp xỉ tuyến tính giá trị tính toán theo vị trí}
                 \label{fig:4-8}
             \end{figure}
@@ -684,9 +685,10 @@
                     \hspace{0.6cm}Với dung lượng pin ta chọn pin 18650 loại 1200 mAh số lượng 2 vì khi dung lượng pin giảm thì điện áp pin giảm nên để đảm bảo nguồn cấp tối thiểu 5V nên chọn số lượng pin là 2.
                 \end{itemize}
             \subsubsection{Nguồn động lực}
-                \hspace*{0.6cm}Bảng thông số động cơ:
                 \begin{table}[H]
                     \centering
+                    \caption{Bảng thông số động cơ JGB37-520}
+                    \label{tab:4-5}
                     \begin{tabular}{|c|c|c|c|}
                         \hline
                         \textbf{Thông số} & \textbf{Giá trị} & \textbf{Thông số} & \textbf{Giá trị} \\
@@ -702,8 +704,6 @@
                         Chiều dài hộp số L & 22 (mm) & Số xung Encoder mỗi kênh & 330 xung \\
                         \hline
                     \end{tabular}
-                    \caption{Bảng thông số động cơ JGB37-520}
-                    \label{tab:4-5}
                 \end{table}
                 \begin{itemize}
                     \item Công suất của động cơ
@@ -738,17 +738,11 @@
                 \end{itemize}
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p16_PowerSchematic.png}
+                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p13_PowerSchematic.png}
                     \caption{Sơ đồ nguyên lý mạch nguồn}
                     \label{fig:4-9}
                 \end{figure}
                 \hspace*{0.6cm}Các linh kiện (điện trở, tụ điện, cuộn cảm) được chọn theo bảng từ tài liệu tham khảo \cite{lm2596}.
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p17_ChooseComponent.png}
-                    \caption{Bảng chọn linh kiện cho mạch hạ áp}
-                    \label{fig:4-10}
-                \end{figure}
                 \begin{itemize}
                     \item Với nguồn đầu ra 3.3V, nguồn đầu vào 7.4V và dòng tải không quá 3A, ta chọn: cuộn cảm $L = 22 \mu H$, tụ điện $C_{out} = 680 \mu F$. 
                     \item Với nguồn đầu ra 5V, nguồn đầu vào 7.4V và dòng tải không quá 3A, ta chọn: cuộn cảm $L = 22 \mu H$, tụ điện $C_{out} = 560 \mu F$.
@@ -760,7 +754,7 @@
                 \hspace*{0.6cm}Dựa vào các thiết kế mạch cảm biến, mạch nguồn và các linh kiện khác, ta thiết kế sơ đồ nguyên lý mạch toàn bộ hệ thống như sau:
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter4/c4_p18_Schematic.png}
+                    \includegraphics[width=0.95\textwidth]{pictures/chapter4/c4_p14_Schematic.png}
                     \caption{Sơ đồ nguyên lý mạch toàn bộ hệ thống}
                     \label{fig:4-17}
                 \end{figure}
@@ -768,7 +762,7 @@
                 \hspace*{0.6cm}Dựa vào sơ đồ nguyên lý mạch toàn bộ hệ thống, ta tiến hành thiết kế PCB cho mạch toàn bộ hệ thống. Sơ đồ thiết kế PCB được trình bày như hình \ref{fig:4-18}.
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter4/c4_p19_PCB.png}
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter4/c4_p15_PCB.png}
                     \caption{Sơ đồ thiết kế PCB mạch toàn bộ hệ thống}
                     \label{fig:4-18}
                 \end{figure}

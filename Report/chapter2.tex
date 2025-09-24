@@ -107,6 +107,7 @@
         \subsection{Vật liệu}
             \begin{table}[H]
                 \centering
+                \caption{So sánh các loại vật liệu chế tạo robot}
                 \begin{tabular}{|c|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.8cm}|}
                     \hline
                     \textbf{Vật liệu} & \textbf{Gỗ} & \textbf{Mica} & \textbf{Nhôm} & \textbf{Inox} \\
@@ -123,8 +124,7 @@
                     & Giá thành gia công cao.
                     & Giá thành gia công cao. \\
                     \hline
-                \end{tabular}
-                \caption{So sánh các loại vật liệu chế tạo robot}
+                \end{tabular} 
                 \label{tab:label}
             \end{table}
         \hspace*{0.6cm}\textbf{Kết luận}: sau khi phân tích các phương án kết cấu cơ khí cùng với yêu cầu được đặt ra về vận tốc không cao, không phải chịu tải nặng. Nhóm quyết định xe 3 bánh, 2 bánh dẫn động ở phía trước và 1 bánh dẫn hướng phía sau để đảm bảo đồng phẳng và dễ điều khiển theo cơ cấu Pinto. Vật liệu được nhóm lựa chọn để thiết kế khung xe với yêu cầu kỹ thuật trên là nhôm với độ dày 2mm. 
@@ -140,6 +140,7 @@
             \subsubsection{So sánh các loại cảm biến}
                 \begin{table}[H]
                     \centering
+                    \caption{Bảng so sánh các loại cảm biến}
                     \begin{tabular}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|}
                     \hline
                     \textbf{Loại cảm biến} & \textbf{Camera} & \textbf{Cảm biến hồng ngoại} & \textbf{Cảm biến quang trở} \\
@@ -195,6 +196,7 @@
                 \end{itemize}
                 \begin{table}[H]
                     \centering
+                    \caption{Bảng so sánh cách bố trí cảm biến}
                     \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
                         \hline
                         \textbf{Dạng bố trí} & \textbf{Ưu điểm} & \textbf{Nhược điểm} \\
@@ -217,7 +219,6 @@
                         - Giải thuật xử lý phức tạp hơn so với dạng đường thẳng. \\ 
                         \hline
                     \end{tabular}
-                    \caption{Mô tả bảng}
                     \label{tab:label}
                 \end{table}
             \subsubsection{Kết luận}
@@ -268,10 +269,12 @@
                 \item Nhỏ gọn để dễ dàng bố trí trên xe. 
                 \item Giải thuật xử lý đơn giản.
             \end{itemize}
+        \newpage
         \subsection{So sánh các cảm biến màu sắc}
-            \newpage
-            \begin{table}[h!]
+            \begin{table}[H]
                 \centering
+                \caption{So sánh cảm biến màu sắc và camera trong nhận diện màu sắc}
+                \label{tab:compare_color_sensors}
                 \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5.5cm}|>{\raggedright\arraybackslash}p{5.5cm}|}
                 \hline
                 \textbf{Tiêu chí} & \textbf{Cảm biến màu sắc} & \textbf{Camera} \\
@@ -299,7 +302,6 @@
                 \\
                 \hline
                 \end{tabular}
-                \caption{So sánh cảm biến màu sắc và camera trong nhận diện màu sắc}
             \end{table}
         \subsubsection{Kết luận}
             \hspace*{0.6cm}Dựa vào bảng so sánh, nhóm lựa chọn cảm biến màu sắc do đáp ứng đủ tiêu chí đề ra. Thông qua tìm hiểu trên thị trường, nhóm chọn sản phẩm TCS3200D. 
@@ -323,6 +325,8 @@
             \subsection{So sánh các vi điều khiển}
             \begin{table}[H]
                 \centering
+                \caption{So sánh các vi điều khiển phổ biến}
+                \label{tab:compare_microcontrollers}
                 \begin{tabular}{|p{2.5cm}|>{\raggedright\arraybackslash}p{3.8cm}|>{\raggedright\arraybackslash}p{3.8cm}|>{\raggedright\arraybackslash}p{3.8cm}|}
                     \hline
                     \textbf{Dòng VDK} & \textbf{STM32F103C8T6} & \textbf{Microchip PIC16F887} & \textbf{ATMega328p} \\
@@ -342,8 +346,6 @@
                     \textbf{PWM} & 15 chân PWM 16 bit & 2 khối PWM, 10 bit & 6 chân PWM 8 bit \\
                     \hline
                 \end{tabular}
-                \caption{So sánh các vi điều khiển phổ biến}
-                \label{tab:compare_microcontrollers}
             \end{table}
             \subsection{Kết luận}
                 \hspace*{0.6cm}Sau khi phân tích các vi điều khiển, nhóm quyết định sử dụng vi điều khiển STM32F103C8T6 do đáp ứng đủ các yêu cầu về tốc độ xử lý, số lượng chân I/O, số kênh ADC, thư viện HAL sử dụng đơn giản, nhỏ gọn, dễ lắp đặt và giá thành hợp lý. 
@@ -374,6 +376,8 @@
             \subsubsection{So sánh các mạch điều khiển động cơ về các thông số}
                 \begin{table}[H]
                     \centering
+                    \caption{So sánh mạch điều khiển động cơ L298N và TB6612FNG}
+                    \label{tab:compare_motor_driver}
                     \begin{tabular}{|p{3cm}|p{4cm}|p{4cm}|}
                         \hline
                         \textbf{Tiêu chí} & \textbf{Mạch L298N} & \textbf{Mạch TB6612FNG} \\
@@ -395,8 +399,6 @@
                         \textbf{Giá thành} & Rẻ& Đắt hơn \\
                         \hline
                         \end{tabular}
-                    \caption{So sánh mạch điều khiển động cơ L298N và TB6612FNG}
-                    \label{tab:compare_motor_driver}
                 \end{table}
             \subsubsection{So sánh các mạnh điều khiển động cơ về đồ thị đáp ứng giữa tốc tốc độ động cơ và tần số xung PWM}
                 \begin{figure}[H]
@@ -425,6 +427,8 @@
                 \subsubsection{So sánh các cấu trúc điều khiển}
                 \begin{table}[H]
                     \centering
+                    \caption{So sánh các cấu trúc điều khiển}
+                    \label{tab:compare_control_structures}  
                     \begin{tabular}{|p{3cm}|p{4cm}|p{4cm}|}
                         \hline
                         \textbf{Cấu trúc} & \textbf{Ưu điểm} & \textbf{Nhược điểm} \\
@@ -442,8 +446,6 @@
                         - Tốn thêm chi phí và không gian bố trí vi điều khiển. \\
                         \hline
                         \end{tabular}
-                    \caption{So sánh các cấu trúc điều khiển}
-                    \label{tab:compare_control_structures}  
                 \end{table}
                 \subsubsection{Kết luận}
                     \hspace*{0.6cm}Sau khi phân tích các cấu trúc điều khiển, nhóm quyết định sử dụng cấu trúc điều khiển tập trung do đáp ứng được yêu cầu về chi phí, không gian bố trí và dễ dàng quản lý chương trình.
@@ -468,7 +470,7 @@
                 \hspace{0.6cm}Với vận tốc trung bình của xe đặt ra là 0.5 m/s, vận tốc không quá cao, với yêu cầu điều khiển bám line nhóm quyết định sử dụng bộ điều khiển PID làm bộ điều khiển bám line.
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1.1\textwidth]{pictures/chapter2/luudodieukhien.png}
+                    \includegraphics[width=1\textwidth]{pictures/chapter2/luudodieukhien.png}
                     \caption{Sơ đồ nguyên lý điều khiển}
                     \label{control_principle}
                 \end{figure}
