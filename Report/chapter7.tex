@@ -42,8 +42,8 @@
                \hspace*{0.6cm}Giai đoạn 1, robot đi từ điểm bắt đầu $A$ đến điểm tải hàng $B$ bằng giải thuật bám line. Khi gặp vạch tải hàng, 3 trên 5 cảm biến dò line sẽ có giá trị vượt ngưỡng (cho thấy cả 3 cảm biến đều đã nhìn thấy line đen)
                xét cùng với trạng thái của cờ \textit{empty} (thể hiện tình trạng có tải của xe), khi đó xe dừng và cờ báo xe dừng chờ nhận tải hàng được kích hoạt.\\
                \hspace*{0.6cm}Giai đoạn 2, giai đoạn tải hàng. Khi đặt gói hàng lên xe, thì cảm biến màu sẽ đọc
-               tín hiệu màu của gói hàng. Khi xe đã xác nhận được màu của gói hàng là Xanh hoặc
-               Đỏ thì lúc này xe bắt đầu chạy tiếp.\\
+               tín hiệu màu của gói hàng. Khi cảm biến đã xác nhận được màu của gói hàng là Xanh hoặc
+               Đỏ, xe đợi 5s sau đó tiếp tục chạy.\\
                \hspace*{0.6cm}Giai đoạn 3, robot đi từ điểm tải hàng $B$ đến điểm rẽ hướng $C$. Bằng cách đếm xung encoder, robot nhận biết được khúc vào cua bán kính $R500$ để giảm tốc độ xuống để vào line, robot sẽ đi qua đoạn cua $R500$ sau đó đi thẳng đến điểm $C$. Xe nhận biết
                được đoạn rẽ bằng số lượng cảm biến, khi 3 trên 5 cảm biến có tín hiệu và cờ báo hiệu rẽ được kích hoạt,
                xe nhận biết được sẽ rẽ sang bên đường tương ứng với màu sắc khi xác nhận tại điểm $B$.\\
@@ -53,7 +53,7 @@
                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.8\textwidth]{pictures/chapter7/flow2.png}
-                    \caption{Phân đoạn sa bàn}
+                    \caption{Lưu đồ giải thuật cụ thể trên từng đoạn sa bàn}
                     \label{flow2}
                \end{figure}
 
