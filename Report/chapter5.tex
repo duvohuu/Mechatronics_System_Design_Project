@@ -6,7 +6,7 @@
           gì đến mô hình động lực học của xe.
           \begin{figure}[H]
                \centering
-               \includegraphics[width=0.7\textwidth]{pictures/chapter5/chapter5_pic1.png}
+               \includegraphics[width=0.55\textwidth]{pictures/chapter5/chapter5_pic1.png}
                \caption{Mô hình động học xe dò line}
                \label{kinematic_model}
           \end{figure}         
@@ -212,157 +212,56 @@
                
 
      \section{Mô hình hóa động cơ}
-          \hspace*{0.6cm}Thực hiện mô hình hóa động cơ, tìm hàm truyền động cơ bằng cách xem xét mối quan hệ giữa đầu vào giá trị xung PWM và đầu ra là tốc độ quay của trục động cơ (vòng/phút).   
+          \hspace*{0.6cm}Thực hiện mô hình hóa động cơ, vì nhóm sử dụng driver TB612FNG để điều khiển động cơ, do đó hàm truyền tìm được bằng cách xem xét mối quan hệ giữa đầu vào giá trị xung PWM và đầu ra là tốc độ quay của trục động cơ (vòng/phút) chính là hàm truyền của cả động cơ và driver.   
           \subsection{Mô hình hóa động cơ dẫn động bánh phải}    
-               \hspace*{0.6cm}Sử dụng driver TB6612FNG, sau khi cấp xung và đọc về giá trị tốc độ động cơ, thu được bảng số liệu [] Phụ lục, thể hiện sự thay đổi vận tốc động cơ phụ thuộc vào giá trị xung PWM.
-               \begin{table}[h!]
-                    \centering
-                    \begin{tabular}{|c|c|}
-                         \hline
-                         \textbf{\%PWM} & \textbf{RPM} \\
-                         \hline
-                         0 & 0 \\
-                         5 & 0 \\
-                         10 & 0 \\
-                         15 & 9.0909 \\
-                         20 & 22.7273 \\
-                         25 & 45.4545 \\
-                         30 & 63.6364 \\
-                         35 & 77.2727 \\
-                         40 & 95.4545 \\
-                         45 & 109.0909 \\
-                         50 & 122.7273 \\
-                         55 & 131.8182 \\
-                         60 & 154.5455 \\
-                         65 & 172.7273 \\
-                         70 & 181.8182 \\
-                         75 & 195.4545 \\
-                         80 & 209.0909 \\
-                         85 & 227.2727 \\
-                         90 & 236.3636 \\
-                         95 & 254.5454 \\
-                         100 & 263.6364 \\
-                         95 & 268.1818 \\
-                         90 & 263.6364 \\
-                         85 & 250.0000 \\
-                         80 & 240.9091 \\
-                         75 & 231.8182 \\
-                         70 & 218.1818 \\
-                         65 & 204.5455 \\
-                         60 & 186.3636 \\
-                         55 & 177.2727 \\
-                         50 & 154.5455 \\
-                         45 & 140.9091 \\
-                         40 & 136.3636 \\
-                         35 & 127.2727 \\
-                         30 & 100.0000 \\
-                         25 & 86.3636 \\
-                         20 & 63.6364 \\
-                         15 & 45.4545 \\
-                         10 & 36.3636 \\
-                         5 & 22.7273 \\
-                         0 & 0 \\
-                         \hline
-                    \end{tabular}
-                    \caption{Quan hệ giữa \%PWM và tốc độ quay (RPM)}
-               \end{table}
-               \newpage
-               \hspace*{0.6cm}Đáp ứng của động cơ bánh phải theo thời gian
+               \hspace*{0.6cm}Thực hiện quan sát và lấy mẫu trong 4s, với thời gian lấy mẫu là 0.01s, dữ liệu thực nghiệm thu được gồm 400 mẫu giá trị tốc độ động cơ thay đổi theo giá trị xung PWM. Do dung lượng số liệu lớn, 
+               bảng dữ liệu chi tiết không trình bày trong thuyết minh mà được xử lý và thể hiện dưới dạng đồ thị đáp ứng của động cơ trong thực tế. 
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_response.png}
-                    \caption{Đáp ứng thực tế và model hàm truyền động cơ bánh phải}
+                    \includegraphics[width=0.85\textwidth]{pictures/chapter5/CJGB1_response.png}
+                    \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB1_response}
                \end{figure}  
                \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh phải 
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_tf.png}
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB1_tf.png}
                     \caption{Hàm truyền động cơ bánh phải}
                     \label{CJGB1_tf}
                \end{figure} 
                \hspace*{0.6cm}So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh phải
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB1_compare.png}
-                    \caption{Đáp ứng thực tế và model hàm truyền động cơ bánh trái}
+                    \includegraphics[width=0.9\textwidth]{pictures/chapter5/CJGB1_compare.png}
+                    \caption{Đồ thị tương quan giữa đáp ứng và model hàm truyền động cơ bánh phải}
                     \label{CJGB1_compare}
                \end{figure} 
           \subsection{Mô hình hóa động cơ dẫn động bánh trái}
-               \hspace*{0.6cm}Tương tự như thu thập dữ liệu bánh phải động cơ, sau khi cấp xung và đo tốc độ động cơ, thu được bảng số liệu [] phần Phụ lục
-               \begin{table}[h!]
-                    \centering
-                    \begin{tabular}{|c|c|}
-                         \hline
-                         \textbf{\%PWM} & \textbf{RPM} \\
-                         \hline
-                         0   & 0 \\
-                         5   & 4.55 \\
-                         10  & 0 \\
-                         15  & 18.18 \\
-                         20  & 31.82 \\
-                         25  & 50.00 \\
-                         30  & 59.09 \\
-                         35  & 63.64 \\
-                         40  & 100.00 \\
-                         45  & 122.73 \\
-                         50  & 145.45 \\
-                         55  & 145.45 \\
-                         60  & 159.09 \\
-                         65  & 163.64 \\
-                         70  & 186.36 \\
-                         75  & 200.00 \\
-                         80  & 218.18 \\
-                         85  & 231.82 \\
-                         90  & 245.45 \\
-                         95  & 272.73 \\
-                         100 & 277.27 \\
-                         95  & 281.82 \\
-                         90  & 259.09 \\
-                         85  & 268.18 \\
-                         80  & 245.45 \\
-                         75  & 240.91 \\
-                         70  & 222.73 \\
-                         65  & 204.55 \\
-                         60  & 190.91 \\
-                         55  & 181.82 \\
-                         50  & 150.00 \\
-                         45  & 150.00 \\
-                         40  & 122.73 \\
-                         35  & 109.09 \\
-                         30  & 100.00 \\
-                         25  & 90.91 \\
-                         20  & 63.64 \\
-                         15  & 45.45 \\
-                         10  & 31.82 \\
-                         5   & 27.27 \\
-                         0   & 9.09 \\
-                         \hline
-                    \end{tabular}
-                    \caption{Quan hệ giữa \%PWM và tốc độ quay (RPM)}
-               \end{table}
-               \newpage
-               \hspace*{0.6cm}Đáp ứng của động cơ bánh trái theo thời gian
+               \hspace*{0.6cm}Tương tự tìm hàm truyền động cơ bánh phải, dữ liệu được thu thập trong khoảng thời gian 4s với 400 mẫu giá trị, ta có đồ thị đáp ứng thực tế của động cơ bánh trái
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_response.png}
-                    \caption{Đáp ứng của động cơ bánh trái}
+                    \includegraphics[width=0.85\textwidth]{pictures/chapter5/CJGB2_response.png}
+                    \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB2_response}
                \end{figure}  
                \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh trái 
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_tf.png}
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB2_tf.png}
                     \caption{Hàm truyền động cơ bánh trái}
                     \label{CJGB2_tf}
                \end{figure} 
-               \hspace*{0.6cm}So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh trái
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=1\textwidth]{pictures/chapter5/CJGB2_compare.png}
-                    \caption{Đáp ứng thực tế hàm truyền động cơ bánh trái và hàm truyền}
+                    \includegraphics[width=0.9\textwidth]{pictures/chapter5/CJGB2_compare.png}
+                    \caption{Đồ thị tương quan giữa đáp ứng và model hàm truyền động cơ bánh trái}
                     \label{CJGB2_compare}
                \end{figure}
+               \hspace{0.6cm}\textbf{Nhận xét:} Hai hàm truyền động cơ tìm được từ quá trình lấy mẫu
+               và nhận dạng bằng Toolbox System Identification của Matlab cho thấy hàm truyền bậc I mô 
+               tả khá sát hệ driver + động cơ trong thực tế. Cụ thể, đường cong mô hình và dữ liệu thực nghiệm có độ tương 
+               đồng cao. Có xuất hiện sự sai lệch tại thời điểm đầu do đặc tính của động cơ có khoảng dead zone (nơi tín hiệu điều khiển nhỏ chưa thể làm quay được động cơ). Các hàm truyền thu được từ kết quả mô hình hóa này có thể được
+               sử dụng làm cơ sở cho tính toán lý thuyết và triển khai thực tế bộ điều khiển vận tốc hai động cơ.
      
 
 
