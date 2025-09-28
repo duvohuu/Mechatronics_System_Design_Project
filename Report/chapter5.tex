@@ -139,46 +139,46 @@
      \section{Tính toán thời gian lấy mẫu}
           \subsection{Tính toán thông số lấy mẫu động cơ}
                \hspace*{0.6cm}Nhóm cần tính toán thời gian lấy mẫu cho động cơ \textit{JGB37-520 333RPM} có gắn encoder với các thông số như số vòng quay sau 
-               hộp giảm tốc là 333 vòng/phút, 2 kênh encoder với mỗi kênh nhận 11 xung/vòng.\\
-               Số vòng quay tối đa của động cơ
+               hộp giảm tốc là 333 vòng/phút, tỉ số truyền hộp giảm tốc là 1:30, 2 kênh encoder với mỗi kênh nhận 11 xung/vòng.\\
+               Số vòng quay tối đa của động cơ trước hộp giảm tốc là
                \begin{equation*}
-                    333 \,\mathrm{rpm} = \dfrac{333}{60} \,\mathrm{rev/s} = 5.55 \,\mathrm{rev/s}
+                    333 \times 30 \,\mathrm{rpm} = \dfrac{9990}{60} \,\mathrm{rev/s} = 166.5 \,\mathrm{rev/s}
                \end{equation*}
-               Sử dụng 2 kênh encoder với chế độ quadrature, nghĩa là mỗi vòng encoder đếm tổng cộng $11 \times 4 = 44 \,\mathrm{xung}$.\\
+               \hspace*{0.6cm}Sử dụng 2 kênh encoder với chế độ quadrature, nghĩa là mỗi vòng encoder đếm tổng cộng $11 \times 4 = 44 \,\mathrm{xung}$.\\
                Tần số xung và thời gian giữa 2 lần đếm xung của encoder là 
                \begin{align*}
-                    &f_{\text{pulse}} = 44 \times 5.55 = 244.2 \,\mathrm{Hz}\\
-                    &T_{\text{pulse}} = \dfrac{1}{244.2} = 4.095 \,\mathrm{ms}
+                    &f_{\text{pulse}} = 44 \times 166.5 = 7326 \,\mathrm{Hz}\\
+                    &T_{\text{pulse}} = \dfrac{1}{7326} = 4.095 \,\mathrm{ms}
                \end{align*}
-               Sử dụng tiêu chuẩn Nyquist, tần số tối thiểu (tương đương với thời gian lấy mẫu tối da để khôi phục tín hiệu xung) là 
+               \hspace*{0.6cm}Sử dụng tiêu chuẩn Nyquist, tần số tối thiểu (tương đương với thời gian lấy mẫu tối da để khôi phục tín hiệu xung) là 
                \begin{align*}
-                    &f_s \geq 2 f_{\text{pulse}} = 2 \time 244.2 = 488.4 \,\mathrm{Hz}\\
-                    &t_s \leq \dfrac{1}{f_s} = \dfrac{1}{488.4} = 2.05 \,\mathrm{ms}
+                    &f_s \geq 2 f_{\text{pulse}} = 2 \times 7326 = 14652 \,\mathrm{Hz}\\
+                    &t_s \leq \dfrac{1}{f_s} = \dfrac{1}{14652} = 0.068 \,\mathrm{ms}
                \end{align*}
-               Nếu lấy mẫu theo tiêu chuẩn Nyquist, số lượng xung ở mỗi lần lấy mẫu không đủ, nhiều mẫu bị mất xung. Tuy nhiên mục đích lấy mẫu động cơ không phải để tái tạo lại sóng xung encoder, mà để tính ra tốc độ trung bình của động cơ nhằm mục đích tìm hàm truyền. Mhóm sử dụng chế độ Encoder Mode của STM32 để tính toán
+               \hspace*{0.6cm}Nếu lấy mẫu theo tiêu chuẩn Nyquist, số lượng xung ở mỗi lần lấy mẫu không đủ, nhiều mẫu bị mất xung. Vì mục đích lấy mẫu động cơ không phải để tái tạo lại sóng xung encoder, mà để tính ra tốc độ trung bình của động cơ nhằm mục đích tìm hàm truyền. Nhóm sử dụng chế độ Encoder Mode của STM32 để tính toán
                số xung encoder trong mỗi lần ngắt để tính toán tốc độ động cơ làm giá trị phản hồi cho vòng điều khiển, do đó cần lựa chọn khoảng thời gian lấy mẫu sao cho số xung đọc được 
-               ổn định để tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ là 
+               đủ lớn để giảm thiểu sai số khi tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ là 
                \begin{equation*}
-                    n = \dfrac{t_s}{T_{\text{pulse}}} = \dfrac{0.01}{4.095 \times 10^{-3}} = 2.44 \,\mathrm{xung}
+                    n = \dfrac{t_s}{T_{\text{pulse}}} = \dfrac{0.01}{\dfrac{1}{7326}} = 73.26 \,\mathrm{xung}
                \end{equation*}
-               Khi chọn thời gian lấy mẫu cho động cơ là 0.01s, sử dụng encoder ở chế độ quadature, thì số vòng quay của động cơ tính trên 1 xung là
+               \hspace*{0.6cm}Khi chọn thời gian lấy mẫu cho động cơ là 0.01s, sử dụng encoder ở chế độ quadature, thì số vòng quay của động cơ tính trên 1 xung là
                \begin{equation*}
                     \dfrac{60}{11 \times 4 \times 30 \times 0.01} \approx 4.54 \,\text{vòng/xung}
                \end{equation*}
-               Tốc độ trung bình của xe trên cả đoạn đường là 0.5 m/s, tương ứng với vận tốc của 2 bánh xe là
+               \hspace*{0.6cm}Tốc độ trung bình của xe trên cả đoạn đường là 0.5 m/s, tương ứng với vận tốc của 2 bánh xe là
                \begin{equation*}
                     \dfrac{500}{68} \times \dfrac{60}{2 \pi} = 70.21 \,\mathrm{rpm}
                \end{equation*}
-               Số xung encoder đếm được trong khoảng thời gian lấy mẫu khi điều khiển vận tốc xe duy trì ở 0.5 m/s là
+               \hspace*{0.6cm}Số xung encoder đếm được trong khoảng thời gian lấy mẫu khi điều khiển vận tốc xe duy trì ở 0.5 m/s là
                \begin{equation*}
                     \dfrac{70.21}{4.54} = 15.42
                \end{equation*}
-               Vì số xung đếm được phải là số nguyên, do đó tại trạng thái ổn định tốc độ, số xung đếm được sẽ là 15 hoặc 16 xung, sai số xác lập là
+               \hspace*{0.6cm}Vì số xung đếm được phải là số nguyên, do đó tại trạng thái ổn định tốc độ, số xung đếm được sẽ là 15 hoặc 16 xung, sai số xác lập là
                \begin{align*}
                     &\dfrac{|70.21 - 15 \times 4.54|}{70.21} = 3 \%\\
                     &\dfrac{|70.21 - 16 \times 4.54|}{70.21} = 3.5 \%
                \end{align*}
-               Sai số này nằm trong khoảng có thể chấp nhận được, do đó nhóm lựa chọn thời gian lấy mẫu cho động cơ là $t_s = 0.01 \,\mathrm{s}$.
+               \hspace*{0.6cm}Sai số này nằm trong khoảng có thể chấp nhận được, do đó nhóm lựa chọn thời gian lấy mẫu cho động cơ là $t_s = 0.01 \,\mathrm{s}$.
 
 
                
@@ -190,25 +190,25 @@
                \begin{equation*}
                     AB = \sqrt{OB^2 - OA^2} = \sqrt{(OA + e_{2max})^2 - OA^2}
                \end{equation*}
-               Trong đó 
+               \hspace*{0.6cm}Trong đó 
                \begin{itemize}
                     \item $OA$ là bán kính của đường cong.
                     \item $e_{2max}$ là khoảng sai số lớn nhất khi di chuyển trên cung.
                \end{itemize}
-               Ta thấy khi $OA$ càng lớn thì khoảng di chuyển trên cung của xe càng lớn, ta tính toán với bán kính $OA = 800 \,\mathrm{mm}$
+               \hspace*{0.6cm}Ta thấy khi $OA$ càng lớn thì khoảng di chuyển trên cung của xe càng lớn, ta tính toán với bán kính $OA = 800 \,\mathrm{mm}$
                \begin{equation*}
                     AB = 69.34 \,\mathrm{mm}
                \end{equation*}
-               Để xe có thể bám được line khi vào đoạn đường cong trên thì thời gian lấy mẫu cho bộ điều khiển vị trí bám line phải thỏa 
+               \hspace*{0.6cm}Để xe có thể bám được line khi vào đoạn đường cong trên thì thời gian lấy mẫu cho bộ điều khiển vị trí bám line phải thỏa 
                \begin{equation*}
                     t_{\text{đk}} \leq \dfrac{AB}{v} = \dfrac{69.34}{300} = 0.23 \,\mathrm{s}
                \end{equation*}
-               $v$ là vận tốc của xe khi vào cua: $v = 300 \,\mathrm{mm/s}$. Theo sơ đồ nguyên lý điều khiển, bộ điều khiển cho xe là dạng điều khiển cascade với bộ điều khiển vị trí bám line là bộ điều khiển vòng ngoài (bộ điều khiển PID cho vận tốc động cơ là bộ điều khiển vòng trong), do đó thời gian 
-               lấy mẫu và tính toán lại bộ điều khiển vị trí bám line cần đảm bảo lớn hơn thời gian lấy mẫu của bộ điều khiển PID cho vận tốc động cơ, nghĩa là
+               \hspace*{0.6cm}$v$ là vận tốc của xe khi vào cua: $v = 300 \,\mathrm{mm/s}$. Theo sơ đồ nguyên lý điều khiển, bộ điều khiển cho xe là dạng điều khiển cascade với bộ điều khiển vị trí bám line là bộ điều khiển vòng ngoài (bộ điều khiển PID cho vận tốc động cơ là bộ điều khiển vòng trong), do đó thời gian 
+               lấy mẫu và tính toán lại bộ điều khiển vị trí bám line cần đảm bảo lớn hơn thời gian lấy mẫu của bộ điều khiển PID cho vận tốc động cơ và vẫn đảm bảo điều khiển bám line đủ mượt, nghĩa là
                \begin{equation*}
                     0.01 < t_{\text{đk}} \leq 0.23
                \end{equation*}
-               Nhóm chọn $t_{\text{đk}} = 0.05 \,\mathrm{s}$.
+               \hspace*{0.6cm}Nhóm chọn $t_{\text{đk}} = 0.05 \,\mathrm{s}$.
                
 
      \section{Mô hình hóa động cơ}
@@ -218,7 +218,7 @@
                bảng dữ liệu chi tiết không trình bày trong thuyết minh mà được xử lý và thể hiện dưới dạng đồ thị đáp ứng của động cơ trong thực tế. 
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.85\textwidth]{pictures/chapter5/CJGB1_response.png}
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB1_response.png}
                     \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB1_response}
                \end{figure}  
