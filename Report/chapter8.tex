@@ -1,8 +1,8 @@
 \chapter{MÔ PHỎNG VÀ THỰC NGHIỆM}
      \section{Mô phỏng}
           \subsection{Thông số mô phỏng robot}
-               \hspace*{0.6cm}Thực hiện mô phỏng chuyển động của Robot sau khi tìm được hàm truyền của động cơ bằng cách nhúng hàm truyền động cơ,
-               bộ điều khiển tốc độ, sai số cảm biến cùng với bộ điều khiển vị trí bám line với các thông số như sau:
+               \hspace*{0.6cm}Thực hiện mô phỏng chuyển động của Robot sau khi tìm được hàm truyền của động cơ bằng cách nhúng hàm truyền động cơ thu được từ chương 5,
+               bộ điều khiển tốc độ, cùng với bộ điều khiển vị trí bám line thu được từ chương 6 với các thông số như sau:
                \begin{table}[h]
                     \centering
                     \begin{tabular}{|l|c|}
@@ -45,21 +45,21 @@
                \hspace*{0.6cm}Mô phỏng bằng phần mềm MATLAB, bước đầu tiên là tạo sa bàn với các kích thước như trong đầu bài
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter8/saban.png}
+                    \includegraphics[width=0.7\textwidth]{pictures/chapter8/saban.png}
                     \caption{Hình ảnh sa bàn}
                     \label{saban}
                \end{figure}
                \hspace*{0.6cm}Trong đó đường line màu đỏ và màu xanh lần lượt thể hiện nhánh rẽ khi xe nhận được khối hàng màu đỏ và xanh. Tại khu vực nhận hàng, mô phỏng quá trình đặt tải màu lên xe bằng 1 cửa sổ trong đó người dùng chọn màu sắc của khối hàng.
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter8/stop_for_package.png}
+                    \includegraphics[width=0.7\textwidth]{pictures/chapter8/stop_for_package.png}
                     \caption{Chọn màu sắc gói hàng}
                     \label{choose_color}
                \end{figure}
                \hspace*{0.6cm}Tùy thuộc vào màu sắc khối hàng mà sau khi gặp ngã rẽ, xe sẽ rẽ lên trên hoặc xuống dưới.
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.9\textwidth]{pictures/chapter8/running.png}
+                    \includegraphics[width=0.85\textwidth]{pictures/chapter8/running.png}
                     \caption{Hình ảnh xe chạy mô phỏng}
                     \label{running}
                \end{figure}     
@@ -70,45 +70,39 @@
                \item \textbf{Khối hàng đỏ}
                     \begin{figure}[H]
                          \centering
-                         \includegraphics[width=1\textwidth]{pictures/chapter8/trajec_red.png}
+                         \includegraphics[width=0.85\textwidth]{pictures/chapter8/trajec_red.png}
                          \caption{Quỹ đạo đi khi nhận khối hàng đỏ}
                          \label{tra_red}
                     \end{figure}
-                    \begin{figure}[H]
-                         \centering
-                         \includegraphics[width=0.9\textwidth]{pictures/chapter8/err_red.png}
-                         \caption{Lỗi quỹ đạo e2 khi nhận khối hàng đỏ}
-                         \label{err_red}
-                    \end{figure}
                \textbf{*Nhận xét:}
                \begin{itemize}
-                    \item Sai số lệch lớn nhất giữa tâm cảm biến và tâm đường line là khoảng 11 mm.
-                    \item Sai số bám line trên đoạn thẳng (< 6s) rất nhỏ, tuy nhiên khi xe bắt đầu vào cua thì sai số tăng dần đến đạt lớn nhất là -11 mm (thể hiện xe lệch qua phía trái đường line). 
+                    \item Từ hình \ref{err_red}, sai lệch trung bình giữa tâm cảm biến và tâm đường line trên toàn bộ đoạn đường là khoảng 4 mm.
+                    \item Sai số bám line trên đoạn thẳng (< 6s) rất nhỏ, tuy nhiên khi xe bắt đầu vào cua thì sai số tăng dần, có 1 vị trí xe bị lệch ra khỏi line khoảng 50 mm (đối với trường hợp nhận khối hàng xanh, hình \ref{err_blue}), sau đó bám vào lại line và di chuyển tới cuối đường. 
                \end{itemize}
-
+                    \begin{figure}[H]
+                         \centering
+                         \includegraphics[width=0.75\textwidth]{pictures/chapter8/err_red.png}
+                         \caption{Sai số bám line e2 khi nhận khối hàng đỏ}
+                         \label{err_red}
+                    \end{figure}
                \item \textbf{Khối hàng xanh}
           \end{itemize}
                
           \subsection{Khối hàng xanh}
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter8/trajec_blue.png}
+                    \includegraphics[width=0.75\textwidth]{pictures/chapter8/trajec_blue.png}
                     \caption{Quỹ đạo đi khi nhận khối hàng xanh}
                     \label{tra_blue}
                \end{figure}
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.9\textwidth]{pictures/chapter8/err_blue.png}
+                    \includegraphics[width=0.8\textwidth]{pictures/chapter8/err_blue.png}
                     \caption{Lỗi quỹ đạo e2 khi nhận khối hàng xanh}
                     \label{err_blue}
                \end{figure}
-               \textbf{*Nhận xét:}
-               \begin{itemize}
-                    \item Sai lệch trung bình giữa tâm cảm biến và tâm đường line trên toàn bộ đoạn đường là khoảng 4 mm.
-                    \item Sai số bám line trên đoạn thẳng (< 6s) rất nhỏ, tuy nhiên khi xe bắt đầu vào cua thì sai số tăng dần, có 1 vị trí xe bị lệch ra khỏi line khoảng 50 mm, sau đó bám vào lại line và di chuyển tới cuối đường. 
-               \end{itemize}
      \section{Thực nghiệm}
-          \subsection{Kết quả thực nghiệm}
+          \subsection{Thực nghiệm tổng quan}
                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.7\textwidth]{pictures/chapter8/PCB.png}
@@ -153,7 +147,7 @@
                     \begin{minipage}{0.5\textwidth}
                          \centering
                          \includegraphics[width=\linewidth]{pictures/chapter8/turn_left.png}
-                         \caption{Xe rẽ trái khi nhận hàng màu đỏ}
+                         \caption{Xe rẽ trái khi nhận khối hàng màu đỏ}
                          \label{fig:chapter8:1.2 - 2}
                     \end{minipage}\hfill
                     \begin{minipage}{0.42\textwidth}
@@ -170,6 +164,34 @@
                     \item Với vận tốc $v = 0.5 \,\mathrm{m/s}$, xe di chuyển trên đường thẳng ổn định. Thời gian hoàn thành khoảng 18 đến 22 giây.
                     \item Với vận tốc $v = 0.8 \,\mathrm{m/s}$, xe di chuyển nhanh, đoạn line thẳng xe đi rất ổn định nếu lúc đầu đặt tâm dãy cảm biến của xe ở chính giữa line, nếu đặt hơi lệch có thể dẫn đến xe hơi lắc trong quá trình chạy. Thời gian hoàn thành khoảng 10 đến 15 giây.
                \end{itemize}
+          \subsection{Thực nghiệm kiểm tra sai số bám line}
+               \hspace*{0.6cm}Tiến hành thu thập dữ liệu bằng cách tính toán và lưu giá trị sai số $e_2$ vào 1 mảng sau mỗi khoảng thời gian lấy mẫu của bộ điều khiển bám line ($t_{\text{đk}} = 0.05 \,\mathrm{s}$).\\
+               \hspace*{0.6cm}Kết thúc mỗi đoạn hành trình, lấy dữ liệu về máy tính bằng cách kết nối với vi điều khiển STM32 trên xe thông qua ST-Link, sử dụng phần mềm STM32 ST-Link Utility. Nhập địa chỉ của mảng lưu các giá trị $e_2$ vào ô \textit{Address}, nhập số lượng byte cần đọc vào ô \textit{Size}, độ rộng dữ liệu vào ô \textit{Data Width}. Sau đó \textit{Save} ở định dạng \textit{.bin}.
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.75\textwidth]{pictures/chapter8/utility.png}
+                    \caption{Giao diện STM32 ST-Link Utility}
+                    \label{utility}
+               \end{figure}
+               \hspace*{0.6cm}Sau đó viết đoạn code Python (Phụ lục \ref{lst:e2_plot}) để thực hiện đọc file data đuôi \textit{.bin} và plot đồ thị. Kết quả thu được sai số $e_2$ đọc được thực tế thể hiện trong hình \ref{actual_e2_blue} và \ref{actual_e2_red}.\\
+               \hspace*{0.6cm}\textbf{Nhận xét:}
+               \begin{itemize}
+                    \item Trong cả 2 trường hợp, với sai số cho phép tính từ tâm cảm biến đến mép line không quá 3mm, nghĩa là sai số e2 tính từ tâm cảm biến đến tâm đường line nằm trong khoảng $-16 \leq e_2 \leq 16 \,\mathrm{mm}$, thì kết quả đo được từ cảm biến cho thấy sai số nằm trong khoảng cho phép
+                    \item Với cách thực nghiệm dựa trên sai số $e_2$ được đo và tính toán từ cảm biến, là các giá trị ước lượng, có thể dùng làm feedback cho bộ điều khiển nhưng chưa đủ để làm căn cứ đánh giá sai số bám line thực tế. Do 
+                    đó trong quá trình thực nghiệm, nhóm thực hiện đánh dấu vị trí tâm trên nắp che dãy cảm biến và theo dõi vị trí tương đối so với 2 mép line. Trong quá trình quan sát robot chạy, nhận thấy vị trí tâm luôn nằm trong đường line đen, do đó kết luận sai số bám line có thể được đảm bảo.
+               \end{itemize}
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{pictures/chapter8/actual_e2_blue.png}
+                    \caption{Sai số $e_2$ đo được khi nhận hàng xanh}
+                    \label{actual_e2_blue}
+               \end{figure}
+               \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{pictures/chapter8/actual_e2_red.png}
+                    \caption{Sai số $e_2$ đo được khi nhận hàng đỏ}
+                    \label{actual_e2_red}
+               \end{figure}
           \subsection{Đánh giá}
                \begin{itemize}
                     \item Với nhiệm vụ bám line, xe thực hiện bám line khá tốt cả trên đoạn line thẳng và đoạn vào cua.

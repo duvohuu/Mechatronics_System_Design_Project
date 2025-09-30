@@ -157,7 +157,7 @@
                \end{align*}
                \hspace*{0.6cm}Nếu lấy mẫu theo tiêu chuẩn Nyquist, số lượng xung ở mỗi lần lấy mẫu không đủ, nhiều mẫu bị mất xung. Vì mục đích lấy mẫu động cơ không phải để tái tạo lại sóng xung encoder, mà để tính ra tốc độ trung bình của động cơ nhằm mục đích tìm hàm truyền. Nhóm sử dụng chế độ Encoder Mode của STM32 để tính toán
                số xung encoder trong mỗi lần ngắt để tính toán tốc độ động cơ làm giá trị phản hồi cho vòng điều khiển, do đó cần lựa chọn khoảng thời gian lấy mẫu sao cho số xung đọc được 
-               đủ lớn để giảm thiểu sai số khi tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ là 
+               đủ lớn để giảm thiểu sai số khi tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ với tốc độ quay tối đa của động cơ là 
                \begin{equation*}
                     n = \dfrac{t_s}{T_{\text{pulse}}} = \dfrac{0.01}{\dfrac{1}{7326}} = 73.26 \,\mathrm{xung}
                \end{equation*}
@@ -218,7 +218,7 @@
                bảng dữ liệu chi tiết không trình bày trong thuyết minh mà được xử lý và thể hiện dưới dạng đồ thị đáp ứng của động cơ trong thực tế. 
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB1_response.png}
+                    \includegraphics[width=0.75\textwidth]{pictures/chapter5/CJGB1_response.png}
                     \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB1_response}
                \end{figure}  
