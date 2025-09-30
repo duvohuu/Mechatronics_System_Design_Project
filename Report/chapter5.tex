@@ -10,19 +10,19 @@
                \caption{Mô hình động học xe dò line}
                \label{kinematic_model}
           \end{figure}         
-          Hình trên mô tả tọa độ các điểm cần thiết của xe trên mặt phẳng tọa độ. Trong đó
+          Hình trên mô tả tọa độ các điểm cần thiết của xe trên mặt phẳng tọa độ. Trong đó:
           \begin{itemize}
                \item $I(x, y)$: Trung điểm đoạn nối tâm 2 bánh chủ động.
                \item $C(x, y)$: Tâm dãy cảm biến dò line.
                \item $R(x, y)$: Tọa độ điểm tham chiếu trên đường line.
           \end{itemize}
-          \hspace*{0.6cm}Phương trình động học tại $I$
+          \hspace*{0.6cm}Phương trình động học tại $I$:
           \begin{align*}
                v_{xI} &= \dot{x_I} = v \times \cos \varphi\\
                v_{yI} &= \dot{y_I} = v \times \sin \varphi\\
                \dot{\varphi_I} &= \omega
           \end{align*} 
-          Đưa về dạng ma trận
+          \hspace*{0.6cm}Đưa về dạng ma trận:
           \begin{align}
                \begin{bmatrix}
                     \dot{x_I} \\
@@ -38,7 +38,7 @@
                \end{bmatrix}
                \label{c5_e1}
           \end{align}
-          \hspace*{0.6cm}Trong đó
+          \hspace*{0.6cm}Trong đó:
           \begin{equation*}
                \begin{cases}
                     v = \dfrac{1}{2}(v_l + v_r) = \dfrac{r\omega_r + r\omega_l}{2} \\[0.5em]
@@ -50,7 +50,7 @@
                \item $\omega$: vận tốc góc của robot.
                \item $b$: khoảng cách giữa 2 bánh xe.
           \end{itemize}
-          \hspace*{0.6cm}Phương trình động học tại điểm bám line $C$
+          \hspace*{0.6cm}Phương trình động học tại điểm bám line $C$:
           \begin{equation}
                \begin{cases}
                     x_C = x_I + d \times \cos \varphi \\[0.5em]
@@ -59,7 +59,7 @@
                \end{cases}   
                \label{c5_e2}            
           \end{equation}
-          \hspace*{0.6cm}Lấy đạo hàm ta được 
+          \hspace*{0.6cm}Lấy đạo hàm ta được:
           \begin{equation}
                \begin{cases}
                     \dot{x_C} = \dot{x_I} - d \times \sin \varphi \dot{\varphi} \\[0.5em]
@@ -68,7 +68,7 @@
                \end{cases}
                \label{c5_e3}            
           \end{equation}
-          \hspace*{0.6cm}Tương tự, mô hình động học tại điểm tham chiếu $R$ trên đường line
+          \hspace*{0.6cm}Tương tự, mô hình động học tại điểm tham chiếu $R$ trên đường line:
           \begin{align}
                \begin{bmatrix}
                     \dot{x_R} \\
@@ -84,7 +84,7 @@
                \end{bmatrix}
                \label{c5_e4}
           \end{align}
-          \hspace*{0.6cm}Phương trình biểu diễn sự sai lệch giữa điểm bám line $C$ và vị trí điểm tham chiếu $R$ mong muốn trên đường line
+          \hspace*{0.6cm}Phương trình biểu diễn sự sai lệch giữa điểm bám line $C$ và vị trí điểm tham chiếu $R$ mong muốn trên đường line:
           \begin{equation}
                \begin{cases}
                     x_R - x_C = e_1 \cos \varphi - e_2 \sin \varphi \\[0.5em]
@@ -93,13 +93,14 @@
                \end{cases}    
                \label{c5_e5}           
           \end{equation}
-          \hspace*{0.6cm}Trong đó
+          \newpage
+          Trong đó:
           \begin{itemize}
                \item $e_1$: sai số vị trí giữa điểm bám line $C$ và điểm tham chiếu $R$ theo phương vuông góc với trục hai bánh dẫn động.
                \item $e_2$: sai số vị trí giữa điểm bám line $C$ và điểm tham chiếu $R$ theo phương song song với trục hai bánh dẫn động.
                \item $e_3$: sai số góc giữa hướng của xe và hướng tiếp tuyến với sa bàn tại điểm tham chiếu $R$.
           \end{itemize}    
-          \hspace*{0.6cm}Từ phương trình (\ref{c5_e5}) rút ra được hệ phương trình các sai số
+          \hspace*{0.6cm}Từ phương trình (\ref{c5_e5}) rút ra được hệ phương trình các sai số:
           \begin{align}
                \begin{bmatrix}
                     e_1 \\
@@ -116,7 +117,7 @@
                \end{bmatrix}
                \label{c5_e6}
           \end{align}
-          \hspace*{0.6cm}Đạo hàm 2 vế hệ (\ref{c5_e6}), khai triển và rút gọn ta thu được 
+          \hspace*{0.6cm}Đạo hàm 2 vế hệ (\ref{c5_e6}), khai triển và rút gọn ta thu được: 
           \begin{align}
                \begin{bmatrix}
                     \dot{e_1} \\
@@ -140,36 +141,36 @@
           \subsection{Tính toán thông số lấy mẫu động cơ}
                \hspace*{0.6cm}Nhóm cần tính toán thời gian lấy mẫu cho động cơ \textit{JGB37-520 333RPM} có gắn encoder với các thông số như số vòng quay sau 
                hộp giảm tốc là 333 vòng/phút, tỉ số truyền hộp giảm tốc là 1:30, 2 kênh encoder với mỗi kênh nhận 11 xung/vòng.\\
-               Số vòng quay tối đa của động cơ trước hộp giảm tốc là
+               \hspace*{0.6cm}Số vòng quay tối đa của động cơ trước hộp giảm tốc là:
                \begin{equation*}
                     333 \times 30 \,\mathrm{rpm} = \dfrac{9990}{60} \,\mathrm{rev/s} = 166.5 \,\mathrm{rev/s}
                \end{equation*}
-               \hspace*{0.6cm}Sử dụng 2 kênh encoder với chế độ quadrature, nghĩa là mỗi vòng encoder đếm tổng cộng $11 \times 4 = 44 \,\mathrm{xung}$.\\
-               Tần số xung và thời gian giữa 2 lần đếm xung của encoder là 
+               \hspace*{0.6cm}Sử dụng 2 kênh encoder với chế độ quadrature, nghĩa là mỗi vòng encoder đếm tổng cộng $11 \times 4 = 44$ xung.\\
+               \hspace*{0.6cm}Tần số xung và thời gian giữa 2 lần đếm xung của encoder là: 
                \begin{align*}
                     &f_{\text{pulse}} = 44 \times 166.5 = 7326 \,\mathrm{Hz}\\
                     &T_{\text{pulse}} = \dfrac{1}{7326} = 4.095 \,\mathrm{ms}
                \end{align*}
-               \hspace*{0.6cm}Sử dụng tiêu chuẩn Nyquist, tần số tối thiểu (tương đương với thời gian lấy mẫu tối da để khôi phục tín hiệu xung) là 
+               \hspace*{0.6cm}Sử dụng tiêu chuẩn Nyquist, tần số tối thiểu (tương đương với thời gian lấy mẫu tối da để khôi phục tín hiệu xung) là: 
                \begin{align*}
                     &f_s \geq 2 f_{\text{pulse}} = 2 \times 7326 = 14652 \,\mathrm{Hz}\\
                     &t_s \leq \dfrac{1}{f_s} = \dfrac{1}{14652} = 0.068 \,\mathrm{ms}
                \end{align*}
                \hspace*{0.6cm}Nếu lấy mẫu theo tiêu chuẩn Nyquist, số lượng xung ở mỗi lần lấy mẫu không đủ, nhiều mẫu bị mất xung. Vì mục đích lấy mẫu động cơ không phải để tái tạo lại sóng xung encoder, mà để tính ra tốc độ trung bình của động cơ nhằm mục đích tìm hàm truyền. Nhóm sử dụng chế độ Encoder Mode của STM32 để tính toán
                số xung encoder trong mỗi lần ngắt để tính toán tốc độ động cơ làm giá trị phản hồi cho vòng điều khiển, do đó cần lựa chọn khoảng thời gian lấy mẫu sao cho số xung đọc được 
-               đủ lớn để giảm thiểu sai số khi tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ với tốc độ quay tối đa của động cơ là 
+               đủ lớn để giảm thiểu sai số khi tính toán giá trị vận tốc động cơ. Nhóm lựa chọn thời gian lấy mẫu cho bộ điều khiển tốc độ động cơ là $t_s = 0.01 \,\mathrm{s}$. Số xung mà vi điều khiển đọc được trong khoảng thời gian lấy mẫu $t_s$ với tốc độ quay tối đa của động cơ là: 
                \begin{equation*}
                     n = \dfrac{t_s}{T_{\text{pulse}}} = \dfrac{0.01}{\dfrac{1}{7326}} = 73.26 \,\mathrm{xung}
                \end{equation*}
-               \hspace*{0.6cm}Khi chọn thời gian lấy mẫu cho động cơ là 0.01s, sử dụng encoder ở chế độ quadature, thì số vòng quay của động cơ tính trên 1 xung là
+               \hspace*{0.6cm}Khi chọn thời gian lấy mẫu cho động cơ là 0.01s, sử dụng encoder ở chế độ quadature, thì số vòng quay của động cơ tính trên 1 xung là:
                \begin{equation*}
                     \dfrac{60}{11 \times 4 \times 30 \times 0.01} \approx 4.54 \,\text{vòng/xung}
                \end{equation*}
-               \hspace*{0.6cm}Tốc độ trung bình của xe trên cả đoạn đường là 0.5 m/s, tương ứng với vận tốc của 2 bánh xe là
+               \hspace*{0.6cm}Tốc độ trung bình của xe trên cả đoạn đường là 0.5 m/s, tương ứng với vận tốc của 2 bánh xe là:
                \begin{equation*}
                     \dfrac{500}{68} \times \dfrac{60}{2 \pi} = 70.21 \,\mathrm{rpm}
                \end{equation*}
-               \hspace*{0.6cm}Số xung encoder đếm được trong khoảng thời gian lấy mẫu khi điều khiển vận tốc xe duy trì ở 0.5 m/s là
+               \hspace*{0.6cm}Số xung encoder đếm được trong khoảng thời gian lấy mẫu khi điều khiển vận tốc xe duy trì ở 0.5 m/s là:
                \begin{equation*}
                     \dfrac{70.21}{4.54} = 15.42
                \end{equation*}
@@ -186,25 +187,25 @@
                \hspace*{0.6cm}Để tính toán thời gian lấy mẫu cho bộ điều khiển bám line, ta tính toán quãng đường tối đa mà xe di chuyển trên đoạn đường cong 
                có bán kính lớn nhất trong khoảng thời gian giữa 2 lần lấy mẫu mà vẫn đảm bảo được sai số bám line.\\
                \hspace*{0.6cm}Giả sử tâm cảm biến dò line nằm ngay tại vị trí tâm đường line tại thời điểm đầu, tại thời điểm lấy mẫu kế tiếp, với mong muốn sai số $e_2$ giữa tâm đường cảm biến 
-               và tâm line không lệch nhau quá 3mm. Do đó quãng đường AB lớn nhất mà xe chạy được trước khi đạt tới sai số 3mm là 
+               và tâm line không lệch nhau quá 3mm. Do đó quãng đường AB lớn nhất mà xe chạy được trước khi đạt tới sai số 3mm là: 
                \begin{equation*}
                     AB = \sqrt{OB^2 - OA^2} = \sqrt{(OA + e_{2max})^2 - OA^2}
                \end{equation*}
-               \hspace*{0.6cm}Trong đó 
+               \hspace*{0.6cm}Trong đó: 
                \begin{itemize}
                     \item $OA$ là bán kính của đường cong.
                     \item $e_{2max}$ là khoảng sai số lớn nhất khi di chuyển trên cung.
                \end{itemize}
-               \hspace*{0.6cm}Ta thấy khi $OA$ càng lớn thì khoảng di chuyển trên cung của xe càng lớn, ta tính toán với bán kính $OA = 800 \,\mathrm{mm}$
+               \hspace*{0.6cm}Ta thấy khi $OA$ càng lớn thì khoảng di chuyển trên cung của xe càng lớn, ta tính toán với bán kính $OA = 800 \,\mathrm{mm}$.
                \begin{equation*}
                     AB = 69.34 \,\mathrm{mm}
                \end{equation*}
-               \hspace*{0.6cm}Để xe có thể bám được line khi vào đoạn đường cong trên thì thời gian lấy mẫu cho bộ điều khiển vị trí bám line phải thỏa 
+               \hspace*{0.6cm}Để xe có thể bám được line khi vào đoạn đường cong trên thì thời gian lấy mẫu cho bộ điều khiển vị trí bám line phải thỏa: 
                \begin{equation*}
                     t_{\text{đk}} \leq \dfrac{AB}{v} = \dfrac{69.34}{300} = 0.23 \,\mathrm{s}
                \end{equation*}
                \hspace*{0.6cm}$v$ là vận tốc của xe khi vào cua: $v = 300 \,\mathrm{mm/s}$. Theo sơ đồ nguyên lý điều khiển, bộ điều khiển cho xe là dạng điều khiển cascade với bộ điều khiển vị trí bám line là bộ điều khiển vòng ngoài (bộ điều khiển PID cho vận tốc động cơ là bộ điều khiển vòng trong), do đó thời gian 
-               lấy mẫu và tính toán lại bộ điều khiển vị trí bám line cần đảm bảo lớn hơn thời gian lấy mẫu của bộ điều khiển PID cho vận tốc động cơ và vẫn đảm bảo điều khiển bám line đủ mượt, nghĩa là
+               lấy mẫu và tính toán lại bộ điều khiển vị trí bám line cần đảm bảo lớn hơn thời gian lấy mẫu của bộ điều khiển PID cho vận tốc động cơ và vẫn đảm bảo điều khiển bám line đủ mượt, nghĩa là:
                \begin{equation*}
                     0.01 < t_{\text{đk}} \leq 0.23
                \end{equation*}
@@ -222,14 +223,14 @@
                     \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB1_response}
                \end{figure}  
-               \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh phải 
+               Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh phải: 
                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB1_tf.png}
                     \caption{Hàm truyền động cơ bánh phải}
                     \label{CJGB1_tf}
                \end{figure} 
-               \hspace*{0.6cm}So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh phải
+               So sánh giữa đáp ứng thực tế và hàm truyền của động cơ bánh phải:
                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.9\textwidth]{pictures/chapter5/CJGB1_compare.png}
@@ -244,7 +245,7 @@
                     \caption{Đồ thị đáp ứng thực tế của động cơ bánh phải theo thời gian}
                     \label{CJGB2_response}
                \end{figure}  
-               \hspace*{0.6cm}Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh trái 
+               Sử dụng Toolbox System Identification của Matlab ta có hàm truyền của động cơ bánh trái 
                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.8\textwidth]{pictures/chapter5/CJGB2_tf.png}
@@ -257,7 +258,7 @@
                     \caption{Đồ thị tương quan giữa đáp ứng và model hàm truyền động cơ bánh trái}
                     \label{CJGB2_compare}
                \end{figure}
-               \hspace{0.6cm}\textbf{Nhận xét:} Hai hàm truyền động cơ tìm được từ quá trình lấy mẫu
+               \textbf{Nhận xét:} Hai hàm truyền động cơ tìm được từ quá trình lấy mẫu
                và nhận dạng bằng Toolbox System Identification của Matlab cho thấy hàm truyền bậc I mô 
                tả khá sát hệ driver + động cơ trong thực tế. Cụ thể, đường cong mô hình và dữ liệu thực nghiệm có độ tương 
                đồng cao. Có xuất hiện sự sai lệch tại thời điểm đầu do đặc tính của động cơ có khoảng dead zone (nơi tín hiệu điều khiển nhỏ chưa thể làm quay được động cơ). Các hàm truyền thu được từ kết quả mô hình hóa này có thể được

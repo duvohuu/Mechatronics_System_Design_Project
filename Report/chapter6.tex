@@ -2,12 +2,12 @@
      \section{Bộ điều khiển vị trí bám line}
           \hspace*{0.6cm}Bộ điều khiển giúp xe bám line bằng cách giảm thiểu sai số $e$ nhỏ nhất có thể thông qua điều khiển tốc độ 2 động cơ DC. Bộ điều khiển PID được lựa chọn cho bài toán bám line.
           \newline
-          \hspace*{0.6cm}Xác định đầu vào và đầu ra của bộ điều khiển
+          \hspace*{0.6cm}Xác định đầu vào và đầu ra của bộ điều khiển:
           \begin{itemize}
                \item Input: sai số giữa điểm bám line $C$ và điểm tham chiếu $R$ trên đường line.
                \item Output: Tốc độ góc của hai bánh xe.
           \end{itemize}
-          \hspace*{0.6cm}Từ chương 5 mô hình hóa ta có
+          \hspace*{0.6cm}Từ chương 5 mô hình hóa ta có:
           \begin{align}
                \begin{bmatrix}
                     e_1 \\
@@ -43,12 +43,12 @@
                \end{bmatrix}  
                \label{c6_e2}             
           \end{align}
-          \hspace*{0.6cm}Hệ được mô tả bởi không gian trạng thái
+          \hspace*{0.6cm}Hệ được mô tả bởi không gian trạng thái:
           \begin{equation}
                \dot{x} = Ax + Bu 
                \label{c6_e3}
           \end{equation}
-          \hspace*{0.6cm}Trong đó
+          \hspace*{0.6cm}Trong đó:
           \begin{equation*}
                \dot{x} = \begin{bmatrix}
                     \dot{e_1} \\
@@ -65,7 +65,7 @@
                     \omega
                \end{bmatrix}
           \end{equation*}
-          \hspace{0.6cm}Nhận thấy điểm cân bằng của hệ phi tuyến là $X_0 = [e_{10} \, e_{20} \, e_{30}] = [0 \, 0 \, 0]^{\text{T}}$. Phân tích và tuyến tính hóa hệ quanh điểm cân bằng ta tính được các ma trận
+          \hspace{0.6cm}Nhận thấy điểm cân bằng của hệ phi tuyến là $X_0 = [e_{10} \, e_{20} \, e_{30}] = [0 \, 0 \, 0]^{\text{T}}$. Phân tích và tuyến tính hóa hệ quanh điểm cân bằng ta tính được các ma trận:
           \begin{equation*}
                A = \begin{bmatrix}
                0 & \omega & -v_R \times \sin e_3 \\
@@ -77,8 +77,8 @@
                0 & -1
                \end{bmatrix}
           \end{equation*}
-          \hspace*{0.6cm}Suy ra 
           \begin{align}
+               \Rightarrow
                \begin{bmatrix}
                \dot{e}_1 \\
                \dot{e}_2 \\
@@ -117,7 +117,7 @@
                \end{bmatrix}
                \label{c6_e4}
           \end{align}
-          \hspace*{0.6cm}Coi như robot di chuyển với vận tốc $v \approx v_R$, sai số $e_1$ có thể đặt bằng 0. Từ (\ref{c6_e4}) rút ra $e_2$, biến đổi và viết lại dưới dạng phương trình trạng thái có dạng
+          \hspace*{0.6cm}Coi như robot di chuyển với vận tốc $v \approx v_R$, sai số $e_1$ có thể đặt bằng 0. Từ \ref{c6_e4} rút ra $e_2$, biến đổi và viết lại dưới dạng phương trình trạng thái có dạng:
           \begin{equation*}
                \begin{bmatrix}
                     \dot{e_2}\\
@@ -136,7 +136,7 @@
                \end{bmatrix} \times \omega 
           \end{equation*}
           \hspace*{0.6cm}Bài toán đưa về thiết kế bộ điều khiển bám line theo luật điều khiển hồi tiếp $u = -k \times x$.\\
-          \hspace*{0.6cm}Xét ma trận điều khiển được của hệ
+          \hspace*{0.6cm}Xét ma trận điều khiển được của hệ:
           \begin{align}
                M = [B \mid AB] = \begin{bmatrix}
                -d & -v_R \\
@@ -172,12 +172,12 @@
                u = \frac{-k_1}{1 + k_2d}e_2 + \frac{-k_2}{1 + k_2d}\dot{e_2}
                \label{c6_e7}
           \end{align}
-          \hspace*{0.6cm}Phương trình (\ref{c6_e7}) có dạng là bộ điều khiển PD với các hệ số
+          \hspace*{0.6cm}Phương trình (\ref{c6_e7}) có dạng là bộ điều khiển PD với các hệ số:
           \begin{align*}  
                &K_p = \dfrac{-k_1}{1+k_2 d}\\
                &K_d = \dfrac{-k_2}{1 + k_2 d}
           \end{align*}
-          \hspace*{0.6cm}Dựa trên kết quả thực nghiệm, thu được hệ số $K_p, K_d$ của bộ điều khiển bám line là
+          \hspace*{0.6cm}Dựa trên kết quả thực nghiệm, thu được hệ số $K_p, K_d$ của bộ điều khiển bám line là:
           \begin{equation*}
                K_p = 0.078; \,\ K_d = 0.015
           \end{equation*}
@@ -195,7 +195,7 @@
                \item Thời gian xác lập: $T_s \leq 0.2 \,\mathrm{s}$;
                \item Độ vọt lố: $\%OS \leq 2 \%$.
           \end{itemize}
-          \hspace*{0.6cm}Sử dụng công cụ PID Tuner Toolbox của MATLAB, thực hiện điều chỉnh các hệ số PID để đạt được yêu cầu thiết kế
+          \hspace*{0.6cm}Sử dụng công cụ PID Tuner Toolbox của MATLAB, thực hiện điều chỉnh các hệ số PID để đạt được yêu cầu thiết kế:
           \begin{itemize}
                \item \textit{Động cơ 1:} Hàm truyền động cơ 1 (động cơ bánh phải)
                \begin{figure}[H]
@@ -204,7 +204,7 @@
                     \caption{Thông số bộ điều khiển động cơ bánh phải}
                     \label{params_JGB1}
                \end{figure}
-               \hspace*{0.6cm}Ta có các hệ số PI như sau với thời gian xác lập 0.19 s:
+               Ta có các hệ số PI như sau với thời gian xác lập 0.19 s:
                \begin{equation*}
                     \begin{cases}
                          &K_P = 1.0852 \\ 
@@ -218,7 +218,7 @@
                     \caption{Thông số bộ điều khiển động cơ bánh trái}
                     \label{params_JGB2}
                \end{figure}
-               \hspace*{0.6cm}Ta có các hệ số PI như sau với thời gian xác lập 0.19 s:
+               Ta có các hệ số PI như sau với thời gian xác lập 0.19 s:
                \begin{equation*}
                     \begin{cases}
                          &K_P = 1.0673 \\ 

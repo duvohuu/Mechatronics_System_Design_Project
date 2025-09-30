@@ -30,41 +30,41 @@
 
     \section{Code}
     \begin{lstlisting}[caption={Đọc file nhị phân và plot sai số e2}, label={lst:e2_plot}]
-        import numpy as np
-        import matplotlib.pyplot as plt
+    import numpy as np
+    import matplotlib.pyplot as plt
 
-        # Config
-        file_path = "data_e2_blue_16_bits.bin" 
-        dt = 0.05                     # Sample time
-        data_type = np.float32        # data type in buffer
+    # Config
+    file_path = "data_e2_blue_16_bits.bin" 
+    dt = 0.05                     # Sample time
+    data_type = np.float32        # data type in buffer
 
-        # Read file data .bin
-        with open(file_path, "rb") as f:
-            raw = f.read()
+    # Read file data .bin
+    with open(file_path, "rb") as f:
+        raw = f.read()
 
-        # Transform to numpy array
-        values = np.frombuffer(raw, dtype=data_type)
+    # Transform to numpy array
+    values = np.frombuffer(raw, dtype=data_type)
 
-        # Create time axis
-        n = len(values)
-        time = np.arange(0, n*dt, dt)
+    # Create time axis
+    n = len(values)
+    time = np.arange(0, n*dt, dt)
 
-        # Total time
-        t_max = 20
-        max_samples = int(t_max / dt)  # Number of sample
+    # Total time
+    t_max = 20
+    max_samples = int(t_max / dt)  # Number of sample
 
-        # Plot values
-        values_plot = values[:max_samples]
-        time_plot   = time[:max_samples]
+    # Plot values
+    values_plot = values[:max_samples]
+    time_plot   = time[:max_samples]
 
-        plt.figure(figsize=(10,5))
-        plt.plot(time_plot, values_plot, marker='o', markersize=2, linestyle='-')
-        plt.title("Line tracking error e2 measured over time")
-        plt.xlabel("Time (s)")
-        plt.ylabel("Error e2 (mm)")
-        plt.grid(True)
-        plt.tight_layout()
-        plt.show()
+    plt.figure(figsize=(10,5))
+    plt.plot(time_plot, values_plot, marker='o', markersize=2, linestyle='-')
+    plt.title("Line tracking error e2 measured over time")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Error e2 (mm)")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
     \end{lstlisting}
 
         
