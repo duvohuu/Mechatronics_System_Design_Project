@@ -187,7 +187,7 @@
                 \caption{Cảm biến lò line hồng ngoại}
                 \label{chap1_pic17}
             \end{figure}
-        \subsubsection{Cảm biến quang trở}
+            \textbf{1.4.1.2. Cảm biến quang trở}\\
             \hspace*{0.6cm}Quang điện trở, hay còn gọi tắt là RDL, là loại cảm biến ánh sáng đơn giản, hoạt động
                 dựa vào hiện tượng quang điện trong. \newline
             \hspace*{0.6cm} Khi có ánh sáng chiếu vào chất bán dẫn, làm xuất hiện các điện tử tự do, làm sự
@@ -299,22 +299,24 @@
     thiết kế. Đối với hệ thống xe AGV, bộ điều khiển fuzzy cho phép điều khiển xe trong
     nhiều điều kiện hoàn cảnh khác nhau khắc phục được những hạn chế của lýthuyết điều
     khiển kinh điển.
+    \newline
+    \hspace*{0.6cm}Cấu trúc của bộ điều khiển fuzzy:
+    \begin{itemize}[label=\textendash]
+        \item Khâu mờ hóa: Chuyển các điều kiện có giá trị cụ thể thành những khoảng phù
+        hợp thao tác kinh nghiệm và sự hiểu biết hệ thống của người lập trình ứng kết quả mong
+        muốn tương ứng.
+        \item Thực hiện luật hợp thành: hình thành luật mờ theo dạng IF \dots THEN.
+        \item Khâu giải mờ: từ luật hợp thành tính toán ra giá trị kết quả trong những trường
+        hợp cụ thể. Sử dụng phương pháp cực đại, phương pháp trọng tâm \dots.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{pictures/chapter1/chapter1_pic21_fuzzy.png}
+            \caption{Bộ điều khiển fuzzy}
+            \label{chap1_pic21}
+        \end{figure}          
+    \end{itemize}
+
     \begin{itemize}
-        \item Cấu trúc của bộ điều khiển fuzzy:
-        \begin{itemize}
-            \item Khâu mờ hóa: Chuyển các điều kiện có giá trị cụ thể thành những khoảng phù
-            hợp thao tác kinh nghiệm và sự hiểu biết hệ thống của người lập trình ứng kết quả mong
-            muốn tương ứng.
-            \item Thực hiện luật hợp thành: hình thành luật mờ theo dạng IF \dots THEN.
-            \item Khâu giải mờ: từ luật hợp thành tính toán ra giá trị kết quả trong những trường
-            hợp cụ thể. Sử dụng phương pháp cực đại, phương pháp trọng tâm \dots.
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.6\textwidth]{pictures/chapter1/chapter1_pic21_fuzzy.png}
-                \caption{Bộ điều khiển fuzzy}
-                \label{chap1_pic21}
-            \end{figure}          
-        \end{itemize}
         \item Ưu điểm: 
         \begin{itemize}
             \item Bộ điều khiển phù hợp cho những hệ thống phi tuyến, thiết kế dựa trên kinh nghiệm của người thiết kế về hệ thống.
@@ -328,7 +330,7 @@
     \end{itemize} 
     \subsection{Điều khiển dùng hàm Lyapunov}
     \hspace*{0.6cm}Phương pháp điều khiển dùng hàm Lyapunov dùng cách tiếp cận thiết kế luật điều khiển sao cho đảm bảo tính ổn định của hệ thống dựa trên định lý ổn định Lyapunov. Ý tưởng là
-    \begin{itemize}
+    \begin{itemize}[label=\textendash]
         \item Chọn hàm Lyapunov $V(x)$ phù hợp cho hệ thống.
         \item Thiết kế luật điều khiển $ u(t) $ sao cho hệ thống ổn định dựa trên định lý ổn định Lyapunov. 
     \end{itemize}

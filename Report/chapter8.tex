@@ -9,7 +9,7 @@
                     \hline
                     \multicolumn{2}{|c|}{\textbf{Thông số hình học}} \\
                     \hline
-                    Bán kính bánh xe, $r$ & 68 mm \\
+                    Bán kính bánh xe, $r$ & 41 mm \\
                     \hline
                     Khoảng cách từ tâm dây cảm biến đến trục bánh dẫn động, $a$ & 72 mm \\
                     \hline
@@ -157,7 +157,7 @@
                          \label{fig:chapter8:1.2 - 3}
                     \end{minipage}
                \end{figure}
-          \hspace*{0.6cm}Robot được chạy thử nghiệm trên sa bàn in với kích thước giống kích thước của đầu bài. Khu vực tải hàng được đại diện bằng 1 đường line đen dài 50mm, rộng 26mm và cách vị trí xuất phát đầu line 2000mm. Robot được thử nghiệm chạy với các tốc độ khác nhau $0.3 \,\mathrm{m/s}, \,  0.5 \,\mathrm{m/s}, \, 0.8 \,\mathrm{m/s}$.\\[0.2cm]
+          \hspace*{0.6cm}Robot được chạy thử nghiệm trên sa bàn in với kích thước giống kích thước của đầu bài. Khu vực tải hàng được đại diện bằng 1 đường line đen dài 50mm, rộng 26mm và cách vị trí xuất phát đầu line 2000mm. Robot được thử nghiệm chạy với các tốc độ khác nhau $0.3 \,\mathrm{m/s}, \,  0.5 \,\mathrm{m/s}, \, 0.8 \,\mathrm{m/s}$.\\
                \hspace*{0.6cm}\textbf{Nhận xét:}
                \begin{itemize}
                     \item Với vận tốc $v = 0.3 \,\mathrm{m/s}$, xe di chuyển chậm, khá ổn định. Thời gian hoàn thành khoảng 28 đến 30 giây.
@@ -173,7 +173,7 @@
                     \caption{Giao diện STM32 ST-Link Utility}
                     \label{utility}
                \end{figure}
-               Sau đó viết đoạn code Python (Phụ lục \ref{lst:e2_plot}) để thực hiện đọc file data đuôi \textit{.bin} và plot đồ thị. Kết quả thu được sai số $e_2$ đọc được thực tế thể hiện trong hình \ref{actual_e2_blue} và \ref{actual_e2_red}.\\[0.2cm]
+               \hspace*{0.6cm}Sau đó viết đoạn code Python (Phụ lục \ref{lst:e2_plot}) để thực hiện đọc file data đuôi \textit{.bin} và plot đồ thị. Kết quả thu được sai số $e_2$ đọc được thực tế thể hiện trong hình \ref{actual_e2_blue} và \ref{actual_e2_red}.\\
                \hspace*{0.6cm}\textbf{Nhận xét:}
                \begin{itemize}
                     \item Trong cả 2 trường hợp, với sai số cho phép tính từ tâm cảm biến đến mép line không quá 3mm, nghĩa là sai số e2 tính từ tâm cảm biến đến tâm đường line nằm trong khoảng $-16 \leq e_2 \leq 16 \,\mathrm{mm}$, thì kết quả đo được từ cảm biến cho thấy sai số nằm trong khoảng cho phép

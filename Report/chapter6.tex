@@ -2,12 +2,12 @@
      \section{Bộ điều khiển vị trí bám line}
           \hspace*{0.6cm}Bộ điều khiển giúp xe bám line bằng cách giảm thiểu sai số $e$ nhỏ nhất có thể thông qua điều khiển tốc độ 2 động cơ DC. Bộ điều khiển PID được lựa chọn cho bài toán bám line.
           \newline
-          \hspace*{0.6cm}Xác định đầu vào và đầu ra của bộ điều khiển:
+          \hspace*{0.6cm}Xác định đầu vào và đầu ra của bộ điều khiển
           \begin{itemize}
                \item Input: sai số giữa điểm bám line $C$ và điểm tham chiếu $R$ trên đường line.
                \item Output: Tốc độ góc của hai bánh xe.
           \end{itemize}
-          \hspace*{0.6cm}Từ chương 5 mô hình hóa ta có:
+          \hspace*{0.6cm}Từ chương 5 mô hình hóa ta có
           \begin{align}
                \begin{bmatrix}
                     e_1 \\
@@ -43,42 +43,54 @@
                \end{bmatrix}  
                \label{c6_e2}             
           \end{align}
-          \hspace*{0.6cm}Hệ được mô tả bởi không gian trạng thái:
+          % \hspace*{0.6cm}Hệ được mô tả bởi không gian trạng thái
+          % \begin{equation}
+          %      \dot{x} = Ax + Bu 
+          %      \label{c6_e3}
+          % \end{equation}
+          % \hspace*{0.6cm}Trong đó
+          % \begin{equation*}
+          %      \dot{x} = \begin{bmatrix}
+          %           \dot{e_1} \\
+          %           \dot{e_2} \\
+          %           \dot{e_3}
+          %      \end{bmatrix};
+          %      x = \begin{bmatrix}
+          %           e_1 \\
+          %           e_2 \\
+          %           e_3
+          %      \end{bmatrix}; 
+          %      u = \begin{bmatrix}
+          %           v \\ 
+          %           \omega
+          %      \end{bmatrix}
+          % \end{equation*}
+          \hspace{0.6cm}Từ (\ref{c6_e1}) và  (\ref{c6_e2}) biến đổi thu được
           \begin{equation}
-               \dot{x} = Ax + Bu 
-               \label{c6_e3}
-          \end{equation}
-          \hspace*{0.6cm}Trong đó:
-          \begin{equation*}
-               \dot{x} = \begin{bmatrix}
-                    \dot{e_1} \\
-                    \dot{e_2} \\
-                    \dot{e_3}
-               \end{bmatrix};
-               x = \begin{bmatrix}
+               \begin{bmatrix}
+                    \dot{e}_1 \\
+                    \dot{e}_2 \\
+                    \dot{e}_3
+                    \end{bmatrix} = \begin{bmatrix}
+                    0 & \omega & -v_R \times \sin e_3 \\
+                    -\omega & 0 & v_R \times \cos e_3 \\
+                    0 & 0 & 0
+                    \end{bmatrix} \begin{bmatrix}
                     e_1 \\
                     e_2 \\
                     e_3
-               \end{bmatrix}; 
-               u = \begin{bmatrix}
-                    v \\ 
+                    \end{bmatrix} + \begin{bmatrix}
+                    -1 & e_2 \\
+                    0 & -d - e_1 \\
+                    0 & -1
+                    \end{bmatrix} \begin{bmatrix}
+                    v \\
                     \omega
                \end{bmatrix}
-          \end{equation*}
-          \hspace{0.6cm}Nhận thấy điểm cân bằng của hệ phi tuyến là $X_0 = [e_{10} \, e_{20} \, e_{30}] = [0 \, 0 \, 0]^{\text{T}}$. Phân tích và tuyến tính hóa hệ quanh điểm cân bằng ta tính được các ma trận:
-          \begin{equation*}
-               A = \begin{bmatrix}
-               0 & \omega & -v_R \times \sin e_3 \\
-               -\omega & 0 & v_R \times \cos e_3 \\
-               0 & 0 & 0
-               \end{bmatrix}; \quad B = \begin{bmatrix}
-               -1 & e_2 \\
-               0 & -d - e_1 \\
-               0 & -1
-               \end{bmatrix}
-          \end{equation*}
+               \label{c6_e*}  
+          \end{equation}
+          \hspace{0.6cm}Điểm cân bằng của hệ phi tuyến là $X_0 = [e_{10} \, e_{20} \, e_{30}] = [0 \, 0 \, 0]^{\text{T}}$. Tuyến tính hóa hệ quanh điểm cân bằng ta có
           \begin{align}
-               \Rightarrow
                \begin{bmatrix}
                \dot{e}_1 \\
                \dot{e}_2 \\
@@ -117,26 +129,43 @@
                \end{bmatrix}
                \label{c6_e4}
           \end{align}
-          \hspace*{0.6cm}Coi như robot di chuyển với vận tốc $v \approx v_R$, sai số $e_1$ có thể đặt bằng 0. Từ \ref{c6_e4} rút ra $e_2$, biến đổi và viết lại dưới dạng phương trình trạng thái có dạng:
+          \hspace*{0.6cm}Coi như robot di chuyển với vận tốc $v \approx v_R$, sai số $e_1$ có thể đặt bằng 0. Từ (\ref{c6_e4}) rút ra $\dot{e_2}$, biến đổi 
+          \begin{align*}
+               &\dot{e_2} = e_3 \times v_R - d \times \omega\\
+               &\ddot{e_2} = \dot{e_3} \times v_R - d \times \dot{\omega} = - v_R \times \omega - d \times \dot{\omega}
+          \end{align*}
+          \hspace{0.6cm}Để viết lại dưới dạng phương trình trạng thái, tiến hành đặt $x_1 = e_2, \, x_2 = \dot{x_1} + d\times \omega$. Ta có
+          \begin{align*}
+               &\dot{x_1} = \dot{e_2}\\
+               &\dot{x_2} = \ddot{x_1} + d \times \dot{\omega} = -v_R \times \omega - d \times \dot{\omega} + d \times \dot{\omega} = -v_R \times \omega
+          \end{align*}
+          \hspace{0.6cm}Không gian trạng thái
           \begin{equation*}
                \begin{bmatrix}
-                    \dot{e_2}\\
-                    \dot{e_3}
-               \end{bmatrix} = 
-               \begin{bmatrix}
-                    0 & v_R \\
+                    \dot{x_1} \\
+                    \dot{x_2}
+               \end{bmatrix} = \begin{bmatrix}
+                    0 & 1 \\
                     0 & 0
                \end{bmatrix}
                \begin{bmatrix}
-                    e_2\\
-                    e_3
+                    x_1 \\ 
+                    x_2
                \end{bmatrix} + \begin{bmatrix}
-                    -d \\ 
-                    -v_R 
-               \end{bmatrix} \times \omega 
+                    -d \\
+                    -v_R
+               \end{bmatrix} \times \omega
           \end{equation*}
+          \hspace{0.6cm}Trong đó
+          \begin{itemize}
+               \item $\begin{bmatrix}
+                    x_1 \\
+                    x_2
+               \end{bmatrix}$: biến trạng thái.
+               \item $\omega$: biến điều khiển $u$.
+          \end{itemize}
           \hspace*{0.6cm}Bài toán đưa về thiết kế bộ điều khiển bám line theo luật điều khiển hồi tiếp $u = -k \times x$.\\
-          \hspace*{0.6cm}Xét ma trận điều khiển được của hệ:
+          \hspace*{0.6cm}Xét ma trận điều khiển được của hệ
           \begin{align}
                M = [B \mid AB] = \begin{bmatrix}
                -d & -v_R \\
@@ -160,11 +189,11 @@
           \hspace*{0.6cm}Cân bằng hệ số hai phương trình đặc tính (\ref{c6_e5}) và (\ref{c6_e6}) ta được:
           \begin{align*}
                \begin{cases}
-               -(k_1d + k_2v_R) = 2\zeta\omega_n \\
-               -k_1v_R = \omega_n^2
+               - (k_1d + k_2v_R) = 2\zeta\omega_n \\
+               - k_1v_R = \omega_n^2
                \end{cases} 
           \end{align*}
-          \hspace*{0.6cm}Với $u = -Kx = -k_1x_1 - k_2x_2$, thay $x_2 = \dot{x_1} - \beta u$ vào ta được:
+          \hspace*{0.6cm}Với $u = -Kx = -k_1x_1 - k_2x_2$, thay $x_2 = \dot{x_1} - d \times \omega = \dot{x_1} - d \times u$ vào ta được:
           \begin{align*}
                u = -Kx = -k_1e_2 - k_2(\dot{e_2} + du)
           \end{align*}
@@ -172,22 +201,35 @@
                u = \frac{-k_1}{1 + k_2d}e_2 + \frac{-k_2}{1 + k_2d}\dot{e_2}
                \label{c6_e7}
           \end{align}
-          \hspace*{0.6cm}Phương trình (\ref{c6_e7}) có dạng là bộ điều khiển PD với các hệ số:
+          \hspace*{0.6cm}Phương trình (\ref{c6_e7}) có dạng là bộ điều khiển PD với đầu vào là sai số $e_2$, đầu ra là vận tốc góc của xe, từ đó suy ra được vận tốc cần thiết của 2 bánh xe để đặt làm input cho bộ điều khiển động cơ. Các hệ số của bộ điều khiển
           \begin{align*}  
                &K_p = \dfrac{-k_1}{1+k_2 d}\\
                &K_d = \dfrac{-k_2}{1 + k_2 d}
           \end{align*}
-          \hspace*{0.6cm}Dựa trên kết quả thực nghiệm, thu được hệ số $K_p, K_d$ của bộ điều khiển bám line là:
+          \hspace*{0.6cm}Dựa trên kết quả thực nghiệm, thu được hệ số $K_p, K_d$ của bộ điều khiển bám line là
           \begin{equation*}
                K_p = 0.078; \,\ K_d = 0.015
           \end{equation*}
+          \hspace{0.6cm}Khi triển khai vào thực tế code, sử dụng thêm bộ lọc đạo hàm có dạng
+          \begin{equation*}
+               D(s) = \dfrac{K_d s}{1 + \tau s}
+          \end{equation*}
+          \hspace{0.6cm}Rời rạc hóa bằng phương pháp Tustin
+          \begin{equation*}
+               s = \dfrac{2}{T_s} \dfrac{1 - z^{-1}}{1 + z^{-1}}
+          \end{equation*} 
+          \hspace{0.6cm}Dạng rời rạc của thành phần đạo hàm
+          \begin{equation*}
+               D[k] = \dfrac{2 K_d}{2 \tau + T_s} (e[k] - e[k - 1]) + \dfrac{2 \tau - T_s}{2 \tau + T_s} D[k - 1]
+          \end{equation*}
+          \hspace{0.6cm}Chọn $\tau = 0.02$ 
      \section{Bộ điều khiển tốc độ động cơ}
           \hspace*{0.6cm}Nhóm sử dụng bộ điều khiển PI để điều khiển tốc độ động cơ bánh trái và bánh phải
           đảm bảo tốc độ đáp ứng nhanh và giảm sai số xác lập với lưu đồ điều khiển động
           cơ và tiêu chí xác lập như sau:
                \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pictures/chapter6/PI_controller.png}
+                    \includegraphics[width=1\textwidth]{pictures/chapter6/PI_controller.png}
                     \caption{Sơ đồ khối bộ điều khiển động cơ}
                     \label{PI_controller}
                \end{figure}
@@ -195,7 +237,7 @@
                \item Thời gian xác lập: $T_s \leq 0.2 \,\mathrm{s}$;
                \item Độ vọt lố: $\%OS \leq 2 \%$.
           \end{itemize}
-          \hspace*{0.6cm}Sử dụng công cụ PID Tuner Toolbox của MATLAB, thực hiện điều chỉnh các hệ số PID để đạt được yêu cầu thiết kế:
+          \hspace*{0.6cm}Sử dụng công cụ PID Tuner Toolbox của MATLAB, thực hiện điều chỉnh các hệ số PID để đạt được yêu cầu thiết kế
           \begin{itemize}
                \item \textit{Động cơ 1:} Hàm truyền động cơ 1 (động cơ bánh phải)
                \begin{figure}[H]

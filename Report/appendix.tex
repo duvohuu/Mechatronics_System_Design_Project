@@ -1,7 +1,9 @@
 \chapter*{PHỤ LỤC}
 \addcontentsline{toc}{chapter}{PHỤ LỤC}
+\fancyhead[R]{PHỤ LỤC}
 \setcounter{figure}{0}
 \setcounter{table}{0}
+\thispagestyle{fancy}
 \renewcommand{\thefigure}{A.\arabic{figure}}
 \renewcommand{\thetable}{A.\arabic{table}}
     \section{Các linh kiện điện}
@@ -27,44 +29,65 @@
                 \caption{Diode Schottky 1N5822}
                 \label{fig:Diode}
             \end{figure}
-
+    \newpage
     \section{Code}
     \begin{lstlisting}[caption={Đọc file nhị phân và plot sai số e2}, label={lst:e2_plot}]
-    import numpy as np
-    import matplotlib.pyplot as plt
+        import numpy as np
+        import matplotlib.pyplot as plt
 
-    # Config
-    file_path = "data_e2_blue_16_bits.bin" 
-    dt = 0.05                     # Sample time
-    data_type = np.float32        # data type in buffer
+        # Config
+        file_path = "data_e2_blue_16_bits.bin" 
+        dt = 0.05                     # Sample time
+        data_type = np.float32        # data type in buffer
 
-    # Read file data .bin
-    with open(file_path, "rb") as f:
-        raw = f.read()
+        # Read file data .bin
+        with open(file_path, "rb") as f:
+            raw = f.read()
 
-    # Transform to numpy array
-    values = np.frombuffer(raw, dtype=data_type)
+        # Transform to numpy array
+        values = np.frombuffer(raw, dtype=data_type)
 
-    # Create time axis
-    n = len(values)
-    time = np.arange(0, n*dt, dt)
+        # Create time axis
+        n = len(values)
+        time = np.arange(0, n*dt, dt)
 
-    # Total time
-    t_max = 20
-    max_samples = int(t_max / dt)  # Number of sample
+        # Total time
+        t_max = 20
+        max_samples = int(t_max / dt)  # Number of sample
 
-    # Plot values
-    values_plot = values[:max_samples]
-    time_plot   = time[:max_samples]
+        # Plot values
+        values_plot = values[:max_samples]
+        time_plot   = time[:max_samples]
 
-    plt.figure(figsize=(10,5))
-    plt.plot(time_plot, values_plot, marker='o', markersize=2, linestyle='-')
-    plt.title("Line tracking error e2 measured over time")
-    plt.xlabel("Time (s)")
-    plt.ylabel("Error e2 (mm)")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
+        plt.figure(figsize=(10,5))
+        plt.plot(time_plot, values_plot, marker='o', markersize=2, linestyle='-')
+        plt.title("Line tracking error e2 measured over time")
+        plt.xlabel("Time (s)")
+        plt.ylabel("Error e2 (mm)")
+        plt.grid(True)
+        plt.tight_layout()
+        plt.show()
     \end{lstlisting}
-
+    \section{Biểu đồ Gantt}
+        \subsection{Biểu đồ Gantt 1}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textheight,angle=-90]{pictures/appendix/gantt1.png}
+                \caption{Biểu đồ Gantt xây dựng từ đầu}
+                \label{gantt1}
+            \end{figure}
+        \subsection{Biểu đồ Gantt 2}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textheight,angle=-90]{pictures/appendix/gantt2.png}
+                \caption{Biểu đồ Gantt thực tế triển khai}
+                \label{gantt2}
+            \end{figure}
+        \subsection{Biểu đồ Gantt 3}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textheight,angle=-90]{pictures/appendix/gantt3.png}
+                \caption{Biểu đồ Gantt đề xuất}
+                \label{gantt3}
+            \end{figure}
         

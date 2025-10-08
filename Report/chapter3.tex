@@ -60,9 +60,9 @@
             \end{figure}
             \hspace*{0.6cm}Để xe không lật thì momen do lực li tâm gây ra không lớn hơn moment do trọng lực gây ra:
             \begin{align}
-                F_{lt}H &\leq P \times \dfrac{B}{2} \label{eq:3.5} \\
-                \Rightarrow \dfrac{B}{H} &\geq \dfrac{2F_{lt}}{Mg} \Rightarrow \dfrac{B}{H} \geq \dfrac{2Mv_{max}^2}{RMg} \nonumber \\ 
-                \Rightarrow \dfrac{B}{H} &\geq \dfrac{2 \times 0.5^2}{0.5 \times 9.8} = 0.102  \nonumber
+                F_{lt}H &\leq P \times \dfrac{B}{2} \label{eq:3-5a} \\
+                \Rightarrow \dfrac{B}{H} &\geq \dfrac{2F_{lt}}{Mg} \Rightarrow \dfrac{B}{H} \geq \dfrac{2Mv_{max}^2}{RMg} \label{eq:3-5b} \\ 
+                \Rightarrow \dfrac{B}{H} &\geq \dfrac{2 \times 0.5^2}{0.5 \times 9.8} = 0.102 \label{eq:3-5c}
             \end{align}
             \hspace*{0.6cm}Trong đó: $v_{max} = 0.5$ m/s; $R = \rho_{min} = 0.5$ m; $g = 9.8$ m/s$^2$.
         \subsection{Điều kiện để xe không trượt khi vào cua}
@@ -74,32 +74,31 @@
             \end{figure}
             \hspace*{0.6cm}Để xe không trượt khi vào cua thì lực hướng tâm, trong trường hợp này là tổng lực ma sát tác dụng lên xe lớn hơn lực li tâm:
             \begin{align}
-                \sum F_{ms} &\geq Ma_n \label{eq:3.6} \\
-                \Rightarrow \mu Mg &\geq \dfrac{Mv_{max}^2}{r} \label{eq:3.7} \\
-                \Rightarrow v_{max} &\leq \sqrt{\mu gR} \label{eq:3.8}
+                \sum F_{ms} &\geq Ma_n \label{eq:3-12} \\
+                \Rightarrow \mu Mg &\geq \dfrac{Mv_{max}^2}{r} \label{eq:3-13} \\
+                \Rightarrow v_{max} &\leq \sqrt{\mu gR} \label{eq:3-14}
             \end{align}
-            \hspace*{0.6cm}Tóm lại ta có các ràng buộc từ công thức (\ref{eq:3.6}), (\ref{eq:3.7}) và (\ref{eq:3.8}):
+            \hspace*{0.6cm}Tóm lại ta có các ràng buộc từ công thức (\ref{eq:3-12}), (\ref{eq:3-13}) và (\ref{eq:3-14}):
             \begin{equation}
                 \begin{cases}
                     &L_2 g > aH \\
                     &\dfrac{B}{H} > 0.102 \\
                     &v_{\text{max}} \geq \sqrt{\mu g R}
                 \end{cases}
-                \label{eq:3.9}
+                \label{eq:3-15}
             \end{equation}
             \hspace*{0.6cm}Trong đó: $v_{\text{max}} = 0.5 \,\mathrm{m/s}; \, R = \rho_{\text{mix}} = 500 \,\mathrm{mm} = 0.5 \,\mathrm{m}; \, g = 9.8 \,\mathrm{m/s^2}; \, \mu = 0.6$.\\
-            \newpage
-            Chọn sơ bộ:
+            \hspace*{0.6cm}\textbf{Chọn sơ bộ:}\\
             \begin{itemize}
-                \item Chọn khoảng cách giữa 2 động cơ cũng như tiện đi dây, lúc này khoảng cách tâm hai bánh xe dẫn động: chọn $B = 220 \,(\mathrm{mm})$.
+                \item Chọn khoảng cách giữa 2 động cơ cũng n    hư tiện đi dây, lúc này khoảng cách tâm hai bánh xe dẫn động: chọn $B = 220 \,(\mathrm{mm})$.
                 \item Trọng tâm xe càng thấp xe càng ổn định nhưng phụ thuộc vào cách bố trí cách thành phần khác nên khoảng cách trọng tâm xe tới sàn sẽ được thay đổi liên tục trong quá trình thiết kế. chọn $H = 63.6 \,(\mathrm{mm})$.
-                \item Khoảng cách tâm dãy cảm biến đến trục bánh dẫn động càng nhỏ thì xe càng ổn định, tuy nhiên khoảng cách này phải lớn hơn khoảng cách xe di chuyển được sau một lần lấy mẫu và phù hợp với cách bố trí các thành phần khác, sau khi mô phỏng qua matlab thì nhóm chọn $d = 72 \,(\mathrm{mm})$.
+                \item -	Khoảng cách tâm dãy cảm biến đến trục bánh dẫn động càng nhỏ thì xe càng ổn định, tuy nhiên khoảng cách này phải lớn hơn khoảng cách xe di chuyển được sau một lần lấy mẫu và phù hợp với cách bố trí các thành phần khác, sau khi mô phỏng qua matlab thì nhóm chọn $d = 72 \,(\mathrm{mm})$.
             \end{itemize}
             \hspace*{0.6cm}Tóm lại:
             \begin{equation*}
                 B = 220 \,\mathrm{mm}; \, H = 63.6 \,\mathrm{mm}; \, L = 190 \,\mathrm{mm}; \, L_1 = 89 \,\mathrm{mm}; \, L_2 = 101 \,\mathrm{mm}
             \end{equation*}
-            \hspace*{0.6cm}Thay số vào (\ref{eq:3.9}) ta được
+            \hspace*{0.6cm}Thay số vào (\ref{eq:3-15}) ta được
             \begin{equation*}
                 \begin{cases}
                 \dfrac{0.101 \times 9.8 > 0.5 \times 0.0636}{0.22} \\
@@ -114,7 +113,7 @@
                 \end{cases}
             \end{equation*}           
     \section{Tính toán và chọn động cơ}
-        \hspace*{0.6cm}Thông số đầu vào:
+        \hspace*{0.6cm}\textbf{Thông số đầu vào}:
         \begin{itemize}
             \item $v_{\text{max}} = 0.5 \,\mathrm{m/s}$ - vận tốc tối đa mong muốn.
             \item $r = 85 \,\mathrm{mm}$ - bán kính bánh xe chủ động.
@@ -132,24 +131,25 @@
         \begin{equation*}
             \gamma = \frac{a}{r} = \dfrac{0.5}{0.085/2} = 11.765 \,\mathrm{rad/s^2}
         \end{equation*}
-        \hspace*{0.6cm}Xét tại vị trí một bánh xe, ta có mô hình phân tích lực của hệ:
+        \hspace*{0.6cm}Xét tại vị trí một bánh xe, ta có mô hình phân tích lực của hệ\\
+        %figure
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.3\textwidth]{pictures/chapter3/banhxe.png}
             \caption{Mô hình phân tích tích lực bánh xe chủ động}
             \label{phantich_banhxe}
         \end{figure}
-        Giả sử bánh xe dạng tròn, đồng chất, có moment quán tính như sau:
+        \hspace*{0.6cm}Giả sử bánh xe dạng tròn, đồng chất, có moment quán tính như sau
         \begin{equation}
             I = \dfrac{1}{2}mr^2
-            \label{eq:3.10}
+            \label{eq:3-16}
         \end{equation}
-        \hspace*{0.6cm}Phương trình cân bằng moment tại tâm bánh xe dẫn động:
+        \hspace*{0.6cm}Phương trình cân bằng moment tại tâm bánh xe dẫn động
         \begin{equation}
             \tau - F_{\text{ms1}} r = I \gamma
-            \label{eq:3.11}
+            \label{eq:3-17}
         \end{equation}
-        \hspace*{0.6cm}Thế \ref{eq:3.10} vào \ref{eq:3.11} ta được:
+        Thế (\ref{eq:3-16}) vào (\ref{eq:3-17}) ta được
         \begin{align*}
             \tau - F_{\text{ms1}} r &= \frac{1}{2}mr^2\gamma \\
             &= \frac{1}{2}mr^2\gamma + F_{\text{ms1}}r \\
@@ -168,11 +168,11 @@
             \item $\mu = 0.1$: hệ số ma sát lăn.
             \item $K = 2.5$: hệ số an toàn.
         \end{itemize}
-        \hspace*{0.6cm}Số vòng quay động cơ:
+        \hspace*{0.6cm}Số vòng quay động cơ
         \begin{equation*}
             n_{\text{motor}} = \dfrac{60v_{\text{max}}}{2\pi r} = \dfrac{60 \times 0.5}{2 \pi \dfrac{0.085}{2}} = 112.345 \,\mathrm{rpm}
         \end{equation*}
-        \hspace*{0.6cm}Công suất cần thiết của động cơ:
+        \hspace*{0.6cm}Công suất cần thiết của động cơ
         \begin{align*}
             P = \tau \omega = K \times \dfrac{\tau \times 2 \pi \times n_{\text{motor}}}{60} = 2.5 \times \dfrac{0.05 \times 2 \pi \times 112.345}{60} = 0.735 \,\mathrm{W}
         \end{align*}
@@ -186,7 +186,7 @@
         \begin{table}[h]
             \centering
             \caption{Bảng thông số kỹ thuật động cơ JGB37-520 (333 rpm)}
-            \begin{tabular}{|c|c|c|}
+            \begin{tabular}{|p{5cm}|c|c|}
             \hline
             \textbf{Thông số} & \textbf{Giá trị} & \textbf{Đơn vị} \\
             \hline
@@ -202,7 +202,7 @@
             \hline
             Moment kéo tối đa & 5 & kg.cm \\
             \hline
-            Độ phân giải Encoder (2 kênh A,B) & 660 & xung/vòng \\
+            \begin{tabular}[c]{@{}c@{}}Độ phân giải Encoder (2\\kênh A,B)\end{tabular} & 660 & xung/vòng \\
             \hline
             \end{tabular}
         \end{table}
@@ -218,7 +218,7 @@
          \begin{table}[h!]
             \centering
             \caption{Bảng thông số kỹ thuật của xe}
-            \begin{tabular}{|c|c|c|}
+            \begin{tabular}{|l|c|c|}
                 \hline
                 \textbf{Thông số} & \textbf{Giá trị} & \textbf{Đơn vị} \\ \hline
                 Kích thước xe (LxBxH) & 286.5$\times$252$\times$113 & mm \\ \hline
